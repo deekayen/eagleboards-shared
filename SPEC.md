@@ -83,6 +83,28 @@ them.
 - **D-16 Follows the system appearance**: light/dark, accent color, and the
   system font.
 
+### Resolved open questions
+
+Decided 2026-09-26 by the owner; kept as `O-` so issues and commits can still
+cite them.
+
+- **O-1 Wording: youth / event.** All three say *youth* and *event*, on
+  screen and in the check-in pages ("boards happen in the daytime too").
+  Data files and code names do not change either way.
+- **O-2 Undo everywhere.** Confirm only what Undo cannot take back (Reset,
+  Postpone). Every board step, room change, Disable/Enable and Link/Unlink
+  gets Undo. Needs a server-side "restore board" op in Java and Windows;
+  Mac already has this.
+- **O-3 One live-operations view.** Windows' Event page (queue, room cards
+  and details pane always visible together) is the reference layout for all
+  three, so a room's timer is never out of sight while working the queue.
+  Mac's Waiting / On Boards / Finished lists become filters within that one
+  view, not separate destinations. Results, People and Settings stay
+  separate pages in all three.
+- **O-4 No "Next step" label.** The primary action always names the
+  concrete step (Seat board, Start review, Complete), never a generic
+  label. Confirms D-11; Mac's menu command drops "Next Step" as its wording.
+
 ---
 
 ## Platform-specific by design
@@ -114,22 +136,8 @@ the same app feels native on each system rather than identical everywhere.
 Each gets a parent issue here. Until one is decided, versions keep what they
 have and do not change it further.
 
-- **O-1 Wording.** Java says *scout* and *night*; Windows and Mac say *youth*
-  and *event* ("boards happen in the daytime too"). Data files and code names
-  do not change either way; this is on-screen text only, including the
-  check-in pages.
-- **O-2 Undo or confirm.** Mac confirms nothing reversible and offers Undo for
-  every board step, room change, Disable/Enable and Link/Unlink. Windows
-  confirms Reset and Postpone and has no Undo. Proposed: Undo everywhere and
-  confirm only what Undo cannot take back. Needs a server-side "restore board"
-  in Java and Windows.
-- **O-3 What the sidebar holds.** Windows: pages (Event, Results, People,
-  Settings), with the queue, room cards and details pane together on Event.
-  Mac: lists (Waiting, On Boards, Finished, Adults, and each room with its
-  timer). Proposed: Windows' Event page, which keeps the queue and every room
-  in view at once; the Java scheduler would follow it.
-- **O-4 Name of the primary action.** Mac's menu calls it Next Step; Windows
-  shows only the step's name. Decide whether "Next step" appears anywhere.
+None open right now. O-1 through O-4 were decided 2026-09-26; see "Resolved
+open questions" under Decided, above.
 
 ---
 
@@ -144,7 +152,9 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Status as text plus icon (D-13) | ➖ | ✅ | ✅ | |
 | Follows system dark mode (D-16) | ➖ | ✅ | ✅ | |
 | Fill the rest / Suggest a board (D-12) | ◐ | ✅ | ✅ | Java auto-selects only |
-| Undo (O-2) | ➖ | ➖ | ✅ | |
+| Wording: youth / event (O-1) | ➖ | ✅ | ✅ | Java still says scout / night |
+| Undo (O-2) | ➖ | ➖ | ✅ | Decided: everywhere; needs a restore-board op in Java and Windows |
+| Single live-operations view (O-3) | ◐ | ✅ | ➖ | Java: scheduler.html to rebuild to this layout; Mac: lists are separate destinations today |
 | Change members of a seated board | ➖ | ✅ | ➖ | Windows: `ChangeBoardMembers`, timer keeps running |
 | Rename room | ◐ | ➖ | ✅ | Java: admin tables only |
 | Move or swap a board between rooms | ✅ | ✅ | ✅ | |
