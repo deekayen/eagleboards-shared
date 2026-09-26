@@ -93,8 +93,8 @@ cite them.
   Data files and code names do not change either way.
 - **O-2 Undo everywhere.** Confirm only what Undo cannot take back (Reset,
   Postpone). Every board step, room change, Disable/Enable and Link/Unlink
-  gets Undo. Needs a server-side "restore board" op in Java and Windows;
-  Mac already has this.
+  gets Undo. Java has a server-side "restore board" op now; Windows still
+  needs one. Mac already had this.
 - **O-3 One live-operations view.** Windows' Event page (queue, room cards
   and details pane always visible together) is the reference layout for all
   three, so a room's timer is never out of sight while working the queue.
@@ -148,12 +148,12 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Feature | Java | Windows | Mac | Notes |
 |---|---|---|---|---|
 | Details pane builds the board (D-10) | ➖ | ✅ | ✅ | Java still ticks adults in a grid |
-| No self-dismissing messages (D-14) | ➖ | ✅ | ✅ | Java uses toasts |
-| Status as text plus icon (D-13) | ➖ | ✅ | ✅ | |
-| Follows system dark mode (D-16) | ➖ | ✅ | ✅ | |
+| No self-dismissing messages (D-14) | ✅ | ✅ | ✅ | |
+| Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
+| Follows system dark mode (D-16) | ✅ | ✅ | ✅ | |
 | Fill the rest / Suggest a board (D-12) | ◐ | ✅ | ✅ | Java auto-selects only |
 | Wording: youth / event (O-1) | ➖ | ✅ | ✅ | Java still says scout / night |
-| Undo (O-2) | ➖ | ➖ | ✅ | Decided: everywhere; needs a restore-board op in Java and Windows |
+| Undo (O-2) | ✅ | ➖ | ✅ | Decided: everywhere; Windows still needs a restore-board op |
 | Single live-operations view (O-3) | ◐ | ✅ | ➖ | Java: scheduler.html to rebuild to this layout; Mac: lists are separate destinations today |
 | Change members of a seated board | ➖ | ✅ | ✅ | Windows: `ChangeBoardMembers`; Mac: `EventNight.changeMembers`, timer keeps running |
 | Rename room | ◐ | ➖ | ✅ | Java: admin tables only |
