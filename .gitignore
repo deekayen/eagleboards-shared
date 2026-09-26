@@ -1,0 +1,18 @@
+# Participant data (names, contact details, minors) never belongs here.
+# This repo holds specs, shared pages and artwork, and synthetic test cases.
+*.csv
+*.xls
+*.xlsx
+*.xlsm
+*.ods
+20??-??-??/
+*Board_Results*
+Master_AdultHistory*
+
+# Secrets
+LOGIN_INFO*
+.env
+
+# Local tooling and scratch
+.DS_Store
+.claude/
