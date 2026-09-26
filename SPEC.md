@@ -154,7 +154,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Fill the rest / Suggest a board (D-12) | ◐ | ✅ | ✅ | Java auto-selects only |
 | Wording: youth / event (O-1) | ➖ | ✅ | ✅ | Java still says scout / night |
 | Undo (O-2) | ✅ | ➖ | ✅ | Decided: everywhere; Windows still needs a restore-board op |
-| Single live-operations view (O-3) | ◐ | ✅ | ➖ | Java: scheduler.html to rebuild to this layout; Mac: lists are separate destinations today |
+| Single live-operations view (O-3) | ◐ | ✅ | ✅ | Java: scheduler.html still to rebuild to this layout |
 | Change members of a seated board | ➖ | ✅ | ✅ | Windows: `ChangeBoardMembers`; Mac: `EventNight.changeMembers`, timer keeps running |
 | Rename room | ◐ | ➖ | ✅ | Java: admin tables only |
 | Move or swap a board between rooms | ✅ | ✅ | ✅ | |
