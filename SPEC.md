@@ -147,14 +147,14 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 
 | Feature | Java | Windows | Mac | Notes |
 |---|---|---|---|---|
-| Details pane builds the board (D-10) | ➖ | ✅ | ✅ | Java still ticks adults in a grid |
+| Details pane builds the board (D-10) | ✅ | ✅ | ✅ | |
 | No self-dismissing messages (D-14) | ✅ | ✅ | ✅ | |
 | Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | |
 | Fill the rest / Suggest a board (D-12) | ◐ | ✅ | ✅ | Java auto-selects only |
-| Wording: youth / event (O-1) | ➖ | ✅ | ✅ | Java still says scout / night |
+| Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ➖ | ✅ | Decided: everywhere; Windows still needs a restore-board op |
-| Single live-operations view (O-3) | ◐ | ✅ | ✅ | Java: scheduler.html still to rebuild to this layout |
+| Single live-operations view (O-3) | ✅ | ✅ | ✅ | |
 | Change members of a seated board | ➖ | ✅ | ✅ | Windows: `ChangeBoardMembers`; Mac: `EventNight.changeMembers`, timer keeps running |
 | Rename room | ◐ | ➖ | ✅ | Java: admin tables only |
 | Move or swap a board between rooms | ✅ | ✅ | ✅ | |
