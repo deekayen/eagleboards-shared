@@ -155,7 +155,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Wording: youth / event (O-1) | ➖ | ✅ | ✅ | Java still says scout / night |
 | Undo (O-2) | ➖ | ➖ | ✅ | Decided: everywhere; needs a restore-board op in Java and Windows |
 | Single live-operations view (O-3) | ◐ | ✅ | ➖ | Java: scheduler.html to rebuild to this layout; Mac: lists are separate destinations today |
-| Change members of a seated board | ➖ | ✅ | ➖ | Windows: `ChangeBoardMembers`, timer keeps running |
+| Change members of a seated board | ➖ | ✅ | ✅ | Windows: `ChangeBoardMembers`; Mac: `EventNight.changeMembers`, timer keeps running |
 | Rename room | ◐ | ➖ | ✅ | Java: admin tables only |
 | Move or swap a board between rooms | ✅ | ✅ | ✅ | |
 | Sign-in QR code window | ➖ | ➖ | ✅ | |
