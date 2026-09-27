@@ -42,7 +42,7 @@ The same in every version (the Mac version's API):
 
 | Call | Answer |
 |---|---|
-| `GET /api/checked-in` | `{ refreshSeconds, youth: [{ time, last, first, unitType, unit }], adults: [{ last, first, unitType, unit }] }`, in sign-in order |
+| `GET /api/checked-in` | `{ refreshSeconds, youth: [{ time, last, first, unitType, unit }], adults: [{ last, first, unitType, unit }] }`, in sign-in order. `refreshSeconds` is still sent but no longer read: the lists load when the page opens |
 | `GET /api/scout-choices` | `[{ id, first, last, unitType, unit }]`: RSVPs and tonight's walk-ins whose evening isn't over, sorted by last name |
 | `POST /api/youth-lookup` `email=` | the pre-registration it matches: `ID, Last, First, Phone, UnitType, Unit, BoardType, Leader`, or `{}` |
 | `POST /api/adult-lookup` `email=` | the adult history it matches: `ID, Last, First, Phone, UnitType, Unit, FinalBoard, ProjectReview`, or `{}` |
@@ -73,7 +73,7 @@ How each part is met, and how it was checked:
 | 1.4.4 Resize text, 1.4.10 Reflow, 1.4.12 Text spacing | Sizes in `rem`; one column with no sideways scrolling at 320px wide, also with WCAG's extra line, letter and word spacing applied |
 | 2.1.1 Keyboard | Everything is a link, button or field; the two scrolling lists take focus so they can be scrolled from the keyboard |
 | 2.2.1 Timing adjustable | After signing in, the page returns to the start after 20 seconds, says so, and has "Stay on this page" |
-| 2.2.2 Pause, stop, hide | The signed-in lists update on their own; "Pause updates" stops them |
+| 2.2.2 Pause, stop, hide | Nothing moves or updates on its own: the signed-in lists load when the welcome page opens (after every sign-in) and stay put |
 | 2.4.2 Page titled, 2.4.6 Headings and labels | A distinct title per page; labels say what to enter |
 | 2.4.7 Focus visible, 2.4.11 Focus not obscured | A 3px ring on every control; nothing sticky covers it |
 | 2.5.3 Label in name | Visible labels are the accessible names |
