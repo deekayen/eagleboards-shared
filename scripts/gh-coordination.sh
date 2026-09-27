@@ -80,10 +80,10 @@ gh_add_sub_issue() {
 
 # gh_add_to_project URL PLATFORM KIND [STATUS]
 gh_add_to_project() {
-  local url="$1" plat="$2" kind="$3" status="${4:-Todo}"
+  local url="$1" plat="$2" kind="$3" item_status="${4:-Todo}"
   retry_gh gh project item-add "$GHC_PROJECT" --owner "$GHC_PROJECT_OWNER" --url "$url" >/dev/null
   sleep 3
-  retry_gh gh project item-edit "$GHC_PROJECT" --owner "$GHC_PROJECT_OWNER" --url "$url" --field "Status" --value "$status" >/dev/null
+  retry_gh gh project item-edit "$GHC_PROJECT" --owner "$GHC_PROJECT_OWNER" --url "$url" --field "Status" --value "$item_status" >/dev/null
   sleep 3
   retry_gh gh project item-edit "$GHC_PROJECT" --owner "$GHC_PROJECT_OWNER" --url "$url" --field "Platform" --value "$plat" >/dev/null
   sleep 3
