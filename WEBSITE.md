@@ -29,7 +29,7 @@ text on each one says exactly what it shows, so it changes with the image.
 
 | Page | Version | Images | Taken |
 |---|---|---|---|
-| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png`, `scheduler.png`, `admin.png`, `configure.png` | The check-in pages 2026-09-27; the rest before 2026-09-19, carried over from the Jekyll site |
+| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/evening.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-09-27 |
 | `content/docs/scheduler/mac.md` | Mac | `mac/evening.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | `checkin.png` 2026-09-27; the rest 2026-09-25 |
 | `content/docs/scheduler/windows.md` | Windows | `windows/evening.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-27 |
 | `content/docs/scheduler/_index.md` | All | None; compares the three versions | |
@@ -37,23 +37,8 @@ text on each one says exactly what it shows, so it changes with the image.
 ## Stale
 
 What has changed since each version's pictures were taken. As of
-2026-09-27 the Windows walkthrough and the check-in pictures on all three
-pages are current; the Java and Mac app pictures are stale.
-
-### Java: the app pictures, and most of the page text
-
-The page needs rewriting, not only new pictures.
-
-- O-3, D-10: the Event page was rebuilt to the Windows layout.
-  `scheduler.png` shows the old grid where adults are ticked, and the text
-  says "The program ticks a chair".
-- D-13: status is text plus an icon. The page's row-color table goes, and
-  `configure.png` and its caption still show row colors as a setting.
-- D-15: no Refresh button; a sign-in appears at once.
-- D-16, D-17: follows dark mode; Donate link in the app bar.
-- O-1, O-2: youth / event wording; Undo.
-- Rename a room from its card, switch its type, sign-in QR code window,
-  change members of a seated board.
+2026-09-27 the Java and Windows walkthroughs and the check-in pictures on all
+three pages are current; the Mac app pictures are stale.
 
 ### Mac: the app pictures, and "The window"
 
@@ -80,9 +65,14 @@ The page needs rewriting, not only new pictures.
   gets Guion Bluford as chair and Steve Fossett in 200B. `evening.png` is
   in dark mode and `complete-board.gif` in light.
 - **The demo event lives in code on Windows.** `--site` in the Windows
-  repository's snapshot tool builds it on a simulated clock. The Mac and
-  Java re-shoots still rebuild it by hand; saving it here as a synthetic
-  event folder would make theirs repeatable too.
+  repository's snapshot tool builds it on a simulated clock, and
+  `--site-event <dir>` writes it to a folder for another version to open,
+  with its times moved so the scene's 20:00 is the current minute. The Java
+  pictures are taken from it with [`scripts/shoot-java.mjs`](scripts/shoot-java.mjs),
+  whose header gives every step; `--gif` in the same tool animates its frames.
+  eagleboards-java's README uses the same shots (`docs/images/`), so refresh
+  them together.
+  The Mac app can open that folder too, but its re-shoot is still by hand.
 - **Windows images need Windows.** On a Windows machine,
   `dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site <dir>`
   in the Windows repository renders `evening.png`, `seat-board.gif` and
