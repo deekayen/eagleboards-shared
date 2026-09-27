@@ -109,6 +109,10 @@ cite them.
 - **O-4 No "Next step" label.** The primary action always names the
   concrete step (Seat board, Start review, Complete), never a generic
   label. Confirms D-11; Mac's menu command drops "Next Step" as its wording.
+- **O-5 Birthdates already on file are left alone.** D-7 stops new ones;
+  no version blanks or purges the `DOB` values already in earlier events'
+  folders or the returning-youth history, and a rewrite carries them through
+  unchanged. They are still never shown, pre-filled or exported (D-7).
 
 ---
 
@@ -141,16 +145,8 @@ the same app feels native on each system rather than identical everywhere.
 Each gets a parent issue here. Until one is decided, versions keep what they
 have and do not change it further.
 
-O-1 through O-4 were decided 2026-09-26; see "Resolved open questions" under
-Decided, above.
-
-- **O-5 Birthdates already on file.** D-7 stops new ones, but earlier events'
-  dated folders and the returning-youth history still hold them. Options:
-  (a) leave old files alone; (b) blank `DOB` in a file whenever a version
-  next rewrites it, so history clears itself over time; (c) (b) plus a
-  one-time "Clear stored birthdates" command. Recommendation: (b), with
-  release notes telling owners that archived folders they keep elsewhere
-  are theirs to purge.
+None open right now. O-1 through O-5 were decided 2026-09-26; see "Resolved
+open questions" under Decided, above.
 
 ---
 
