@@ -113,7 +113,10 @@ them.
   `scripts/check-contrast.js` rather than the system accent (the one exception
   to D-16: a tablet's accent could be yellow on white), light or dark
   following the device, and an axe-core scan of every page, fresh and with
-  errors, in both appearances before a change lands.
+  errors, in both appearances before a change lands. Many people sign in on
+  a shared laptop and can't scroll with a trackpad, so each form fits a
+  laptop window without scrolling (columns on a wide screen) and Sign in is
+  pinned to the bottom of the window.
 
 ### Resolved open questions
 

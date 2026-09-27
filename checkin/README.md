@@ -12,6 +12,18 @@ Boards (SPEC.md D-17).
 | `checkin.css` | The look, light and dark, with every color pair measured |
 | `checkin.js` | The API calls and the pages' shared behavior |
 
+## Built for a shared laptop
+
+Many people sign in on a shared laptop, and some can't scroll with a
+trackpad. So on a laptop-sized window (1024×620 and up, including a
+1366×768 laptop and a 1920×1080 one at Windows' 150% scaling) each form fits
+without scrolling: the fields spread into two columns (youth) or three
+(adult), and only a phone gets one long column. **Sign in** and **Cancel** are
+pinned to the bottom of the window as well, so they are on screen however
+tall the form grows (bigger text, error messages, a short screen). Keep both
+true: after a change, check each form at 1366×650 and 1280×600 of page and
+see that nothing needs scrolling.
+
 ## Changing them
 
 Edit them **here**, never in a version's copy. Then copy all five files into
@@ -75,9 +87,9 @@ How each part is met, and how it was checked:
 | 2.2.1 Timing adjustable | After signing in, the page returns to the start after 20 seconds, says so, and has "Stay on this page" |
 | 2.2.2 Pause, stop, hide | Nothing moves or updates on its own: the signed-in lists load when the welcome page opens (after every sign-in) and stay put |
 | 2.4.2 Page titled, 2.4.6 Headings and labels | A distinct title per page; labels say what to enter |
-| 2.4.7 Focus visible, 2.4.11 Focus not obscured | A 3px ring on every control; nothing sticky covers it |
+| 2.4.7 Focus visible, 2.4.11 Focus not obscured | A 3px ring on every control. The pinned Sign in bar never hides the field in focus: the page keeps a scroll margin the height of the bar, checked on every field at phone size |
 | 2.5.3 Label in name | Visible labels are the accessible names |
-| 2.5.8 Target size | Every control is at least 44px tall |
+| 2.5.8 Target size | Every control is at least 44px tall; Sign in is never off screen |
 | 3.1.1 Language of page | `lang="en"` |
 | 3.3.1 Error identification, 3.3.3 Error suggestion | Each problem is marked on its field (`aria-invalid`, described by the message) and listed in a summary that is announced; focus goes to the first |
 | 3.3.2 Labels or instructions | Every field labeled; hints for email (NONE), unit number, and the optional fields |
