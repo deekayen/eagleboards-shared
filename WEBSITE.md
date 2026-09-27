@@ -51,6 +51,10 @@ pages are current; the Mac app pictures are stale.
 - The page text says it too: `mac.md` (the alt text, "passes its red
   time", and the timers turning yellow and red). Running long and overdue,
   with their clocks, is the wording now.
+- D-13: the pills say what the table under D-13 says (Mac 99afe14):
+  *Waiting* and *In review*, not the stored Registered and In Progress.
+  `evening.png`, `seat-board.gif` and `complete-board.gif` show the old
+  words.
 
 ### Mac: the app pictures, and "The window"
 
