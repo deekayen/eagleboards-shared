@@ -42,10 +42,24 @@ text on each one says exactly what it shows, so it changes with the image.
 
 ## Stale
 
-What has changed since each version's pictures were taken. Nothing, as of
-2026-09-27: every walkthrough, its pictures, and the overview are current,
-the Mac's included (re-shot for the status palette, the timer clocks and
-the one live view).
+What has changed since each version's pictures were taken.
+
+### Java: O-3 amended, P-6, D-20 (cdf13f5)
+
+- The top bar has one **Admin tables** link where Results and People were.
+  `java/evening.png`, `java/seat-board.gif` and `java/complete-board.gif`
+  show the old links. In `java.md`, the top-bar table and the "Results and
+  settings" section name them, and `java/results.png`'s alt text calls the
+  Boards tab "the Results page".
+- The Youth list has no Show menu and always shows Finished. The same three
+  pictures show the menu, and Finished missing; `java.md` says the list
+  shows the Active youth and a menu switches it.
+- Wood Badge adults have the pentagon after their name, and a same-unit
+  adult a warning triangle, where the details pane said "Wood Badge" and
+  "Same unit" in words. `java/seat-board.gif` (Guion Bluford and Steve
+  Fossett) shows the words.
+- eagleboards-java's README uses the same shots (`docs/images/`); refresh
+  them together. Its text is already current.
 
 ## Re-shooting
 
