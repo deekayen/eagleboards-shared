@@ -89,6 +89,15 @@ pages are current; the Mac app pictures are stale.
   eagleboards-java's README uses the same shots (`docs/images/`), so refresh
   them together.
   The Mac app can open that folder too, but its re-shoot is still by hand.
+- **The Java pictures don't need Windows.**
+  [`scripts/java-scene.mjs`](scripts/java-scene.mjs) builds the same event
+  in the jar itself: it seeds the scene over HTTP into a scratch folder,
+  moves the times so 20:00 is this minute, runs `shoot-java.mjs`, and
+  animates the GIFs with ffmpeg:
+  `node scripts/java-scene.mjs <eagleboards-java clone> <out-dir>`, after
+  `./mvnw package` in the clone (`BROWSER=` to pick a Chromium browser, such
+  as Brave). Its cast and times copy `Site.SeedEvening` in the Windows
+  snapshot tool: change one, change the other.
 - **Windows images need Windows.** On a Windows machine,
   `dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site <dir>`
   in the Windows repository renders `evening.png`, `seat-board.gif` and

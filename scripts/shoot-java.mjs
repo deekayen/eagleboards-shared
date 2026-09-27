@@ -3,6 +3,10 @@
 // DevTools protocol against a jar serving the demo event, and writes PNG
 // frames. Node 22 or later; nothing to install.
 //
+// On any computer, java-scene.mjs does all of the steps below in one go: it
+// builds the event in the jar itself, runs this script, and animates the
+// frames with ffmpeg. By hand, with Windows:
+//
 // 1. Write the demo event, on Windows, in eagleboards-windows:
 //      dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site-event <dir>
 //    Its times are moved so the scene's 20:00 is now, so do steps 2 and 3
