@@ -58,6 +58,8 @@ What has changed since each version's pictures were taken.
   adult a warning triangle, where the details pane said "Wood Badge" and
   "Same unit" in words. `java/seat-board.gif` (Guion Bluford and Steve
   Fossett) shows the words.
+- The overview (`_index.md`) shows `java/evening.png` too, with the same
+  alt text; it changes with `java.md`.
 - eagleboards-java's README uses the same shots (`docs/images/`); refresh
   them together. Its text is already current.
 
