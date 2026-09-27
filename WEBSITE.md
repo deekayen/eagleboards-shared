@@ -37,17 +37,22 @@ text on each one says exactly what it shows, so it changes with the image.
 ## Stale
 
 What has changed since each version's pictures were taken. As of
-2026-09-27 the check-in pictures on all three pages are current; every
-version's app pictures are stale.
+2026-09-27 the Windows walkthrough (re-shot for the status palette) and the
+check-in pictures on all three pages are current; the Java and Mac app
+pictures are stale.
 
-### All three: the status palette and the timer clocks
+### Java and Mac: the status palette and the timer clocks
 
 - D-13: status pills in the shared palette (Seated yellow, In review cyan,
   Completed purple), and room timers with a clock per state: ⏱ on time,
   ⏲ running long on an orange tint, ⏰ overdue on a solid pink-red fill.
   `evening.png` and both GIFs show the old colors and one warning icon for
-  both late states, on every version's page. Re-shoot each version once its
-  D-13 work has landed.
+  both late states. The D-13 work has landed in both, so re-shoot them.
+- The page text says it too: `java.md` (the first picture's alt text, and
+  the timers turning yellow and red), `mac.md` (the alt text, "passes its
+  red time", and the timers turning yellow and red), and `_index.md`
+  ("Times every room"). Running long and overdue, with their clocks, is the
+  wording now.
 
 ### Mac: the app pictures, and "The window"
 
