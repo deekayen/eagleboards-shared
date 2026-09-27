@@ -29,17 +29,18 @@ text on each one says exactly what it shows, so it changes with the image.
 
 | Page | Version | Images | Taken |
 |---|---|---|---|
-| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png`, `scheduler.png`, `admin.png`, `configure.png` | Before 2026-09-19, carried over from the Jekyll site |
-| `content/docs/scheduler/mac.md` | Mac | `mac/evening.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-25 |
-| `content/docs/scheduler/windows.md` | Windows | `windows/evening.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-25 |
+| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png`, `scheduler.png`, `admin.png`, `configure.png` | The check-in pages 2026-09-27; the rest before 2026-09-19, carried over from the Jekyll site |
+| `content/docs/scheduler/mac.md` | Mac | `mac/evening.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | `checkin.png` 2026-09-27; the rest 2026-09-25 |
+| `content/docs/scheduler/windows.md` | Windows | `windows/evening.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-27 |
 | `content/docs/scheduler/_index.md` | All | None; compares the three versions | |
 
 ## Stale
 
 What has changed since each version's pictures were taken. As of
-2026-09-27, every image on the site is stale.
+2026-09-27 the Windows walkthrough and the check-in pictures on all three
+pages are current; the Java and Mac app pictures are stale.
 
-### Java: every image, and most of the page text
+### Java: the app pictures, and most of the page text
 
 The page needs rewriting, not only new pictures.
 
@@ -53,11 +54,8 @@ The page needs rewriting, not only new pictures.
 - O-1, O-2: youth / event wording; Undo.
 - Rename a room from its card, switch its type, sign-in QR code window,
   change members of a seated board.
-- D-7, D-18: `checkin.png`, `youth.png` and `adult.png` show the old
-  Scouting-colored check-in pages, and `youth.png` the Birthdate field. The
-  shared pages replace them.
 
-### Mac: every image, and "The window"
+### Mac: the app pictures, and "The window"
 
 - O-3: Waiting, On Boards and Finished are now filters in one live view,
   not sidebar destinations. `evening.png` and both GIFs show the old
@@ -65,28 +63,6 @@ The page needs rewriting, not only new pictures.
 - O-4: the generic Next Step label is gone.
 - D-17: Donate button at the foot of the sidebar.
 - Change members of a seated board.
-- D-7, D-18: `checkin.png` shows the old check-in pages; the shared pages,
-  without the Birthdate field, replace them.
-
-### Windows: every image, and "1. People sign in"
-
-- O-3: the Youth list's groups became a filter (Waiting, On boards,
-  Finished, Active). The page still says finished youth appear "once
-  **Show finished** is ticked".
-- O-2: Undo everywhere.
-- D-17: Donate link at the foot of the sidebar.
-- Sign-in QR code window, rename a room, click to switch a room's type,
-  change members of a seated board.
-
-### All three
-
-- D-18: the check-in pages are one shared design now (`checkin/`). Each
-  version's `checkin.png` is stale until re-shot, and the three should show
-  the same page. Shoot it on a tablet-sized window, in light.
-- D-8: the youth sign-in form has no Phone field; Email sits alone on its
-  row. Java's `youth.png` shows the old form, and any picture of the youth
-  form or of a Records or admin table with youth in it should be taken
-  after D-8 lands, so no Phone column shows.
 
 ## Re-shooting
 
@@ -103,11 +79,14 @@ The page needs rewriting, not only new pictures.
   Steven Spielberg, yellow at 28 minutes. Bill Amend, waiting 53 minutes,
   gets Guion Bluford as chair and Steve Fossett in 200B. `evening.png` is
   in dark mode and `complete-board.gif` in light.
-- **The demo event is not saved anywhere yet.** Each re-shoot has rebuilt it
-  by hand. Saving it here as a synthetic event folder would make the next
-  one repeatable and the three versions' pictures identical.
-- **Windows images need Windows.** `tests/EagleBoards.UiSnapshots` in the
-  Windows repository renders every window off-screen, and CI uploads the
-  results as the `ui-snapshots` artifact, but its `--demo` uses its own cast,
-  not this one.
+- **The demo event lives in code on Windows.** `--site` in the Windows
+  repository's snapshot tool builds it on a simulated clock. The Mac and
+  Java re-shoots still rebuild it by hand; saving it here as a synthetic
+  event folder would make theirs repeatable too.
+- **Windows images need Windows.** On a Windows machine,
+  `dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site <dir>`
+  in the Windows repository renders `evening.png`, `seat-board.gif` and
+  `complete-board.gif` with this cast, and photographs the shared check-in
+  pages (`checkin.png`, `youth.png`, `adult.png`) as a 1180x820 tablet shows
+  them, through Edge headless. Those three serve every version's page.
 - Push to the site's `main`; Cloudflare publishes it.
