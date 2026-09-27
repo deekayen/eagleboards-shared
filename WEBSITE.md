@@ -30,40 +30,16 @@ text on each one says exactly what it shows, so it changes with the image.
 | Page | Version | Images | Taken |
 |---|---|---|---|
 | `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/evening.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-09-27 |
-| `content/docs/scheduler/mac.md` | Mac | `mac/evening.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | `checkin.png` 2026-09-27; the rest 2026-09-25 |
+| `content/docs/scheduler/mac.md` | Mac | `mac/evening.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-27 |
 | `content/docs/scheduler/windows.md` | Windows | `windows/evening.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-27 |
 | `content/docs/scheduler/_index.md` | All | None; compares the three versions | |
 
 ## Stale
 
-What has changed since each version's pictures were taken. As of
-2026-09-27 the Windows and Java walkthroughs (re-shot for the status
-palette), the overview's wording, and the check-in pictures on all three
-pages are current; the Mac app pictures are stale.
-
-### Mac: the status palette and the timer clocks
-
-- D-13: status pills in the shared palette (Seated yellow, In review cyan,
-  Completed purple), and room timers with a clock per state: ⏱ on time,
-  ⏲ running long on an orange tint, ⏰ overdue on a solid pink-red fill.
-  `evening.png` and both GIFs show the old colors and one warning icon for
-  both late states. The D-13 work has landed, so re-shoot them.
-- The page text says it too: `mac.md` (the alt text, "passes its red
-  time", and the timers turning yellow and red). Running long and overdue,
-  with their clocks, is the wording now.
-- D-13: the pills say what the table under D-13 says (Mac 99afe14):
-  *Waiting* and *In review*, not the stored Registered and In Progress.
-  `evening.png`, `seat-board.gif` and `complete-board.gif` show the old
-  words.
-
-### Mac: the app pictures, and "The window"
-
-- O-3: Waiting, On Boards and Finished are now filters in one live view,
-  not sidebar destinations. `evening.png` and both GIFs show the old
-  sidebar, and the page's "The window" section describes it.
-- O-4: the generic Next Step label is gone.
-- D-17: Donate button at the foot of the sidebar.
-- Change members of a seated board.
+What has changed since each version's pictures were taken. Nothing, as of
+2026-09-27: every walkthrough, its pictures, and the overview are current,
+the Mac's included (re-shot for the status palette, the timer clocks and
+the one live view).
 
 ## Re-shooting
 
@@ -78,8 +54,8 @@ pages are current; the Mac app pictures are stale.
   Neil Armstrong with Jim Lovell and Charles Duke, overdue at 49 minutes.
   Room 102: Gerald Ford chairing. Room 200A: a proposal review chaired by
   Steven Spielberg, running long at 28 minutes. Bill Amend, waiting 53 minutes,
-  gets Guion Bluford as chair and Steve Fossett in 200B. `evening.png` is
-  in dark mode and `complete-board.gif` in light.
+  gets Guion Bluford as chair and Steve Fossett in 200B. `evening.png` and
+  `seat-board.gif` are in dark mode and `complete-board.gif` in light.
 - **The demo event lives in code on Windows.** `--site` in the Windows
   repository's snapshot tool builds it on a simulated clock, and
   `--site-event <dir>` writes it to a folder for another version to open,
@@ -88,7 +64,7 @@ pages are current; the Mac app pictures are stale.
   whose header gives every step; `--gif` in the same tool animates its frames.
   eagleboards-java's README uses the same shots (`docs/images/`), so refresh
   them together.
-  The Mac app can open that folder too, but its re-shoot is still by hand.
+  The Mac app opens the same event through `java-scene.mjs --event`.
 - **The Java pictures don't need Windows.**
   [`scripts/java-scene.mjs`](scripts/java-scene.mjs) builds the same event
   in the jar itself: it seeds the scene over HTTP into a scratch folder,
@@ -104,7 +80,12 @@ pages are current; the Mac app pictures are stale.
   it, with 20:00 at the minute it finishes. Within that minute, start the
   Mac app on it (`EAGLEBOARDS_DATA_FOLDER=<dir>`, a spare
   `EAGLEBOARDS_PORT`) so the timers read 49, 28, 24 and 12. Run it again
-  before each picture: the Mac timers follow the real clock.
+  before each picture: the Mac timers follow the real clock. The shots are
+  by hand: a 1280x738 window (launch with
+  `-"NSWindow Frame scheduler" "<x> <y> 1280 738 …"`), captured with
+  `screencapture -o -l <window>` so a sheet comes with its window, scaled
+  to 1600 wide for `evening.png` and 1100 for the GIFs. The app follows the
+  system's appearance, not a launch argument.
 - **Windows images need Windows.** On a Windows machine,
   `dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site <dir>`
   in the Windows repository renders `evening.png`, `seat-board.gif` and
