@@ -202,7 +202,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
 | No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
-| No youth phone number (D-8) | ✅ | ✅ | ◐ | Java (d355a10) and Windows (f0e582a): a number on file is withheld wherever a youth table is served, `/youth-autofill` included, and Java's `-cells` filter can't match on it. Mac serves the youth form without the Phone field (f8200cb) but still stores a `Phone` that is sent, imports it, returns it from `/api/youth-lookup`, and shows and exports it |
+| No youth phone number (D-8) | ✅ | ✅ | ✅ | Java d355a10, Windows f0e582a, Mac 55ba04b. Not asked, imported, pre-filled, shown or exported; a number on file is left alone and withheld wherever a youth table is served (`/youth-autofill` included) or saved (Mac's Records export). Java's `-cells` filter can't match on it |
 | Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at f8200cb, checked in CI; all three serve the `/api/*` calls |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
