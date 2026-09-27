@@ -94,7 +94,10 @@ them.
   `.github/FUNDING.yml`): the Support card in Settings on Windows and Java,
   a popover on the Mac. It never goes on the check-in pages or inside the
   queue, the rooms or the details pane, and it never becomes a prompt, badge
-  or reminder that interrupts the operator.
+  or reminder that interrupts the operator. The list shows a QR code for
+  Venmo, so a phone can pay straight from the screen:
+  `https://venmo.com/u/drdnorman?txn=pay&note=Eagle%20Boards` (Pay, with the
+  note filled in), dark on white in both appearances.
 
 ### Resolved open questions
 
@@ -184,6 +187,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
 | Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate, About, and the sidebar's Donate popover. Never on the check-in pages |
 | Donate link in the main window (D-17) | ✅ | ✅ | ✅ | Java: app bar, to Settings' Support section; Windows: sidebar foot, to Settings' Support card; Mac: sidebar foot, a popover with the links |
+| Venmo QR code on the list (D-17) | ✅ | ✅ | ✅ | Java: a static `images/venmo-qr.svg` in Settings' Support section; Windows: drawn with QRCoder in Settings' Support card; Mac: drawn with Core Image in the Donate popover |
 
 ### Shared files that have drifted
 
