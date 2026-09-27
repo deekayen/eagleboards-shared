@@ -56,7 +56,7 @@ The same in every version (the Mac version's API):
 |---|---|
 | `GET /api/checked-in` | `{ refreshSeconds, youth: [{ time, last, first, unitType, unit }], adults: [{ last, first, unitType, unit }] }`, in sign-in order. `refreshSeconds` is still sent but no longer read: the lists load when the page opens |
 | `GET /api/scout-choices` | `[{ id, first, last, unitType, unit }]`: RSVPs and tonight's walk-ins whose evening isn't over, sorted by last name |
-| `POST /api/youth-lookup` `email=` | the pre-registration it matches: `ID, Last, First, Phone, UnitType, Unit, BoardType, Leader`, or `{}` |
+| `POST /api/youth-lookup` `email=` | the pre-registration it matches: `ID, Last, First, UnitType, Unit, BoardType, Leader`, or `{}` |
 | `POST /api/adult-lookup` `email=` | the adult history it matches: `ID, Last, First, Phone, UnitType, Unit, FinalBoard, ProjectReview`, or `{}` |
 | `POST /register-youth` | form fields; 200 on success, otherwise the reason as text |
 | `POST /register-adult` | form fields, plus `WoodBadge` (`Y` or blank) and `Supporting` (youth IDs joined by `\|`); 200 on success |
@@ -64,7 +64,8 @@ The same in every version (the Mac version's API):
 Emails match trimmed and in any case; `NONE` and blank match nobody. Each
 answer carries only what its page shows: names and units for the lists, and
 for a lookup the fields that form fills in. **No birthdate** is asked for,
-looked up or sent (D-7).
+looked up or sent (D-7), and **no youth phone number** (D-8); adults are
+still asked for theirs.
 
 Paths the pages link to: `/`, `/youth_register`, `/adult_register`,
 `/checkin.css`, `/checkin.js`.

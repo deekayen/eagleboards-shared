@@ -83,6 +83,10 @@ The page needs rewriting, not only new pictures.
 - D-18: the check-in pages are one shared design now (`checkin/`). Each
   version's `checkin.png` is stale until re-shot, and the three should show
   the same page. Shoot it on a tablet-sized window, in light.
+- D-8: the youth sign-in form has no Phone field; Email sits alone on its
+  row. Java's `youth.png` shows the old form, and any picture of the youth
+  form or of a Records or admin table with youth in it should be taken
+  after D-8 lands, so no Phone column shows.
 
 ## Re-shooting
 

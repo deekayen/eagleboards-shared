@@ -61,6 +61,16 @@ them.
   column stays in the youth CSV so files still move between versions and
   older builds (D-1), but it is written empty. `/register-youth` still
   accepts a `DOB` field from an older cached page and discards it (D-2).
+- **D-8 No youth phone number.** Nothing uses a youth's phone number either:
+  no rule, screen or step reads it; it is only asked for, imported from a
+  pre-registration, pre-filled, shown and exported. So no version asks for
+  it, imports it, pre-fills it, shows it or exports it. The `Phone` column
+  stays in the youth CSV (D-1), written empty for a new youth.
+  `/register-youth` still accepts a `Phone` field from an older cached page
+  and discards it (D-2). A number already on file is left alone, as O-5 left
+  birthdates: never blanked or purged, carried through a rewrite and a
+  repeat sign-in unchanged, and never shown, pre-filled or exported. Adults'
+  phone numbers are not affected.
 
 ### Operator screen
 
@@ -192,6 +202,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
 | No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
+| No youth phone number (D-8) | ➖ | ➖ | ➖ | The shared youth form no longer asks; all three still import it, return it from `/api/youth-lookup`, and show and export it |
 | Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at d8448ac, checked in CI; all three serve the `/api/*` calls |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
