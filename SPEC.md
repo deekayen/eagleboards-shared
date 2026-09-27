@@ -275,9 +275,9 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Details pane builds the board (D-10) | ✅ | ✅ | ✅ | |
 | No self-dismissing messages (D-14) | ✅ | ✅ | ✅ | |
 | Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
-| Status palette, light and dark (D-13) | ➖ | ➖ | ➖ | The table under D-13, measured by `check-palette.js` |
-| Timer clocks ⏱ ⏲ ⏰ (D-13) | ➖ | ➖ | ➖ | Running long and overdue used to share one warning icon in all three |
-| No color keys in `config.properties` (D-19) | ➖ | ➖ | ➖ | |
+| Status palette, light and dark (D-13) | ✅ | ✅ | ✅ | Java 6c8ab6c, Windows 38c268e, Mac b45cedd. The table under D-13, measured by `check-palette.js`; `check-drift.sh` finds each version's copy the same |
+| Timer clocks ⏱ ⏲ ⏰ (D-13) | ✅ | ✅ | ✅ | Running long and overdue used to share one warning icon in all three. Java: inline SVGs; Windows: Segoe UI Symbol glyphs; Mac: SF Symbols. The state is also said in words to a screen reader |
+| No color keys in `config.properties` (D-19) | ✅ | ✅ | ✅ | An older file loads and the next save drops them; the Windows–Java hand-off test passes both ways |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
 | No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
