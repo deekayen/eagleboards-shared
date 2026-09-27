@@ -13,6 +13,7 @@ This repository holds no application code. It holds:
 |---|---|
 | [`SPEC.md`](SPEC.md) | What every version must agree on, what each does its own way, what is undecided, and where each version stands |
 | [`artwork/`](artwork/) | The app icon, drawn once for all versions |
+| [`WEBSITE.md`](WEBSITE.md) | What [eagleboards.page](https://eagleboards.page/) shows of each version, and which of its pages and screenshots are out of date |
 
 Still to come: the check-in pages the tablets load, and the board-rule and
 auto-select test cases as data every version's tests read.

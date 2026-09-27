@@ -31,6 +31,7 @@ GHC_SHARED="deekayen/eagleboards-shared"
 GHC_JAVA="deekayen/eagleboards-java"
 GHC_WINDOWS="deekayen/eagleboards-windows"
 GHC_MACOS="deekayen/eagleboards-macos"
+GHC_SITE="deekayen/eagleboards.page" # Project #4 has no Website platform; file site issues as Shared
 GHC_PROJECT=4
 GHC_PROJECT_OWNER=deekayen
 

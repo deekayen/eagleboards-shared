@@ -3,7 +3,8 @@
 This is the coordination repository for the three versions of Eagle Boards
 (`eagleboards-java`, `eagleboards-windows`, `eagleboards-macos`). It holds
 no application code: the shared spec, shared artwork, and (to come) the
-shared check-in pages and test cases.
+shared check-in pages and test cases. It also tracks what the website,
+`eagleboards.page`, shows of each version.
 
 ## What an agent needs to know
 
@@ -19,6 +20,10 @@ shared check-in pages and test cases.
   a recommendation; do not settle them by editing the spec.
 - **Keep the parity table true.** When a version gains or loses a feature,
   update the row in the same change.
+- **Keep `WEBSITE.md` true.** eagleboards.page walks through each version
+  with screenshots. When a change alters what the operator or the tablet
+  sees, add it to the Stale list in `WEBSITE.md` in the same change as the
+  parity row. Re-shoot a version once its work has landed, not per commit.
 - **Platform-specific (`P-`) items are deliberate.** Do not "fix" the Mac
   toward Windows or the reverse where the spec says they differ.
 
