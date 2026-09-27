@@ -129,8 +129,9 @@ them.
   the minute. Room timers run on minutes since the last status change, so the
   convening and the interview are timed separately.
 - **D-16 Follows the system appearance**: light/dark, accent color, and the
-  system font. Two things keep fixed colors instead of the accent: the
-  check-in pages (D-18) and the status palette (D-13).
+  system font. Three things keep fixed colors instead of the accent: the
+  check-in pages (D-18), the status palette (D-13) and the Wood Badge mark
+  (D-20).
 - **D-17 A Donate link in the main window.** One Donate link, with a heart,
   sits in the main window's frame, outside the working area: at the foot of
   the sidebar on Windows and Mac, and in the app bar of every Java operator
@@ -142,6 +143,27 @@ them.
   Venmo, so a phone can pay straight from the screen:
   `https://venmo.com/u/drdnorman?txn=pay&note=Eagle%20Boards` (Pay, with the
   note filled in), dark on white in both appearances.
+- **D-20 Marks beside an adult's name.** Wherever the operator screen lists
+  adults by name (the details pane's members and free adults, seating a
+  board, changing a seated board's members, and the People page on Windows
+  and the Mac), up to two marks follow the name. Each is an icon, with its
+  meaning in a tooltip and said to a screen reader:
+  - **Wood Badge**, for an adult counting today toward a Wood Badge ticket
+    item (`WoodBadge` is `Y`): the pentagon in
+    [`artwork/wood-badge.svg`](artwork/wood-badge.svg), the Mac's drawing,
+    at text size and in its fixed colors in both appearances. Tooltip:
+    *Counting today toward a Wood Badge ticket item*; a screen reader says
+    *Wood Badge*. It replaces the words "Wood Badge" in Java's adult lines
+    and the ✓ in Windows' Wood Badge column (the column stays, holding the
+    mark, so People still sorts on it).
+  - **Same unit**, for an adult in the selected youth's unit (the D-4
+    warning): the platform's warning triangle in its caution color. Tooltip:
+    *Same unit as* the youth's name; a screen reader says *Same unit*. A
+    version that also says "same unit" in the adult's line may keep the
+    words.
+
+  The admin tables keep Wood Badge as an editable Yes/No field; the marks
+  are for the screens the operator works in.
 
 #### Status palette (D-13)
 
@@ -234,9 +256,15 @@ cite them.
 - **O-3 One live-operations view.** Windows' Event page (queue, room cards
   and details pane always visible together) is the reference layout for all
   three, so a room's timer is never out of sight while working the queue.
-  Mac's Waiting / On Boards / Finished lists become filters within that one
-  view, not separate destinations. Results, People and Settings stay
-  separate pages in all three.
+  *Amended 2026-09-27:* the queue is one column holding every youth, in
+  three stacked groups: Waiting (in sign-in order), On a board (by room) and
+  Finished (the most recent first), each headed with its count. Nothing is
+  picked to see a group: no Show menu, and no sidebar entry or tab per group.
+  Find searches every youth. This replaces "Mac's Waiting / On Boards /
+  Finished lists become filters within that one view", which let the Mac
+  keep a sidebar list per group that had to be picked before a youth could
+  be found, and let Java and Windows hide Finished behind a Show menu that
+  Find could not see past. What sits beside the Event page is P-6.
 - **O-4 No "Next step" label.** The primary action always names the
   concrete step (Seat board, Start review, Complete), never a generic
   label. Confirms D-11; Mac's menu command drops "Next Step" as its wording.
@@ -268,6 +296,19 @@ the same app feels native on each system rather than identical everywhere.
 - **P-5 Background attention.** Mac: Dock badge and a notification when a
   room passes its red time. Windows: taskbar equivalents are allowed but not
   required. Java: none.
+- **P-6 Pages beside the Event page.** Decided 2026-09-27.
+  - Windows and Mac: a sidebar with Event, Results and People. Results lists
+    every board and its result, read-only, with Find and Save report, and
+    opens a board on the Event page. People lists the adults at this event,
+    with Gone home and Back and the D-20 marks. The admin tables, where any
+    record can be corrected, open in a window of their own from both pages:
+    Windows' Admin tables, the Mac's Records (also in its menu bar).
+  - Java: no Results or People page. The top bar has Event, Admin tables,
+    Settings and Help; Admin tables is the admin page, whose Boards tab
+    corrects a result and whose Adults tab changes roles. Results are read
+    from the Finished group, and an adult is marked gone home from the
+    details pane's context menu. Two links to the one admin page (the old
+    Results and People) do not come back.
 
 ---
 
@@ -303,7 +344,10 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
-| Single live-operations view (O-3) | ✅ | ✅ | ✅ | |
+| Queue, rooms and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
+| One stacked youth column; Find searches everyone (O-3, amended) | ◐ | ◐ | ➖ | Java and Windows stack the three groups but hide Finished behind a Show menu that Find can't see past, and Windows orders every group by sign-in number. The Mac picks one group at a time from its sidebar |
+| Pages beside the Event page (P-6) | ➖ | ✅ | ➖ | Java: Results and People both open the admin page. Mac: no Results page, and Adults is a queue filter in the sidebar |
+| Marks beside an adult's name (D-20) | ➖ | ➖ | ✅ | Java says "Wood Badge" and "Same unit" in words; Windows has a ✓ column on People only, and says "same unit" in words. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
 | Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |
 | Switch a room between final and project | ✅ | ✅ | ✅ | A board already in it is not disturbed |
@@ -322,7 +366,8 @@ The check-in pages are in [`checkin/`](checkin/) (D-18); each version pins
 them with `checkin-pages.lock` and its CI compares its copies byte for byte.
 `scripts/check-drift.sh` compares all three local clones against them, and
 checks each version's copy of the status palette (D-13) against the table
-here. The icon is in [`artwork/`](artwork/).
+here. The icon is in [`artwork/`](artwork/), with the Wood Badge mark
+(D-20).
 
 The rule and auto-select test cases are in [`cases/`](cases/) (D-5), one JSON
 file per operation, being transcribed from Java's `test-seat-conflicts.js`

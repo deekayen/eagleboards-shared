@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Wood Badge">
+  <title>Wood Badge</title>
+  <!-- SPEC.md D-20. The same drawing as WoodBadgeIcon.swift in eagleboards-macos:
+       a pentagon banded clockwise from the top corner in navy, red, black
+       (along the bottom), green and yellow, around a white face with a black
+       center. Fixed colors in both appearances; the white face keeps the
+       navy and black visible on a dark background. -->
+  <path fill="#ffffff" d="M50,20.3L81.09,42.9L69.22,79.45L30.78,79.45L18.91,42.9Z"/>
+  <path fill="#21306b" d="M52.43,4.76L95.13,35.79L78.67,41.13L52.43,22.07Z"/>
+  <path fill="#bf2136" d="M96.63,40.4L80.32,90.6L70.14,76.6L80.17,45.75Z"/>
+  <path fill="#000000" d="M76.39,93.45L23.61,93.45L33.78,79.45L66.22,79.45Z"/>
+  <path fill="#1f6633" d="M19.68,90.6L3.37,40.4L19.83,45.75L29.86,76.6Z"/>
+  <path fill="#f2b81a" d="M4.87,35.79L47.57,4.76L47.57,22.07L21.33,41.13Z"/>
+  <circle fill="#000000" cx="50" cy="53" r="12"/>
+</svg>
