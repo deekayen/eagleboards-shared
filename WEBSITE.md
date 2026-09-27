@@ -98,6 +98,13 @@ pages are current; the Mac app pictures are stale.
   `./mvnw package` in the clone (`BROWSER=` to pick a Chromium browser, such
   as Brave). Its cast and times copy `Site.SeedEvening` in the Windows
   snapshot tool: change one, change the other.
+- **The Mac pictures start from the same event.**
+  `node scripts/java-scene.mjs <eagleboards-java clone> --event <dir>`
+  builds it in the jar and writes it as a data folder instead of shooting
+  it, with 20:00 at the minute it finishes. Within that minute, start the
+  Mac app on it (`EAGLEBOARDS_DATA_FOLDER=<dir>`, a spare
+  `EAGLEBOARDS_PORT`) so the timers read 49, 28, 24 and 12. Run it again
+  before each picture: the Mac timers follow the real clock.
 - **Windows images need Windows.** On a Windows machine,
   `dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site <dir>`
   in the Windows repository renders `evening.png`, `seat-board.gif` and

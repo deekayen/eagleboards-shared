@@ -4,6 +4,14 @@
 // browser; nothing to install.
 //
 //   node scripts/java-scene.mjs <eagleboards-java clone> <out-dir>
+//   node scripts/java-scene.mjs <eagleboards-java clone> --event <data-dir>
+//
+// --event builds the scene and shoots nothing: it writes a data folder
+// (Master_AdultHistory.csv, config.properties and tonight's folder) for
+// another version to open, as the Windows tool's --site-event does. Its times
+// are moved so 20:00 is the minute it finishes in; open it within that minute
+// and the timers read as they do in the Java pictures. It writes only to a new
+// folder or one it wrote before, never over a real data folder.
 //
 // Build the jar first (./mvnw package in the clone). BROWSER=<path> picks the
 // browser, as for shoot-java.mjs (Brave: /Applications/Brave Browser.app/
@@ -28,13 +36,24 @@ import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const [cloneArg, outArg] = process.argv.slice(2);
-if (!cloneArg || !outArg) {
-  console.error("usage: node scripts/java-scene.mjs <eagleboards-java clone> <out-dir>");
+const [cloneArg, outArg, eventArg] = process.argv.slice(2);
+if (!cloneArg || !outArg || (outArg === "--event" && !eventArg)) {
+  console.error("usage: node scripts/java-scene.mjs <eagleboards-java clone> <out-dir>\n"
+    + "       node scripts/java-scene.mjs <eagleboards-java clone> --event <data-dir>");
   process.exit(2);
 }
 const CLONE = resolve(cloneArg);
-const OUT = resolve(outArg);
+const EVENT = outArg === "--event" ? resolve(eventArg) : null;
+const OUT = EVENT ? null : resolve(outArg);
+// Left in an --event folder so a later run may replace it.
+const MARK = ".java-scene";
+if (EVENT) {
+  let names = [];
+  try { names = readdirSync(EVENT); } catch { /* new folder */ }
+  if (names.length && !names.includes(MARK)) {
+    throw new Error(EVENT + " is not empty and was not written by java-scene.mjs; give a new folder");
+  }
+}
 const HERE = dirname(fileURLToPath(import.meta.url));
 const JAVA = process.env.JAVA || "java";
 
@@ -237,20 +256,32 @@ try {
   retime("rooms.csv", "Room", (room) => ({ RegTime: before(ROOMS.find((r) => r[0] === room)[2]) }));
   console.log("the scene's 20:00 is " + stamp(eight));
 
-  await startJar();
-  mkdirSync(OUT, { recursive: true });
-  const shoot = spawn(process.execPath, [join(HERE, "shoot-java.mjs"), BASE, OUT], { stdio: "inherit" });
-  const code = await new Promise((r) => shoot.once("exit", r));
-  if (code !== 0) throw new Error("shoot-java.mjs failed");
-  if (new Date().getMinutes() !== eight.getMinutes()) {
-    console.warn("warning: the shots ran past the minute, so some timers may read one minute more");
+  if (EVENT) {
+    rmSync(EVENT, { recursive: true, force: true });
+    mkdirSync(join(EVENT, day(eight)), { recursive: true });
+    copyFileSync(history, join(EVENT, "Master_AdultHistory.csv"));
+    copyFileSync(config, join(EVENT, "config.properties"));
+    for (const f of readdirSync(eventDir)) copyFileSync(join(eventDir, f), join(EVENT, day(eight), f));
+    writeFileSync(join(EVENT, MARK), "Synthetic demo event from eagleboards-shared/scripts/java-scene.mjs\n");
+    console.log("wrote " + EVENT + "; open it before the minute is out");
+  } else {
+    await startJar();
+    mkdirSync(OUT, { recursive: true });
+    const shoot = spawn(process.execPath, [join(HERE, "shoot-java.mjs"), BASE, OUT], { stdio: "inherit" });
+    const code = await new Promise((r) => shoot.once("exit", r));
+    if (code !== 0) throw new Error("shoot-java.mjs failed");
+    if (new Date().getMinutes() !== eight.getMinutes()) {
+      console.warn("warning: the shots ran past the minute, so some timers may read one minute more");
+    }
   }
 } finally {
   await stopJar();
   try { rmSync(scratch, { recursive: true, force: true }); } catch { /* still locked */ }
 }
 
-if (spawnSync("ffmpeg", ["-version"], { stdio: "ignore" }).status === 0) {
+if (EVENT) {
+  // Nothing shot, nothing to animate.
+} else if (spawnSync("ffmpeg", ["-version"], { stdio: "ignore" }).status === 0) {
   gif("seat-board.gif", [["seat-0.png", 2500], ["seat-1.png", 4000], ["seat-2.png", 4000]]);
   gif("complete-board.gif", [["complete-0.png", 3000], ["complete-1.png", 3500], ["complete-2.png", 4000]]);
 } else {
