@@ -98,8 +98,8 @@ cite them.
   Data files and code names do not change either way.
 - **O-2 Undo everywhere.** Confirm only what Undo cannot take back (Reset,
   Postpone). Every board step, room change, Disable/Enable and Link/Unlink
-  gets Undo. Java has a server-side "restore board" op now; Windows still
-  needs one. Mac already had this.
+  gets Undo. Java and Windows both answer `/restore-board` (evening section
+  20). Mac already had this.
 - **O-3 One live-operations view.** Windows' Event page (queue, room cards
   and details pane always visible together) is the reference layout for all
   three, so a room's timer is never out of sight while working the queue.
@@ -161,9 +161,9 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
-| No birthdate collected (D-7) | ➖ | ➖ | ➖ | All three still ask, pre-fill, show and export it |
+| No birthdate collected (D-7) | ➖ | ✅ | ➖ | Java and Mac still ask, pre-fill, show and export it |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
-| Undo (O-2) | ✅ | ✅ | ✅ | |
+| Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream; the check-in page still refreshes on `RefreshTimeSecs` |
 | Single live-operations view (O-3) | ✅ | ✅ | ✅ | |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
@@ -183,8 +183,8 @@ These exist in more than one repository and should live here once. Measured
 | File | Windows | Mac |
 |---|---|---|
 | `index.html` (check-in) | identical | differs, 114 lines |
-| `youth_register.html` | identical | differs, 147 lines |
-| `adult_register.html` | differs, 30 lines | differs, 210 lines |
+| `youth_register.html` | differs, 36 lines (D-7 done first) | differs, 147 lines |
+| `adult_register.html` | differs, 30 lines (`/scout-choices` only) | differs, 222 lines |
 | App icon SVG | identical to Mac | identical to Windows |
 
 The icon is now in [`artwork/`](artwork/). The check-in pages and the rule
