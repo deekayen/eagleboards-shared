@@ -1,7 +1,9 @@
 #!/bin/bash
 # Compare each version's copy of the check-in pages with checkin/ here
 # (SPEC.md D-18): they must be byte-identical. Also says which commit of this
-# repository each version's checkin-pages.lock pins.
+# repository each version's checkin-pages.lock pins, and checks that each
+# version's status palette file (SPEC.md D-13) holds every color in the
+# palette table, written as #rrggbb.
 #
 # Usage: scripts/check-drift.sh [checkout-root]
 #   checkout-root defaults to this repo's parent directory, assuming sibling
@@ -40,5 +42,38 @@ for entry in "${VERSIONS[@]}"; do
       status=1
     fi
   done
+done
+
+# Each version's status palette file, and every light and dark value in the
+# table under D-13 ("| `seated-bg` | ... | `#f3dfc4` | `#685b3e` |").
+PALETTES=(
+  "Java|$ROOT/eagleboards-java/src/main/resources/shkc/core/WEBROOT/eb-app.css"
+  "Windows|$ROOT/eagleboards-windows/src/EagleBoards.App/StatusPalette.cs"
+  "Mac|$ROOT/eagleboards-macos/Sources/EagleBoards/Support/StatusPalette.swift"
+)
+ROWS=$(grep -E '^\| `[a-z]+-(bg|fg)` \|' "$HERE/SPEC.md")
+for entry in "${PALETTES[@]}"; do
+  IFS='|' read -r name file <<<"$entry"
+  echo "$name status palette ($(basename "$file"))"
+  if [ ! -f "$file" ]; then
+    echo "  missing  $file"
+    status=1
+    continue
+  fi
+  short=0
+  while IFS= read -r row; do
+    token=$(sed -E 's/^\| `([a-z]+-(bg|fg))`.*/\1/' <<<"$row")
+    for hex in $(grep -oE '#[0-9a-f]{6}' <<<"$row"); do
+      if ! grep -qi -- "$hex" "$file"; then
+        echo "  MISSING  $token $hex"
+        short=1
+      fi
+    done
+  done <<<"$ROWS"
+  if [ $short = 0 ]; then
+    echo "  same     every value"
+  else
+    status=1
+  fi
 done
 exit $status

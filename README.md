@@ -16,7 +16,8 @@ This repository holds no application code. It holds:
 | [`WEBSITE.md`](WEBSITE.md) | What [eagleboards.page](https://eagleboards.page/) shows of each version, and which of its pages and screenshots are out of date |
 | [`checkin/`](checkin/) | The check-in pages the tablets load, served unchanged by every version (WCAG 2.2 AA) |
 | [`scripts/check-contrast.js`](scripts/check-contrast.js) | Measures every color pair the check-in pages use, light and dark |
-| [`scripts/check-drift.sh`](scripts/check-drift.sh) | Compares each version's copy of the check-in pages with `checkin/` |
+| [`scripts/check-palette.js`](scripts/check-palette.js) | Measures the status palette in `SPEC.md` (D-13), light and dark: contrast, and that it holds up for color blindness |
+| [`scripts/check-drift.sh`](scripts/check-drift.sh) | Compares each version's copy of the check-in pages with `checkin/`, and its status palette with `SPEC.md` |
 
 Still to come: the board-rule and auto-select test cases as data every
 version's tests read.

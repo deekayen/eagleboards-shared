@@ -37,8 +37,17 @@ text on each one says exactly what it shows, so it changes with the image.
 ## Stale
 
 What has changed since each version's pictures were taken. As of
-2026-09-27 the Java and Windows walkthroughs and the check-in pictures on all
-three pages are current; the Mac app pictures are stale.
+2026-09-27 the check-in pictures on all three pages are current; every
+version's app pictures are stale.
+
+### All three: the status palette and the timer clocks
+
+- D-13: status pills in the shared palette (Seated yellow, In review cyan,
+  Completed purple), and room timers with a clock per state: ⏱ on time,
+  ⏲ running long on an orange tint, ⏰ overdue on a solid pink-red fill.
+  `evening.png` and both GIFs show the old colors and one warning icon for
+  both late states, on every version's page. Re-shoot each version once its
+  D-13 work has landed.
 
 ### Mac: the app pictures, and "The window"
 
@@ -59,9 +68,9 @@ three pages are current; the Mac app pictures are stale.
   screenshot run.
 - **Keep the demo cast and scenes** so the three walkthroughs match. The cast
   is famous Eagle Scouts. Room 101: Arthur Eldred's final board, chaired by
-  Neil Armstrong with Jim Lovell and Charles Duke, red at 49 minutes.
+  Neil Armstrong with Jim Lovell and Charles Duke, overdue at 49 minutes.
   Room 102: Gerald Ford chairing. Room 200A: a proposal review chaired by
-  Steven Spielberg, yellow at 28 minutes. Bill Amend, waiting 53 minutes,
+  Steven Spielberg, running long at 28 minutes. Bill Amend, waiting 53 minutes,
   gets Guion Bluford as chair and Steve Fossett in 200B. `evening.png` is
   in dark mode and `complete-board.gif` in light.
 - **The demo event lives in code on Windows.** `--site` in the Windows

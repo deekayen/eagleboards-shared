@@ -16,3 +16,7 @@ jobs:
       # light and dark (SPEC.md D-18).
       - name: Contrast of the check-in pages
         run: node scripts/check-contrast.js
+      # The status palette in SPEC.md (D-13): AA contrast, and the pills and
+      # timers stay apart for red-green and blue-yellow color blindness.
+      - name: Status palette
+        run: node scripts/check-palette.js

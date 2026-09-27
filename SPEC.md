@@ -71,6 +71,15 @@ them.
   birthdates: never blanked or purged, carried through a rewrite and a
   repeat sign-in unchanged, and never shown, pre-filled or exported. Adults'
   phone numbers are not affected.
+- **D-19 No color settings.** The twelve status-color keys
+  (`RegisteredColor` through `PostponedHiColor`) are retired from
+  `config.properties`. No version lists them as columns, defaults them,
+  writes them or offers them as a setting; the D-13 palette is the only
+  status coloring. A file that still has them loads, because every version
+  reads only the keys it knows, and the next save leaves them out. An older
+  build that still colors rows by them draws those rows uncolored. The Java
+  parity check still hands the original 2019 binary a config with the color
+  columns, because that binary needs them.
 
 ### Operator screen
 
@@ -85,10 +94,19 @@ them.
 - **D-12 Pick by hand, or let the app fill in.** The operator can remove and
   add members freely, then have the app complete the board around the
   people they chose.
-- **D-13 Status is text plus an icon**, never color alone, and readable in
-  light, dark and high-contrast modes. Colors come from the platform's theme.
-  The status-color keys stay in `config.properties` for older Java builds;
-  no version offers them as a setting.
+- **D-13 Status is text plus an icon, in one palette.** Every status pill and
+  room timer shows a word or a number with an icon, so color is never the
+  only cue, and all three versions color them alike, from the
+  [status palette](#status-palette-d-13) below, in light and dark. The
+  palette is measured by `scripts/check-palette.js`: every text pair meets
+  WCAG 2.2 AA, and the pills and timers that sit side by side stay apart for
+  red-green and blue-yellow color blindness. Platform status colors can't
+  promise that: Windows' own caution and critical colors turn the same olive
+  for deuteranopia, the most common kind. In a high-contrast mode (a Windows
+  contrast theme, CSS `forced-colors`) the pills and timers take the system's
+  colors with a border, and Overdue the system highlight; the Mac's Increase
+  Contrast keeps the palette and adds the border. Nothing about status color
+  is configurable (D-19).
 - **D-14 No self-dismissing messages.** A problem stays on screen until it is
   fixed or dismissed, next to what it is about. Success needs no message when
   the screen already shows the result.
@@ -96,7 +114,8 @@ them.
   the minute. Room timers run on minutes since the last status change, so the
   convening and the interview are timed separately.
 - **D-16 Follows the system appearance**: light/dark, accent color, and the
-  system font.
+  system font. Two things keep fixed colors instead of the accent: the
+  check-in pages (D-18) and the status palette (D-13).
 - **D-17 A Donate link in the main window.** One Donate link, with a heart,
   sits in the main window's frame, outside the working area: at the foot of
   the sidebar on Windows and Mac, and in the app bar of every Java operator
@@ -108,6 +127,63 @@ them.
   Venmo, so a phone can pay straight from the screen:
   `https://venmo.com/u/drdnorman?txn=pay&note=Eagle%20Boards` (Pay, with the
   note filled in), dark on white in both appearances.
+
+#### Status palette (D-13)
+
+The hues are Monokai Pro's: its yellow, cyan, purple, orange and pink-red,
+deepened for light mode until the text on each tint passes AA. Green is left
+out on purpose. For red-green color blindness it is the color that yellow and
+orange also become, so a green Completed pill looked like the yellow Seated
+one. Completed is purple instead, the way GitHub marks merged work done, and
+it keeps its check mark.
+
+A status pill is its `-fg` color (the word and the icon) on its `-bg` tint.
+
+| Status (stored) | Pill says | Colors |
+|---|---|---|
+| Registered, Verified | Waiting | `neutral` |
+| Seated | Seated | `seated` |
+| InProgress | In review | `review` |
+| Completed | Completed | `completed` |
+| Postponed | Postponed | `neutral` |
+
+Each status keeps its own icon shape (the platform's own icon set, one
+distinct shape per status); only the colors are shared.
+
+A room timer is the minutes since the board's last step, with a clock that
+changes with its state. The three clocks differ in outline, so the state
+reads without color. The tooltip and the screen reader say *running long* or
+*overdue* in words.
+
+| Timer state | When | Clock | Colors |
+|---|---|---|---|
+| On time | Before the yellow time; convening, before `ConveneRedMins` | ⏱ stopwatch | The platform's secondary text, no fill |
+| Running long | In review, past the yellow time | ⏲ timer clock | `long` tint |
+| Overdue | Past the red time; convening, past `ConveneRedMins` | ⏰ alarm clock | `overdue`, a solid fill |
+
+The clocks are each platform's own drawing of those three: SF Symbols
+`stopwatch`, `timer` and `alarm` on the Mac; the monochrome Segoe UI Symbol
+glyphs U+23F1, U+23F2 and U+23F0 on Windows (present on Windows 10 and 11;
+Segoe Fluent Icons has no timer or alarm clock); matching inline SVGs in the
+Java pages. Never the color emoji, which would ignore the palette.
+
+`scripts/check-palette.js` reads this table; `scripts/check-drift.sh` checks
+that each version's palette file still holds every value.
+
+| Token | Used for | Light | Dark |
+|---|---|---|---|
+| `neutral-bg` | Waiting and Postponed pill | `#dddddd` | `#565457` |
+| `neutral-fg` | Its word and icon | `#5b5a5b` | `#d4d3d3` |
+| `seated-bg` | Seated pill (yellow) | `#f3dfc4` | `#685b3e` |
+| `seated-fg` | Its word and icon | `#875107` | `#ffdd78` |
+| `review-bg` | In review pill (cyan) | `#c9e3ea` | `#425c62` |
+| `review-fg` | Its word and icon | `#146377` | `#9ae5ee` |
+| `completed-bg` | Completed pill (purple) | `#ddd7ef` | `#504a65` |
+| `completed-fg` | Its word and icon | `#5e4aa0` | `#cbc2f7` |
+| `long-bg` | Running long timer (orange) | `#f8d9ce` | `#67493e` |
+| `long-fg` | Its minutes and clock | `#994122` | `#fdbe9f` |
+| `overdue-bg` | Overdue timer, a solid fill (pink-red) | `#c23d65` | `#ff6188` |
+| `overdue-fg` | Its minutes and clock | `#ffffff` | `#221f22` |
 
 ### Check-in pages
 
@@ -199,6 +275,9 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Details pane builds the board (D-10) | ✅ | ✅ | ✅ | |
 | No self-dismissing messages (D-14) | ✅ | ✅ | ✅ | |
 | Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
+| Status palette, light and dark (D-13) | ➖ | ➖ | ➖ | The table under D-13, measured by `check-palette.js` |
+| Timer clocks ⏱ ⏲ ⏰ (D-13) | ➖ | ➖ | ➖ | Running long and overdue used to share one warning icon in all three |
+| No color keys in `config.properties` (D-19) | ➖ | ➖ | ➖ | |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
 | No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
@@ -224,6 +303,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 
 The check-in pages are in [`checkin/`](checkin/) (D-18); each version pins
 them with `checkin-pages.lock` and its CI compares its copies byte for byte.
-`scripts/check-drift.sh` compares all three local clones against them. The
-icon is in [`artwork/`](artwork/). The rule and auto-select test cases are to
-follow.
+`scripts/check-drift.sh` compares all three local clones against them, and
+checks each version's copy of the status palette (D-13) against the table
+here. The icon is in [`artwork/`](artwork/). The rule and auto-select test
+cases are to follow.
