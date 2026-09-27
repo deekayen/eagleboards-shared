@@ -87,6 +87,14 @@ them.
   convening and the interview are timed separately.
 - **D-16 Follows the system appearance**: light/dark, accent color, and the
   system font.
+- **D-17 A Donate link in the main window.** One Donate link, with a heart,
+  sits in the main window's frame, outside the working area: at the foot of
+  the sidebar on Windows and Mac, and in the app bar of every Java operator
+  page. It opens the list of ways to support the project (the links in
+  `.github/FUNDING.yml`): the Support card in Settings on Windows and Java,
+  a popover on the Mac. It never goes on the check-in pages or inside the
+  queue, the rooms or the details pane, and it never becomes a prompt, badge
+  or reminder that interrupts the operator.
 
 ### Resolved open questions
 
@@ -167,13 +175,15 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream; the check-in page still refreshes on `RefreshTimeSecs` |
 | Single live-operations view (O-3) | ✅ | ✅ | ✅ | |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
-| Rename room | ◐ | ✅ | ✅ | Java: admin tables only |
+| Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |
+| Switch a room between final and project | ✅ | ✅ | ✅ | A board already in it is not disturbed |
 | Move or swap a board between rooms | ✅ | ✅ | ✅ | |
 | Sign-in QR code window | ✅ | ✅ | ✅ | |
 | Drag a youth onto a room to seat | ➖ | ➖ | ✅ | Mac only is fine (pointer-heavy) |
 | Link adult to youth after sign-in | ✅ | ✅ | ✅ | |
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
-| Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate and About. Never on the live-operations view or the check-in pages |
+| Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate, About, and the sidebar's Donate popover. Never on the check-in pages |
+| Donate link in the main window (D-17) | ✅ | ✅ | ✅ | Java: app bar, to Settings' Support section; Windows: sidebar foot, to Settings' Support card; Mac: sidebar foot, a popover with the links |
 
 ### Shared files that have drifted
 
