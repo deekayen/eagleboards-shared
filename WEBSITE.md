@@ -53,7 +53,9 @@ The page needs rewriting, not only new pictures.
 - O-1, O-2: youth / event wording; Undo.
 - Rename a room from its card, switch its type, sign-in QR code window,
   change members of a seated board.
-- D-7, still to do in Java: `youth.png` shows the Birthdate field.
+- D-7, D-18: `checkin.png`, `youth.png` and `adult.png` show the old
+  Scouting-colored check-in pages, and `youth.png` the Birthdate field. The
+  shared pages replace them.
 
 ### Mac: every image, and "The window"
 
@@ -63,7 +65,8 @@ The page needs rewriting, not only new pictures.
 - O-4: the generic Next Step label is gone.
 - D-17: Donate button at the foot of the sidebar.
 - Change members of a seated board.
-- D-7, still to do on the Mac: the youth sign-in form.
+- D-7, D-18: `checkin.png` shows the old check-in pages; the shared pages,
+  without the Birthdate field, replace them.
 
 ### Windows: every image, and "1. People sign in"
 
@@ -77,8 +80,9 @@ The page needs rewriting, not only new pictures.
 
 ### All three
 
-- The check-in pages are moving into this repository. Each version's
-  `checkin.png` changes when that version takes the shared pages.
+- D-18: the check-in pages are one shared design now (`checkin/`). Each
+  version's `checkin.png` is stale until re-shot, and the three should show
+  the same page. Shoot it on a tablet-sized window, in light.
 
 ## Re-shooting
 

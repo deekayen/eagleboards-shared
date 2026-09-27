@@ -99,6 +99,22 @@ them.
   `https://venmo.com/u/drdnorman?txn=pay&note=Eagle%20Boards` (Pay, with the
   note filled in), dark on white in both appearances.
 
+### Check-in pages
+
+- **D-18 One set of check-in pages.** The pages the tablets load (welcome,
+  youth sign-in, adult sign-in, `checkin.css`, `checkin.js`) live in
+  [`checkin/`](checkin/) here. Every version serves byte-identical copies,
+  pinned by a `checkin-pages.lock` holding this repository's commit, and its
+  CI fails if a copy differs. They speak one API, the Mac version's
+  (`/api/checked-in`, `/api/scout-choices`, `/api/youth-lookup`,
+  `/api/adult-lookup`, `/register-youth`, `/register-adult`; see
+  [`checkin/README.md`](checkin/README.md)), which answers with only what each
+  page shows. They meet **WCAG 2.2 AA**: fixed colors measured by
+  `scripts/check-contrast.js` rather than the system accent (the one exception
+  to D-16: a tablet's accent could be yellow on white), light or dark
+  following the device, and an axe-core scan of every page, fresh and with
+  errors, in both appearances before a change lands.
+
 ### Resolved open questions
 
 Decided 2026-09-26 by the owner; kept as `O-` so issues and commits can still
@@ -172,7 +188,8 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
-| No birthdate collected (D-7) | ➖ | ✅ | ➖ | Java and Mac still ask, pre-fill, show and export it |
+| No birthdate collected (D-7) | ➖ | ✅ | ➖ | Java and Mac still ask, pre-fill, show and export it; the shared pages (D-18) drop the field |
+| Shared check-in pages (D-18) | ➖ | ➖ | ➖ | The pages are in `checkin/`; each version still serves its own copies |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream; the check-in page still refreshes on `RefreshTimeSecs` |
@@ -189,17 +206,10 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Donate link in the main window (D-17) | ✅ | ✅ | ✅ | Java: app bar, to Settings' Support section; Windows: sidebar foot, to Settings' Support card; Mac: sidebar foot, a popover with the links |
 | Venmo QR code on the list (D-17) | ✅ | ✅ | ✅ | Java: a static `images/venmo-qr.svg` in Settings' Support section; Windows: drawn with QRCoder in Settings' Support card; Mac: drawn with Core Image in the Donate popover |
 
-### Shared files that have drifted
+### Shared files
 
-These exist in more than one repository and should live here once. Measured
-2026-09-26 against the Java copies:
-
-| File | Windows | Mac |
-|---|---|---|
-| `index.html` (check-in) | identical | differs, 114 lines |
-| `youth_register.html` | differs, 36 lines (D-7 done first) | differs, 147 lines |
-| `adult_register.html` | differs, 30 lines (`/scout-choices` only) | differs, 222 lines |
-| App icon SVG | identical to Mac | identical to Windows |
-
-The icon is now in [`artwork/`](artwork/). The check-in pages and the rule
-and auto-select test cases are to follow.
+The check-in pages are in [`checkin/`](checkin/) (D-18); each version pins
+them with `checkin-pages.lock` and its CI compares its copies byte for byte.
+`scripts/check-drift.sh` compares all three local clones against them. The
+icon is in [`artwork/`](artwork/). The rule and auto-select test cases are to
+follow.

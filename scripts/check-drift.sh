@@ -1,51 +1,44 @@
 #!/bin/bash
-# Measure how far the check-in pages have drifted between the three repos'
-# local clones, in the format SPEC.md's "Shared files that have drifted"
-# table uses (line counts matched against the existing table: `diff a b |
-# grep -c '^[<>]'`). Run this before updating that table, and again after
-# the pages move into this repo (issue: "Move check-in pages and
-# rule/auto-select test cases into eagleboards-shared") to confirm the
-# vendored copies haven't drifted from the canonical ones.
+# Compare each version's copy of the check-in pages with checkin/ here
+# (SPEC.md D-18): they must be byte-identical. Also says which commit of this
+# repository each version's checkin-pages.lock pins.
 #
 # Usage: scripts/check-drift.sh [checkout-root]
 #   checkout-root defaults to this repo's parent directory, assuming sibling
 #   checkouts named eagleboards-java, eagleboards-windows, eagleboards-macos
 #   (true for ~/Sites on the owner's machine).
+#
+# Exit 1 if any copy differs or is missing.
 
 set -euo pipefail
 
-ROOT="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
-JAVA_DIR="$ROOT/eagleboards-java/src/main/resources/shkc/core/WEBROOT"
-WIN_DIR="$ROOT/eagleboards-windows/src/EagleBoards.Web/wwwroot"
-MAC_DIR="$ROOT/eagleboards-macos/Sources/CheckInServer/Resources/CheckIn"
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT="${1:-$(cd "$HERE/.." && pwd)}"
+FILES=(index.html youth_register.html adult_register.html checkin.css checkin.js)
 
-FILES=(index.html youth_register.html adult_register.html)
+VERSIONS=(
+  "Java|$ROOT/eagleboards-java|src/main/resources/shkc/core/WEBROOT"
+  "Windows|$ROOT/eagleboards-windows|src/EagleBoards.Web/wwwroot"
+  "Mac|$ROOT/eagleboards-macos|Sources/CheckInServer/Resources/CheckIn"
+)
 
-compare() {
-  local base="$1" other="$2" n
-  if [ ! -f "$other" ]; then
-    echo "missing ($other)"
-    return
-  fi
-  if diff -q "$base" "$other" >/dev/null 2>&1; then
-    echo "identical"
-  else
-    n=$(diff "$base" "$other" | grep -c '^[<>]')
-    echo "differs, ${n} lines"
-  fi
-}
-
-echo "Measured $(date +%Y-%m-%d) against the Java copies:"
-echo
-echo "| File | Windows | Mac |"
-echo "|---|---|---|"
-for f in "${FILES[@]}"; do
-  base="$JAVA_DIR/$f"
-  if [ ! -f "$base" ]; then
-    echo "| \`$f\` | (java copy missing: $base) | |"
-    continue
-  fi
-  w=$(compare "$base" "$WIN_DIR/$f")
-  m=$(compare "$base" "$MAC_DIR/$f")
-  echo "| \`$f\` | $w | $m |"
+status=0
+for entry in "${VERSIONS[@]}"; do
+  IFS='|' read -r name repo dir <<<"$entry"
+  lock="$repo/checkin-pages.lock"
+  pinned=$( [ -f "$lock" ] && tr -d '[:space:]' < "$lock" || echo "none" )
+  echo "$name (checkin-pages.lock: $pinned)"
+  for f in "${FILES[@]}"; do
+    copy="$repo/$dir/$f"
+    if [ ! -f "$copy" ]; then
+      echo "  missing  $f"
+      status=1
+    elif cmp -s "$HERE/checkin/$f" "$copy"; then
+      echo "  same     $f"
+    else
+      echo "  DIFFERS  $f ($(diff "$HERE/checkin/$f" "$copy" | grep -c '^[<>]') lines)"
+      status=1
+    fi
+  done
 done
+exit $status

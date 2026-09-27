@@ -1,0 +1,18 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check-in-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # WCAG 2.2 AA 1.4.3 and 1.4.11: every color pair in checkin.css, in
+      # light and dark (SPEC.md D-18).
+      - name: Contrast of the check-in pages
+        run: node scripts/check-contrast.js

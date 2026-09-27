@@ -14,9 +14,12 @@ This repository holds no application code. It holds:
 | [`SPEC.md`](SPEC.md) | What every version must agree on, what each does its own way, what is undecided, and where each version stands |
 | [`artwork/`](artwork/) | The app icon, drawn once for all versions |
 | [`WEBSITE.md`](WEBSITE.md) | What [eagleboards.page](https://eagleboards.page/) shows of each version, and which of its pages and screenshots are out of date |
+| [`checkin/`](checkin/) | The check-in pages the tablets load, served unchanged by every version (WCAG 2.2 AA) |
+| [`scripts/check-contrast.js`](scripts/check-contrast.js) | Measures every color pair the check-in pages use, light and dark |
+| [`scripts/check-drift.sh`](scripts/check-drift.sh) | Compares each version's copy of the check-in pages with `checkin/` |
 
-Still to come: the check-in pages the tablets load, and the board-rule and
-auto-select test cases as data every version's tests read.
+Still to come: the board-rule and auto-select test cases as data every
+version's tests read.
 
 ## Working across versions
 
