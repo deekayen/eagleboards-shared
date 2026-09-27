@@ -71,6 +71,17 @@ them.
   birthdates: never blanked or purged, carried through a rewrite and a
   repeat sign-in unchanged, and never shown, pre-filled or exported. Adults'
   phone numbers are not affected.
+- **D-9 A new install starts an empty adult history.** A new install has no
+  `Master_AdultHistory.csv`, and no release ships one (it would hold
+  participant data). When the adult history a version is told to use (its
+  default, or the file named with `-a`) does not exist, the version creates
+  it, holding only the header row, and says so, naming the full path, rather
+  than refusing to start. Where the operator types or picks that path
+  (Windows' startup window), the version may ask first, so a mistyped path is
+  not taken for a new history. Tonight's files in the dated folder are
+  created as before. A start from the command line that fails for any
+  reason ends with a non-zero exit code, and leaves no window up that
+  suggests the server is running.
 - **D-19 No color settings.** The twelve status-color keys
   (`RegisteredColor` through `PostponedHiColor`) are retired from
   `config.properties`. No version lists them as columns, defaults them,
@@ -282,6 +293,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
 | No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
 | No youth phone number (D-8) | ✅ | ✅ | ✅ | Java d355a10, Windows f0e582a, Mac 55ba04b. Not asked, imported, pre-filled, shown or exported; a number on file is left alone and withheld wherever a youth table is served (`/youth-autofill` included) or saved (Mac's Records export), and a `-cells` filter on it matches nothing (Java, Windows; the Mac has no such endpoint). The event test's section 24 covers it: Java's script, copied byte for byte to Windows, mirrored in Mac's `BoardEventTests` |
+| New install: empty adult history (D-9) | ➖ | ◐ | ✅ | Java refuses to start without the `-a` file (and `run.sh`, `run.bat` and RUNNING.md all pass one), leaving the URL window up and exiting 0. Windows: the startup window offers to start one; a command-line start with a missing `-a` file refuses, and a failed command-line start exits 0. Mac creates it with its header |
 | Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at f8200cb, checked in CI; all three serve the `/api/*` calls |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
