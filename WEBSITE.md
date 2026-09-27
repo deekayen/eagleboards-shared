@@ -16,6 +16,12 @@ leads, the apps follow, and the site catches up.
   check-in pages leaves that version's walkthrough and pictures out of date.
   Add a line under [Stale](#stale) in the same commit that updates the
   parity table in `SPEC.md`.
+- **So does a change to what a version needs or how it installs.** Each
+  version's page lists its system requirements and install steps, and the
+  overview's feature list and version table sum them up. A new minimum OS,
+  Java or .NET version, or processor; a release packaged, named or signed
+  differently; or a feature every version gains, belongs under
+  [Stale](#stale) too.
 - **Re-shoot a version in one pass, after its work lands.** Not after every
   commit: wait until nothing that changes its screens is still in progress,
   then redo all of its images together so they agree with each other. Fix
@@ -32,7 +38,7 @@ text on each one says exactly what it shows, so it changes with the image.
 | `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/evening.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-09-27 |
 | `content/docs/scheduler/mac.md` | Mac | `mac/evening.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-27 |
 | `content/docs/scheduler/windows.md` | Windows | `windows/evening.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-27 |
-| `content/docs/scheduler/_index.md` | All | None; compares the three versions | |
+| `content/docs/scheduler/_index.md` | All | `java/evening.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-09-27 |
 
 ## Stale
 
