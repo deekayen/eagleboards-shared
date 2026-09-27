@@ -188,8 +188,8 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
-| No birthdate collected (D-7) | ➖ | ✅ | ➖ | Java and Mac still ask, pre-fill, show and export it; the shared pages (D-18) drop the field |
-| Shared check-in pages (D-18) | ➖ | ➖ | ➖ | The pages are in `checkin/`; each version still serves its own copies |
+| No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
+| Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at d8448ac, checked in CI; all three serve the `/api/*` calls |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream; the check-in page still refreshes on `RefreshTimeSecs` |
