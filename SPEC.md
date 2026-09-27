@@ -163,13 +163,13 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
 | No birthdate collected (D-7) | ➖ | ➖ | ➖ | All three still ask, pre-fill, show and export it |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
-| Undo (O-2) | ✅ | ➖ | ✅ | Decided: everywhere; Windows still needs a restore-board op |
-| Nothing polls (D-15) | ➖ | ✅ | ✅ | Java: still re-reads every `RefreshTimeSecs`, but redraws only on change; needs a push endpoint |
+| Undo (O-2) | ✅ | ✅ | ✅ | |
+| Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream; the check-in page still refreshes on `RefreshTimeSecs` |
 | Single live-operations view (O-3) | ✅ | ✅ | ✅ | |
-| Change members of a seated board | ➖ | ✅ | ✅ | Windows: `ChangeBoardMembers`; Mac: `EventNight.changeMembers`, timer keeps running |
-| Rename room | ◐ | ➖ | ✅ | Java: admin tables only |
+| Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
+| Rename room | ◐ | ✅ | ✅ | Java: admin tables only |
 | Move or swap a board between rooms | ✅ | ✅ | ✅ | |
-| Sign-in QR code window | ➖ | ➖ | ✅ | |
+| Sign-in QR code window | ✅ | ✅ | ✅ | |
 | Drag a youth onto a room to seat | ➖ | ➖ | ✅ | Mac only is fine (pointer-heavy) |
 | Link adult to youth after sign-in | ✅ | ✅ | ✅ | |
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
