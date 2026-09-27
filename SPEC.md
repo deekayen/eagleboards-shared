@@ -173,6 +173,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Drag a youth onto a room to seat | ➖ | ➖ | ✅ | Mac only is fine (pointer-heavy) |
 | Link adult to youth after sign-in | ✅ | ✅ | ✅ | |
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
+| Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate and About. Never on the live-operations view or the check-in pages |
 
 ### Shared files that have drifted
 
