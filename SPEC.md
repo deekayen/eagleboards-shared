@@ -54,7 +54,11 @@ them.
   by the server, not only by the screen.
 - **D-5 Auto-select.** The proposed board weighs the whole waiting line, with
   the tie-breaks in the order the Java `proposeBoard` documents. Same
-  algorithm, same test cases in all three.
+  algorithm, same test cases in all three: the cases for the D-4 rules,
+  auto-select and fill the rest (D-12) are data in [`cases/`](cases/), and
+  every version runs every one of them through its own code, from a copy
+  pinned by `test-cases.lock` (see [`cases/README.md`](cases/README.md)). A
+  case is added there, never only in one version.
 - **D-6 Branding** is district-neutral. No district or council name anywhere.
 - **D-7 No birthdate.** Nothing uses a youth's date of birth, so no version
   asks for it, stores it, shows it, pre-fills it or exports it. The `DOB`
@@ -295,6 +299,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | No youth phone number (D-8) | ✅ | ✅ | ✅ | Java d355a10, Windows f0e582a, Mac 55ba04b. Not asked, imported, pre-filled, shown or exported; a number on file is left alone and withheld wherever a youth table is served (`/youth-autofill` included) or saved (Mac's Records export), and a `-cells` filter on it matches nothing (Java, Windows; the Mac has no such endpoint). The event test's section 24 covers it: Java's script, copied byte for byte to Windows, mirrored in Mac's `BoardEventTests` |
 | New install: empty adult history (D-9) | ✅ | ✅ | ✅ | Java 1a35a9e, Windows fdfb449; the Mac already did. A missing history is started with its header row and its full path said (Java's console; Windows' log, or the console for `EagleBoards.Server`; Windows' startup window asks first). A failed command-line start exits 1, and Java's URL window goes with it. Java's `scripts/test-first-run.sh` covers it |
 | Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at f8200cb, checked in CI; all three serve the `/api/*` calls |
+| Shared rule and auto-select cases (D-5) | ➖ | ➖ | ➖ | The format is set (`cases/README.md`); the cases are not written yet. Each version still runs its own hand-ported copy, and they have drifted: the Mac has no fill-the-rest (D-12) cases, and Windows' fill tests list roles in the opposite order to its auto-select tests |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
@@ -317,5 +322,9 @@ The check-in pages are in [`checkin/`](checkin/) (D-18); each version pins
 them with `checkin-pages.lock` and its CI compares its copies byte for byte.
 `scripts/check-drift.sh` compares all three local clones against them, and
 checks each version's copy of the status palette (D-13) against the table
-here. The icon is in [`artwork/`](artwork/). The rule and auto-select test
-cases are to follow.
+here. The icon is in [`artwork/`](artwork/).
+
+The rule and auto-select test cases are in [`cases/`](cases/) (D-5), one JSON
+file per operation, being transcribed from Java's `test-seat-conflicts.js`
+(#9). Each version will pin them with `test-cases.lock` and run them all;
+until then each keeps its own hand-ported copy.
