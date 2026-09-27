@@ -56,6 +56,11 @@ them.
   the tie-breaks in the order the Java `proposeBoard` documents. Same
   algorithm, same test cases in all three.
 - **D-6 Branding** is district-neutral. No district or council name anywhere.
+- **D-7 No birthdate.** Nothing uses a youth's date of birth, so no version
+  asks for it, stores it, shows it, pre-fills it or exports it. The `DOB`
+  column stays in the youth CSV so files still move between versions and
+  older builds (D-1), but it is written empty. `/register-youth` still
+  accepts a `DOB` field from an older cached page and discards it (D-2).
 
 ### Operator screen
 
@@ -136,8 +141,16 @@ the same app feels native on each system rather than identical everywhere.
 Each gets a parent issue here. Until one is decided, versions keep what they
 have and do not change it further.
 
-None open right now. O-1 through O-4 were decided 2026-09-26; see "Resolved
-open questions" under Decided, above.
+O-1 through O-4 were decided 2026-09-26; see "Resolved open questions" under
+Decided, above.
+
+- **O-5 Birthdates already on file.** D-7 stops new ones, but earlier events'
+  dated folders and the returning-youth history still hold them. Options:
+  (a) leave old files alone; (b) blank `DOB` in a file whenever a version
+  next rewrites it, so history clears itself over time; (c) (b) plus a
+  one-time "Clear stored birthdates" command. Recommendation: (b), with
+  release notes telling owners that archived folders they keep elsewhere
+  are theirs to purge.
 
 ---
 
@@ -152,6 +165,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | |
 | Fill the rest / Suggest a board (D-12) | ◐ | ✅ | ✅ | Java auto-selects only |
+| No birthdate collected (D-7) | ➖ | ➖ | ➖ | All three still ask, pre-fill, show and export it |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ➖ | ✅ | Decided: everywhere; Windows still needs a restore-board op |
 | Single live-operations view (O-3) | ✅ | ✅ | ✅ | |
