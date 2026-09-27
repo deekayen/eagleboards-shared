@@ -160,15 +160,16 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 
 | Feature | Java | Windows | Mac | Notes |
 |---|---|---|---|---|
-| Details pane builds the board (D-10) | ✅ | ✅ | ✅ | |
+| Details pane builds the board (D-10) | ◐ | ✅ | ✅ | Java: pane exists but sits in a quarter-height slot; its free-adults list renders with no visible rows |
 | No self-dismissing messages (D-14) | ✅ | ✅ | ✅ | |
-| Status as text plus icon (D-13) | ✅ | ✅ | ✅ | |
-| Follows system dark mode (D-16) | ✅ | ✅ | ✅ | |
-| Fill the rest / Suggest a board (D-12) | ◐ | ✅ | ✅ | Java auto-selects only |
+| Status as text plus icon (D-13) | ◐ | ✅ | ✅ | Java: icon and text present, but rows are still filled with the `config.properties` status colors |
+| Follows system dark mode (D-16) | ◐ | ✅ | ✅ | Java: dark mode yes; system font and accent color no (Arial 13px) |
+| Fill the rest / Suggest a board (D-12) | ◐ | ✅ | ✅ | Java: Fill the rest exists, but adding by hand is blocked by the D-10 list |
 | No birthdate collected (D-7) | ➖ | ➖ | ➖ | All three still ask, pre-fill, show and export it |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ➖ | ✅ | Decided: everywhere; Windows still needs a restore-board op |
-| Single live-operations view (O-3) | ✅ | ✅ | ✅ | |
+| Nothing polls (D-15) | ➖ | ✅ | ✅ | Java: redraws every grid every `RefreshTimeSecs` |
+| Single live-operations view (O-3) | ◐ | ✅ | ✅ | Java: still the inherited four-panel page, with youth listed twice (queue and boards grid) |
 | Change members of a seated board | ➖ | ✅ | ✅ | Windows: `ChangeBoardMembers`; Mac: `EventNight.changeMembers`, timer keeps running |
 | Rename room | ◐ | ➖ | ✅ | Java: admin tables only |
 | Move or swap a board between rooms | ✅ | ✅ | ✅ | |
