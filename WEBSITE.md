@@ -111,6 +111,11 @@ What has changed since each version's pictures were taken.
   the Youth list and nothing over the rooms; `windows.md` doesn't mention
   finding anyone, and "which room someone is in" is worth a sentence in
   section 2 or 3.
+- The details pane's step buttons (Seat board, Start review, Complete,
+  Reset) sit in a bar pinned to its foot, and in review Result and Notes
+  come before the members (58f3170). `windows/complete-board.gif` shows the
+  members above the result, and `windows/evening.png` Complete below them.
+  Ctrl+Enter runs the step; section 3 of `windows.md` could say so.
 - The Windows README's pictures (`docs/images/`) are already current.
 
 ## Re-shooting
