@@ -105,6 +105,12 @@ What has changed since each version's pictures were taken.
 - No Undo button in the bottom bar (7685c7b): **Edit › Undo** and Ctrl+Z
   undo. `windows.md` says "**Undo** (Ctrl+Z) at the bottom right", and the
   three pictures show the button.
+- D-21 (87fba78): the Youth list has no Find a youth box, and **Find a
+  person** under the Rooms heading narrows the rooms to someone's, youth or
+  adult, or says where they are. The three pictures show Find a youth over
+  the Youth list and nothing over the rooms; `windows.md` doesn't mention
+  finding anyone, and "which room someone is in" is worth a sentence in
+  section 2 or 3.
 - The Windows README's pictures (`docs/images/`) are already current.
 
 ## Re-shooting
