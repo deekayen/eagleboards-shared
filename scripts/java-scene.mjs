@@ -7,7 +7,7 @@
 //   node scripts/java-scene.mjs <eagleboards-java clone> --event <data-dir>
 //
 // --event builds the scene and shoots nothing: it writes a data folder
-// (Master_AdultHistory.csv, config.properties and tonight's folder) for
+// (Master_AdultHistory.csv, config.properties and today's folder) for
 // another version to open, as the Windows tool's --site-event does. Its times
 // are moved so 20:00 is the minute it finishes in; open it within that minute
 // and the timers read as they do in the Java pictures. It writes only to a new
