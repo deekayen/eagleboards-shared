@@ -99,7 +99,7 @@ What has changed since each version's pictures were taken.
   history, and the Adult History CSV's Last Event column ticks who has signed
   in today. `mac.md` says nothing of either.
 
-### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20 (f28f8b6, e7a69bf)
+### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20, D-22 (f28f8b6, e7a69bf, ca23ae3)
 
 - No sidebar: a menu bar (File, Edit, View, Help) across the top, and the
   Event page takes the whole width. `windows/evening.png`,
@@ -144,6 +144,10 @@ What has changed since each version's pictures were taken.
   in an adult who won't use the tablet, filled in from a search of the adult
   history, and the Adult history CSV's **Sign in for today** does the same
   for the adult selected there. `windows.md` says nothing of either.
+- New since the pictures (ca23ae3): **View › Approved proposals** (Ctrl+8)
+  lists the project proposals approved at earlier events in the data
+  folder, for a youth who comes without the signed page. `windows.md` could
+  say so beside the board of review steps; no picture shows it.
 - The Windows README's pictures (`docs/images/`) are already current.
 
 ## Re-shooting
