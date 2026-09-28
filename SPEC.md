@@ -165,6 +165,21 @@ them.
 
   The admin tables keep Wood Badge as an editable Yes/No field; the marks
   are for the screens the operator works in.
+- **D-21 Find a person's room.** Decided 2026-09-27 by the owner. The
+  question the find answers is "which room is this person in?", for a youth
+  or an adult alike, so it belongs to the rooms, not the youth list. Typing
+  part of a name narrows the room cards to the rooms holding a match (the
+  youth, or a member of the board), and to a room by that name. Anyone it
+  matches who is in no room is said in words beside it: *is waiting*,
+  *isn't on a board*, *has gone home*, *has finished*, *was postponed*; and
+  if it matches no one, *No one by that name has signed in.* Clearing it
+  shows every room again. The youth list has no find of its own (O-3): it is
+  stacked by group and short enough to read.
+  - Windows and Java: a *Find a person* box under the Rooms heading. Enter
+    opens the first room found (or the youth found, if in no room); Esc
+    clears; Ctrl+F goes to it.
+  - Mac: the toolbar's search field, which already narrows the rooms by a
+    youth's or a member's name, says where a match in no room is.
 
 #### Status palette (D-13)
 
@@ -261,11 +276,14 @@ cite them.
   three stacked groups: Waiting (in sign-in order), On a board (by room) and
   Finished (the most recent first), each headed with its count. Nothing is
   picked to see a group: no Show menu, and no sidebar entry or tab per group.
-  Find searches every youth. This replaces "Mac's Waiting / On Boards /
-  Finished lists become filters within that one view", which let the Mac
-  keep a sidebar list per group that had to be picked before a youth could
-  be found, and let Java and Windows hide Finished behind a Show menu that
-  Find could not see past. What sits beside the Event page is P-6.
+  This replaces "Mac's Waiting / On Boards / Finished lists become filters
+  within that one view", which let the Mac keep a sidebar list per group
+  that had to be picked before a youth could be found, and let Java and
+  Windows hide Finished behind a Show menu that Find could not see past.
+  What sits beside the Event page is P-6. *Amended again the same day:* the
+  list has no find of its own, where it said "Find searches every youth";
+  D-21's find, over the rooms, finds anyone, youth or adult, and says which
+  room they're in.
 - **O-4 No "Next step" label.** The primary action always names the
   concrete step (Seat board, Start review, Complete), never a generic
   label. Confirms D-11; Mac's menu command drops "Next Step" as its wording.
@@ -357,9 +375,10 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
 | Queue, rooms and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
-| One stacked youth column; Find searches everyone (O-3, amended) | ✅ | ✅ | ✅ | Java cdf13f5, Windows f28f8b6 (groups that stay, headed at a count of none; `SchedulerLogic.QueueSortKey` orders them, with a unit test), Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider) |
+| One stacked youth column (O-3, amended) | ✅ | ✅ | ✅ | Java cdf13f5, Windows f28f8b6 (groups that stay, headed at a count of none; `SchedulerLogic.QueueSortKey` orders them, with a unit test), Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider) |
 | Pages beside the Event page (P-6) | ✅ | ✅ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Windows f28f8b6: Event, Results and People in the View menu (Ctrl+1 to 3), no sidebar; Admin tables in the File menu and on both pages. Mac b99be53, ef4b34d: Event, Results (new) and People in the View menu (⌥⌘1 to 3), no sidebar, with the inspector beside each; Records stays a window |
 | Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
+| Find a person's room (D-21) | ➖ | ➖ | ◐ | Java and Windows have *Find a youth* in the Youth list, which D-21 takes out. The Mac's toolbar search already narrows the rooms by a youth's or member's name (`Rooms.visibleRooms`), but doesn't say where a match in no room is |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
 | Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |
 | Switch a room between final and project | ✅ | ✅ | ✅ | A board already in it is not disturbed |
