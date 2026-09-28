@@ -11,7 +11,7 @@ way, and what is still undecided. There are three versions:
 
 All three serve the same check-in website to the tablets at the door, and all
 three read and write the same data files, so an event can move from one to
-another mid-evening.
+another mid-event.
 
 ## How to change this
 

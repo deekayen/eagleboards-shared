@@ -55,7 +55,7 @@ The same in every version (the Mac version's API):
 | Call | Answer |
 |---|---|
 | `GET /api/checked-in` | `{ refreshSeconds, youth: [{ time, last, first, unitType, unit }], adults: [{ last, first, unitType, unit }] }`, in sign-in order. `refreshSeconds` is still sent but no longer read: the lists load when the page opens |
-| `GET /api/scout-choices` | `[{ id, first, last, unitType, unit }]`: RSVPs and tonight's walk-ins whose evening isn't over, sorted by last name |
+| `GET /api/scout-choices` | `[{ id, first, last, unitType, unit }]`: RSVPs and the event's walk-ins not yet finished, sorted by last name |
 | `POST /api/youth-lookup` `email=` | the pre-registration it matches: `ID, Last, First, UnitType, Unit, BoardType, Leader`, or `{}` |
 | `POST /api/adult-lookup` `email=` | the adult history it matches: `ID, Last, First, Phone, UnitType, Unit, FinalBoard, ProjectReview`, or `{}` |
 | `POST /register-youth` | form fields; 200 on success, otherwise the reason as text |
