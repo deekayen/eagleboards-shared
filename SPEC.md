@@ -137,9 +137,10 @@ them.
   bar's Help menu on Windows and the Mac (Help › Donate…), and in the app bar
   of every Java operator page. It opens the list of ways to support the
   project (the links in `.github/FUNDING.yml`): the Support card in Settings
-  on Windows and Java, a Donate window of its own on the Mac. It never goes on the check-in pages or inside the
-  queue, the rooms or the details pane, and it never becomes a prompt, badge
-  or reminder that interrupts the operator. The list shows a QR code for
+  on Windows and Java, a Donate window of its own on the Mac. It never goes
+  on the check-in pages or inside the queue, the rooms or the details pane,
+  and it never becomes a prompt, badge or reminder that interrupts the
+  operator. The list shows a QR code for
   Venmo, so a phone can pay straight from the screen:
   `https://venmo.com/u/drdnorman?txn=pay&note=Eagle%20Boards` (Pay, with the
   note filled in), dark on white in both appearances.
