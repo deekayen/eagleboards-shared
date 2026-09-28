@@ -163,8 +163,9 @@ them.
     version that also says "same unit" in the adult's line may keep the
     words.
 
-  The admin tables keep Wood Badge as an editable Yes/No field; the marks
-  are for the screens the operator works in.
+  Where Wood Badge is edited in a table (People on Windows and the Mac,
+  Java's admin page), it is a Yes/No choice while the cell is being changed;
+  a table the operator reads shows the mark.
 - **D-21 Find a person's room.** Decided 2026-09-27 by the owner. The
   question the find answers is "which room is this person in?", for a youth
   or an adult alike, so it belongs to the rooms, not the youth list. Typing
@@ -309,9 +310,10 @@ the same app feels native on each system rather than identical everywhere.
     No sidebar. *Amended 2026-09-27 by the owner:* this replaces "No menu bar
     (Fluent guidance)" and the NavigationView sidebar that went with it;
     Settings, Help and the pages belong in a native menu bar, as on the Mac.
-    File: Save report, Admin tables, the check-in QR code, Settings (a
-    window of its own), Exit. Edit: Undo, naming the step. View: Event,
-    Results, People (Ctrl+1 to 3). Help: Help (F1), Donate (D-17).
+    File: Save report, the check-in QR code, Settings (a window of its
+    own), Exit. Edit: Undo, naming the step. View: Event, Results, People,
+    then Youth, Pre-registered, Adult history and Rooms (Ctrl+1 to 7; P-6).
+    Help: Help (F1), Donate (D-17).
   - Java (browser): buttons in the page and details pane, and context menus
     built on the Popover API. No imitation of a menu bar.
 - **P-2 Capitalization.** Mac: Title Case for buttons and menus (Apple HIG).
@@ -324,15 +326,22 @@ the same app feels native on each system rather than identical everywhere.
   room passes its red time. Windows: taskbar equivalents are allowed but not
   required. Java: none.
 - **P-6 Pages beside the Event page.** Decided 2026-09-27.
-  - Windows and Mac: Event, Results and People pages. Results lists every
-    board and its result, read-only, with Find and Save report, and opens a
-    board on the Event page. People lists the adults at this event, with Gone
-    home and Back and the D-20 marks. The admin tables, where any record can
-    be corrected, open in a window of their own from both pages and the menu
-    bar: Windows' Admin tables, the Mac's Records. Neither has a sidebar:
-    both choose the page from the View menu (P-1), Ctrl+1 to 3 on Windows and
-    ⌥⌘1 to 3 on the Mac, with a check on the page shown, so the Event page has
-    the window's whole width.
+  - Windows and Mac: an Event page, and a page for each table the event
+    keeps: Results, People, Youth, Pre-registered, Adult history and Rooms.
+    *Amended 2026-09-27 by the owner:* every table is corrected where it is
+    shown, so there is no separate admin tables window (Windows' Admin
+    tables, the Mac's Records). Results is the boards table: every board and
+    its result, where a result or its notes is corrected, with Find, Save
+    report and a way to open a board on the Event page. People is the adults
+    table: roles, unit, contact and Wood Badge are changed there, beside Gone
+    home and Back and the D-20 marks. The other pages have Find, Export and
+    Delete (Rooms: Add and Remove room). A changed cell is saved as it is
+    left, and stays off the Undo stack. Who sits on a board, and which room
+    a youth or an adult is in, are never typed into a table: they change
+    through the Event page's steps, under the D-4 rules. Neither version has
+    a sidebar: both choose the page from the View menu (P-1), Ctrl+1 to 7 on
+    Windows and ⌥⌘1 to 7 on the Mac, with a check on the page shown, so the
+    Event page has the window's whole width.
   - Java: no Results or People page. The top bar has Event, Admin tables,
     Settings and Help; Admin tables is the admin page, whose Boards tab
     corrects a result and whose Adults tab changes roles. Results are read
@@ -376,7 +385,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
 | Queue, rooms and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
 | One stacked youth column (O-3, amended) | ✅ | ✅ | ✅ | Java cdf13f5, Windows f28f8b6 (groups that stay, headed at a count of none; `SchedulerLogic.QueueSortKey` orders them, with a unit test), Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider) |
-| Pages beside the Event page (P-6) | ✅ | ✅ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Windows f28f8b6: Event, Results and People in the View menu (Ctrl+1 to 3), no sidebar; Admin tables in the File menu and on both pages. Mac b99be53, ef4b34d: Event, Results (new) and People in the View menu (⌥⌘1 to 3), no sidebar, with the inspector beside each; Records stays a window |
+| Pages beside the Event page (P-6) | ✅ | ➖ | ◐ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Windows f28f8b6: Event, Results and People in the View menu (Ctrl+1 to 3), no sidebar, but the other tables in an Admin tables window, and Results and People read-only. Mac b99be53, ef4b34d: Event, Results (new) and People in the View menu (⌥⌘1 to 3), no sidebar, with the inspector beside each; the other tables in the Records window |
 | Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Find a person's room (D-21) | ➖ | ✅ | ◐ | Windows 87fba78: *Find a person* under the Rooms heading, `SchedulerLogic.FindPeople` with a unit test. Java has *Find a youth* in the Youth list, which D-21 takes out. The Mac's toolbar search already narrows the rooms by a youth's or member's name (`Rooms.visibleRooms`), but doesn't say where a match in no room is |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
