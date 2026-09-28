@@ -19,7 +19,7 @@
 //      ... -- --gif seat-board.gif seat-0.png 2500 seat-1.png 4000 seat-2.png 4000
 //      ... -- --gif complete-board.gif complete-0.png 3000 complete-1.png 3500 complete-2.png 4000
 //
-// evening-dark.png is the site's java/evening.png and, with evening-light.png,
+// event-dark.png is the site's java/event.png and, with event-light.png,
 // the Java README's event pictures; results.png and settings.png go to both.
 // people.png is taken but unused: its sign-in times show as stored.
 //
@@ -119,12 +119,12 @@ await send("Runtime.enable");
 await send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
 
 try {
-  // The evening, before anything changes: dark for the site, both for the README.
+  // The event, before anything changes: dark for the site, both for the README.
   for (const scheme of ["dark", "light"]) {
     await theme(scheme);
     await open("/scheduler");
     await click(youth(ELDRED));
-    await shot(`evening-${scheme}.png`);
+    await shot(`event-${scheme}.png`);
   }
 
   // Dark: Bill Amend seated in 200B.

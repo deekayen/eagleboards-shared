@@ -35,10 +35,10 @@ text on each one says exactly what it shows, so it changes with the image.
 
 | Page | Version | Images | Taken |
 |---|---|---|---|
-| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/evening.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-09-27 |
-| `content/docs/scheduler/mac.md` | Mac | `mac/evening.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-27 |
-| `content/docs/scheduler/windows.md` | Windows | `windows/evening.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-28 |
-| `content/docs/scheduler/_index.md` | All | `java/evening.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-09-27 |
+| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/event.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-09-27 |
+| `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-27 |
+| `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-28 |
+| `content/docs/scheduler/_index.md` | All | `java/event.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-09-27 |
 
 ## Stale
 
@@ -47,7 +47,7 @@ What has changed since each version's pictures were taken.
 ### Java: O-3 amended, P-6, D-20, D-21, D-22 (cdf13f5, 38feaf9, 3f4240e, edade33, 23e89a9)
 
 - The top bar has one **Admin tables** link where Results and People were.
-  `java/evening.png`, `java/seat-board.gif` and `java/complete-board.gif`
+  `java/event.png`, `java/seat-board.gif` and `java/complete-board.gif`
   show the old links. In `java.md`, the top-bar table and the "Results and
   settings" section name them, and `java/results.png`'s alt text calls the
   Boards tab "the Results page".
@@ -58,7 +58,7 @@ What has changed since each version's pictures were taken.
   adult a warning triangle, where the details pane said "Wood Badge" and
   "Same unit" in words. `java/seat-board.gif` (Guion Bluford and Steve
   Fossett) shows the words.
-- The overview (`_index.md`) shows `java/evening.png` too, with the same
+- The overview (`_index.md`) shows `java/event.png` too, with the same
   alt text; it changes with `java.md`.
 - eagleboards-java's README uses the same shots (`docs/images/`); refresh
   them together. Its text is already current.
@@ -69,7 +69,7 @@ What has changed since each version's pictures were taken.
   a choice, and `java.md` says nothing of Add adult or the history tab.
 - D-21 (edade33): the Youth list has no Find a youth box, and **Find a
   person** under the Rooms heading narrows the room cards to someone's,
-  youth or adult, or says where they are (Ctrl+F). `java/evening.png`,
+  youth or adult, or says where they are (Ctrl+F). `java/event.png`,
   `java/seat-board.gif` and `java/complete-board.gif` show Find a youth over
   the Youth list and nothing over the rooms; "which room someone is in" is
   worth a sentence in `java.md`.
@@ -83,9 +83,9 @@ What has changed since each version's pictures were taken.
 - No sidebar: **View › Event**, **Results** and **People** (⌥⌘1 to ⌥⌘3)
   choose the page, and the Event page takes the whole width, every youth in
   one list stacked Waiting, On a Board, Finished, beside the room cards.
-  `mac/evening.png` (which shows only the Scouts on boards),
+  `mac/event.png` (which shows only the Scouts on boards),
   `mac/seat-board.gif` and `mac/complete-board.gif` show the old sidebar and
-  one group at a time, and `evening.png`'s alt text ends "Add Room and Donate
+  one group at a time, and `event.png`'s alt text ends "Add Room and Donate
   sit at the foot of the sidebar".
 - `mac.md`: "**The sidebar** chooses who the list shows", with Add Room and
   Donate at its foot; View › Waiting to Adults (⌥⌘1 to ⌥⌘4, now Event,
@@ -134,7 +134,7 @@ What has changed since each version's pictures were taken.
   Neil Armstrong with Jim Lovell and Charles Duke, overdue at 49 minutes.
   Room 102: Gerald Ford chairing. Room 200A: a proposal review chaired by
   Steven Spielberg, running long at 28 minutes. Bill Amend, waiting 53 minutes,
-  gets Guion Bluford as chair and Steve Fossett in 200B. `evening.png` and
+  gets Guion Bluford as chair and Steve Fossett in 200B. `event.png` and
   `seat-board.gif` are in dark mode and `complete-board.gif` in light.
 - **The demo event lives in code on Windows.** `--site` in the Windows
   repository's snapshot tool builds it on a simulated clock, and
@@ -152,7 +152,7 @@ What has changed since each version's pictures were taken.
   animates the GIFs with ffmpeg:
   `node scripts/java-scene.mjs <eagleboards-java clone> <out-dir>`, after
   `./mvnw package` in the clone (`BROWSER=` to pick a Chromium browser, such
-  as Brave). Its cast and times copy `Site.SeedEvening` in the Windows
+  as Brave). Its cast and times copy `Site.SeedEvent` in the Windows
   snapshot tool: change one, change the other.
 - **The Mac pictures start from the same event.**
   `node scripts/java-scene.mjs <eagleboards-java clone> --event <dir>`
@@ -164,11 +164,11 @@ What has changed since each version's pictures were taken.
   by hand: a 1280x738 window (launch with
   `-"NSWindow Frame scheduler" "<x> <y> 1280 738 …"`), captured with
   `screencapture -o -l <window>` so a sheet comes with its window, scaled
-  to 1600 wide for `evening.png` and 1100 for the GIFs. The app follows the
+  to 1600 wide for `event.png` and 1100 for the GIFs. The app follows the
   system's appearance, not a launch argument.
 - **Windows images need Windows.** On a Windows machine,
   `dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site <dir>`
-  in the Windows repository renders `evening.png`, `seat-board.gif` and
+  in the Windows repository renders `event.png`, `seat-board.gif` and
   `complete-board.gif` with this cast, and photographs the shared check-in
   pages (`checkin.png`, `youth.png`, `adult.png`) as a 1180x820 tablet shows
   them, through Edge headless. Those three serve every version's page.

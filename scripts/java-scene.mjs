@@ -23,7 +23,7 @@
 //    header-only AdultHistory.csv and the clone's config.properties, so no
 //    real record is ever read.
 // 2. Seeds the scene over HTTP, with the calls the pages make, in the order of
-//    Site.SeedEvening in eagleboards-windows' snapshot tool. Change the two
+//    Site.SeedEvent in eagleboards-windows' snapshot tool. Change the two
 //    together, so every version's pictures show the same event.
 // 3. Stops the jar and moves every time in its files so the scene's 20:00 is
 //    the current minute: the jar stamps the real time as it goes.
@@ -92,7 +92,7 @@ const YOUTH = [
   ["Belle", "Albert", 1007, "Project", 45, 45],
   ["Cech", "Thomas", 1006, "Final", 39, 39],
 ];
-// Room, board type, when its board last changed (200B: free all evening).
+// Room, board type, when its board last changed (200B: free from the start).
 const ROOMS = [["101", "Final", 49], ["102", "Final", 24], ["103", "Final", 12], ["200A", "Project", 28], ["200B", "Project", 70]];
 // What the seeding must leave behind, checked before anything is shot.
 const EXPECTED = { Eldred: "InProgress", Galifianakis: "InProgress", Agre: "Seated", Corddry: "InProgress", Amend: "Registered", Belle: "Registered", Cech: "Registered" };
