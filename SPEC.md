@@ -336,9 +336,15 @@ the same app feels native on each system rather than identical everywhere.
     table: roles, unit, contact and Wood Badge are changed there, beside Gone
     home and Back and the D-20 marks. The other pages have Find, Export and
     Delete (Rooms: Add and Remove room). A changed cell is saved as it is
-    left, and stays off the Undo stack. Who sits on a board, and which room
-    a youth or an adult is in, are never typed into a table: they change
-    through the Event page's steps, under the D-4 rules. Neither version has
+    left (a choice as soon as it is picked; leaving the page saves a cell
+    still open), and stays off the Undo stack. An adult's name, unit,
+    contact and roles are one set of facts on People and Adult history, as a
+    sign-in carries them between the two: a change on either page is made on
+    both, so a chair promoted in the history is seated as a chair at this
+    event. Wood Badge and whom they came to support belong to this event
+    alone. Who sits on a board, and which room a youth or an adult is in,
+    are never typed into a table: they change through the Event page's
+    steps, under the D-4 rules. Neither version has
     a sidebar: both choose the page from the View menu (P-1), Ctrl+1 to 7 on
     Windows and ⌥⌘1 to 7 on the Mac, with a check on the page shown, so the
     Event page has the window's whole width.
