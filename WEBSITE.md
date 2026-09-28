@@ -99,7 +99,7 @@ What has changed since each version's pictures were taken.
   history, and the Adult History CSV's Last Event column ticks who has signed
   in today. `mac.md` says nothing of either.
 
-### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20 (f28f8b6)
+### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20 (f28f8b6, e7a69bf)
 
 - No sidebar: a menu bar (File, Edit, View, Help) across the top, and the
   Event page takes the whole width. `windows/evening.png`,
@@ -135,10 +135,15 @@ What has changed since each version's pictures were taken.
   members above the result, and `windows/evening.png` Complete below them.
   Ctrl+Enter runs the step; section 3 of `windows.md` could say so.
 - P-6 (7f20371): no Admin tables window. Every table is a page on the View
-  menu, edited in place: Results (correct a result), People (change roles),
-  Youth, Pre-registered, Adult history and Rooms. `windows.md` names no
-  admin tables, so nothing there is wrong, but a sentence on correcting a
-  result on Results and a role on People would help; no picture shows them.
+  menu, edited in place: Results (correct a result), Adults (change roles),
+  Youth, Pre-registered and Rooms, and the Adult history CSV, read-only
+  (e7a69bf). `windows.md` names no admin tables, so nothing there is wrong,
+  but a sentence on correcting a result on Results and a role on Adults
+  would help; no picture shows them.
+- New since the pictures (e7a69bf): **Add adult…** on the Adults page signs
+  in an adult who won't use the tablet, filled in from a search of the adult
+  history, and the Adult history CSV's **Sign in for today** does the same
+  for the adult selected there. `windows.md` says nothing of either.
 - The Windows README's pictures (`docs/images/`) are already current.
 
 ## Re-shooting
