@@ -432,12 +432,12 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Timer clocks ⏱ ⏲ ⏰ (D-13) | ✅ | ✅ | ✅ | Running long and overdue used to share one warning icon in all three. Java: inline SVGs; Windows: Segoe UI Symbol glyphs; Mac: SF Symbols. The state is also said in words to a screen reader |
 | No color keys in `config.properties` (D-19) | ✅ | ✅ | ✅ | An older file loads and the next save drops them; the Windows–Java hand-off test passes both ways |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
-| Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | |
+| Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ◐ | Java and Windows: *Fill the rest* keeps the operator's picks and adds a chair and members around them (`fillBoard`, `FillBoard`). The Mac's *Suggest a Board* replaces the board with a whole proposal, so it can suggest but not fill in around the people chosen; found writing the shared `fill` cases (#9) |
 | No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
 | No youth phone number (D-8) | ✅ | ✅ | ✅ | Java d355a10, Windows f0e582a, Mac 55ba04b. Not asked, imported, pre-filled, shown or exported; a number on file is left alone and withheld wherever a youth table is served (`/youth-autofill` included) or saved (the Mac's Export List), and a `-cells` filter on it matches nothing (Java, Windows; the Mac has no such endpoint). The event test's section 24 covers it: Java's script, copied byte for byte to Windows, mirrored in Mac's `BoardEventTests` |
 | New install: empty adult history (D-9) | ✅ | ✅ | ✅ | Java 1a35a9e, Windows fdfb449; the Mac already did. A missing history is started with its header row and its full path said (Java's console; Windows' log, or the console for `EagleBoards.Server`; Windows' startup window asks first). A failed command-line start exits 1, and Java's URL window goes with it. Java's `scripts/test-first-run.sh` covers it |
 | Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at f8200cb, checked in CI; all three serve the `/api/*` calls |
-| Shared rule and auto-select cases (D-5) | ➖ | ➖ | ➖ | The format is set (`cases/README.md`); the cases are not written yet. Each version still runs its own hand-ported copy, and they have drifted: the Mac has no fill-the-rest (D-12) cases, and Windows' fill tests list roles in the opposite order to its auto-select tests |
+| Shared rule and auto-select cases (D-5) | ➖ | ➖ | ➖ | The 70 cases are in `cases/`: Java's `test-seat-conflicts.js`, and five from Windows' and the Mac's tests. All pass through Java's `process_seat.js` (`scripts/test-cases.js`). No version pins and runs them yet; each still runs its own hand-ported copy, and they have drifted: the Mac has no fill-the-rest (D-12) cases, and Windows' fill tests list roles in the opposite order to its auto-select tests |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
@@ -471,6 +471,7 @@ here. The icon is in [`artwork/`](artwork/), with the Wood Badge mark
 (D-20).
 
 The rule and auto-select test cases are in [`cases/`](cases/) (D-5), one JSON
-file per operation, being transcribed from Java's `test-seat-conflicts.js`
-(#9). Each version will pin them with `test-cases.lock` and run them all;
-until then each keeps its own hand-ported copy.
+file per operation, transcribed from Java's `test-seat-conflicts.js` with
+five more from Windows' and the Mac's tests (#9). Each version pins them with
+`test-cases.lock` and runs them all; until it does, it keeps its own
+hand-ported copy. `scripts/check-drift.sh` compares each clone's copy.

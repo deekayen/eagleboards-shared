@@ -8,9 +8,16 @@ copy of the same cases (Java's `scripts/test-seat-conflicts.js`, Windows'
 with a comment asking the others to keep in step and nothing to check that
 they did.
 
-The cases start as a transcription of Java's `test-seat-conflicts.js`, which
-the other two were ported from. A case is added here, never only in one
-version.
+The cases began as a transcription of Java's `test-seat-conflicts.js`, which
+the other two were ported from, names unchanged. Where Java checked one call
+more than once, the case joins those checks' names. Two names Java used for
+both kinds of board say which kind (`board-size`), and Java's two checks
+that set a board of three and two beside a project review of three and two
+are left out, since the four cases they restate are here. Five cases came
+from Windows' and the Mac's own tests, where Java had none like them: a
+project review of two, a spare chair filling a member's seat, a chair short
+with members short, and only chairs free (`suggest`), and nobody free to add
+(`fill`). A case is added here, never only in one version.
 
 ## Files
 
@@ -66,7 +73,8 @@ what the data files hold (D-1).
 **A youth:** `{ "id", "unit", "boardType" }`. `unit` is the stored `UnitName`
 (`"Troop1234"`), compared exactly: no trimming, no case folding. A blank
 `unit` is unknown, never "the same" as another blank. `boardType` is `"Final"`
-or `"Project"`.
+or `"Project"`. Any field left out is blank: `unit-conflicts` and
+`outside-member` give only the `unit`.
 
 **An adult:** `{ "id", "unit", "final", "project", "room", "freeSince",
 "supporting", "woodBadge" }`. `final` and `project` are `"Chair"`,
@@ -104,9 +112,10 @@ Final Board chairs are available."):
 some cases use `,` and some `~` (a comma in a stored value, D-1).
 
 `seat-down-the-queue` is a procedure every runner follows the same way: for
-each youth in `queue` in order, `suggest` with `waiting` set to the rest of the
-queue not yet seated; if the proposal has no problems, count a board of that
-type and set every proposed adult's `room` to any non-blank value, so later
+each youth in `queue` in order, `suggest` with `waiting` set to every other
+youth in `queue` not yet seated, in queue order (one passed over earlier
+still counts); if the proposal has no problems, count a board of that type
+and set every proposed adult's `room` to any non-blank value, so later
 proposals skip them.
 
 Rooms are not part of these cases. Where a version's auto-select also picks
@@ -115,14 +124,16 @@ type.
 
 ## Running them in each version
 
-Each version keeps a byte-for-byte copy of this folder, pinned by a
-`test-cases.lock` holding this repository's commit, and its CI fails if a
-copy differs, as `checkin-pages.lock` does for the check-in pages (D-18). A
-separate lock lets the pages and the cases move on their own schedules.
+Each version keeps a byte-for-byte copy of the case files (the `*.json`;
+this README stays here), pinned by a `test-cases.lock` holding this
+repository's commit, and its CI fails if a copy differs or a file is
+missing or extra, as `checkin-pages.lock` does for the check-in pages
+(D-18). A separate lock lets the pages and the cases move on their own
+schedules.
 
 | Version | Copies live in | Runner |
 |---|---|---|
-| Java | `scripts/cases/` | `node scripts/test-cases.js`, through `process_seat.js` |
+| Java | `scripts/cases/` | `node scripts/test-cases.js [folder]`, through `process_seat.js` |
 | Windows | `tests/EagleBoards.Tests/cases/` (copied to the output directory) | `SharedCaseTests`: one xUnit test per case |
 | Mac | `Tests/EagleBoardsCoreTests/Resources/cases/` (a `.copy` resource) | `SharedCaseTests`: one Swift Testing test per case |
 
@@ -141,3 +152,12 @@ server) stay where they are.
 
 `scripts/check-drift.sh` compares each local clone's copy against this
 folder.
+
+## Changing them
+
+Edit or add a case here, then check it against every version before
+anything pins it: run Java's runner on this folder
+(`node scripts/test-cases.js ../eagleboards-shared/cases` in
+`eagleboards-java`), and the others' where you can. A case the versions
+answer differently is a question for SPEC.md first. Then copy the `*.json`
+into each version and set its `test-cases.lock` to this repository's commit.

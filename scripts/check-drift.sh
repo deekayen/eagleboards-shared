@@ -1,9 +1,11 @@
 #!/bin/bash
 # Compare each version's copy of the check-in pages with checkin/ here
 # (SPEC.md D-18): they must be byte-identical. Also says which commit of this
-# repository each version's checkin-pages.lock pins, and checks that each
-# version's status palette file (SPEC.md D-13) holds every color in the
-# palette table, written as #rrggbb.
+# repository each version's checkin-pages.lock pins, compares each version's
+# copy of the rule and auto-select cases with cases/ here (SPEC.md D-5) and
+# says what its test-cases.lock pins, and checks that each version's status
+# palette file (SPEC.md D-13) holds every color in the palette table, written
+# as #rrggbb.
 #
 # Usage: scripts/check-drift.sh [checkout-root]
 #   checkout-root defaults to this repo's parent directory, assuming sibling
@@ -39,6 +41,44 @@ for entry in "${VERSIONS[@]}"; do
       echo "  same     $f"
     else
       echo "  DIFFERS  $f ($(diff "$HERE/checkin/$f" "$copy" | grep -c '^[<>]') lines)"
+      status=1
+    fi
+  done
+done
+
+# Each version's copy of the rule and auto-select cases (SPEC.md D-5): the
+# same *.json files as cases/, no more and no fewer, byte for byte.
+CASES=(
+  "Java|$ROOT/eagleboards-java|scripts/cases"
+  "Windows|$ROOT/eagleboards-windows|tests/EagleBoards.Tests/cases"
+  "Mac|$ROOT/eagleboards-macos|Tests/EagleBoardsCoreTests/Resources/cases"
+)
+for entry in "${CASES[@]}"; do
+  IFS='|' read -r name repo dir <<<"$entry"
+  lock="$repo/test-cases.lock"
+  pinned=$( [ -f "$lock" ] && tr -d '[:space:]' < "$lock" || echo "none" )
+  echo "$name cases (test-cases.lock: $pinned)"
+  if [ ! -d "$repo/$dir" ]; then
+    echo "  missing  $dir"
+    status=1
+    continue
+  fi
+  for f in "$HERE"/cases/*.json; do
+    f=$(basename "$f")
+    if [ ! -f "$repo/$dir/$f" ]; then
+      echo "  missing  $f"
+      status=1
+    elif cmp -s "$HERE/cases/$f" "$repo/$dir/$f"; then
+      echo "  same     $f"
+    else
+      echo "  DIFFERS  $f ($(diff "$HERE/cases/$f" "$repo/$dir/$f" | grep -c '^[<>]') lines)"
+      status=1
+    fi
+  done
+  for f in "$repo/$dir"/*.json; do
+    [ -e "$f" ] || continue
+    if [ ! -f "$HERE/cases/$(basename "$f")" ]; then
+      echo "  EXTRA    $(basename "$f")"
       status=1
     fi
   done
