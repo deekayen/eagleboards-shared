@@ -78,7 +78,7 @@ What has changed since each version's pictures were taken.
   a youth who comes without the signed page. `java.md` doesn't mention it;
   no picture shows it.
 
-### Mac: P-1 and P-6 amended, O-3 amended, D-17, D-21, D-22 (b99be53, ef4b34d, d1ed389, b7cb31b, 88e0894, 4a6df34, d2507c0, e82da7e, 08937c2)
+### Mac: P-1 and P-6 amended, O-3 amended, D-12, D-17, D-21, D-22 (b99be53, ef4b34d, d1ed389, b7cb31b, 88e0894, 4a6df34, d2507c0, e82da7e, 08937c2, 6480c4d)
 
 - No sidebar: **View › Event**, **Results** and **People** (⌥⌘1 to ⌥⌘3)
   choose the page, and the Event page takes the whole width, every youth in
@@ -115,6 +115,11 @@ What has changed since each version's pictures were taken.
 - D-22 (08937c2): **View › Approved Proposals** (⌥⌘8), an eighth page, lists
   the project proposals approved at earlier events in the data folder, for a
   youth who comes without the signed page. `mac.md` doesn't mention it.
+- D-12 (6480c4d): the inspector's first row under the board is **Suggest a
+  Board**, **Fill the Rest** and **Clear**, and **Seat Board…** sits on the
+  row below at the right, beside Postpone; the Board menu has Fill the Rest
+  too. `mac/seat-board.gif` draws up a board in the inspector from before
+  the change, and `mac.md` names neither Suggest a Board nor Fill the Rest.
 
 ### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20, D-22 (f28f8b6, e7a69bf, ca23ae3)
 
