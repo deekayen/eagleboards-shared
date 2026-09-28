@@ -63,16 +63,23 @@ What has changed since each version's pictures were taken.
 - eagleboards-java's README uses the same shots (`docs/images/`); refresh
   them together. Its text is already current.
 
-### Mac: O-3 amended, P-6 (b99be53)
+### Mac: P-1 and P-6 amended, O-3 amended, D-17 (b99be53, ef4b34d)
 
-- The sidebar holds **Event**, **Results** and **People**, not Waiting, On
-  Boards, Finished and Adults, and the Event page lists every youth in one
-  list, stacked Waiting, On a Board, Finished. `mac/evening.png` (which shows
-  only the Scouts on boards), `mac/seat-board.gif` and
-  `mac/complete-board.gif` show the old sidebar and one group at a time.
-- `mac.md`: "The sidebar chooses who the list shows", View › Waiting to
-  Adults (⌥⌘1 to ⌥⌘4, now Event, Results and People, ⌥⌘1 to ⌥⌘3), and
-  "select several adults in the Adults list" (now People).
+- No sidebar: **View › Event**, **Results** and **People** (⌥⌘1 to ⌥⌘3)
+  choose the page, and the Event page takes the whole width, every youth in
+  one list stacked Waiting, On a Board, Finished, beside the room cards.
+  `mac/evening.png` (which shows only the Scouts on boards),
+  `mac/seat-board.gif` and `mac/complete-board.gif` show the old sidebar and
+  one group at a time, and `evening.png`'s alt text ends "Add Room and Donate
+  sit at the foot of the sidebar".
+- `mac.md`: "**The sidebar** chooses who the list shows", with Add Room and
+  Donate at its foot; View › Waiting to Adults (⌥⌘1 to ⌥⌘4, now Event,
+  Results and People, ⌥⌘1 to ⌥⌘3); "select several adults in the Adults
+  list" (now People); "Click **Add Room** at the bottom of the sidebar" (now
+  **Room › Add Room…**, ⇧⌘N); and "**Donate**, at the foot of the sidebar"
+  (now **Help › Donate…**, a window with the links and the Venmo QR code).
+- The overview (`_index.md`) says "One *Donate* link sits at the edge of the
+  window"; on Windows and the Mac it is in the Help menu now.
 
 ### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20 (f28f8b6)
 
