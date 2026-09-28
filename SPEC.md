@@ -184,10 +184,11 @@ them.
 - **D-22 Approved proposals from earlier events.** Asked for by the owner
   2026-09-27. A youth sometimes comes to a board of review without the
   signed page of their project proposal, so the operator can look up whose
-  proposal was approved in the year before this event, when, and by whom.
-  - What it reads: the dated folders (`YYYY-MM-DD`) beside the event's own
-    in the data folder, dated from one year before the event's date to the
-    day before it. The event's date is its folder's name, or today if the
+  proposal was approved at any earlier event, when, and by whom.
+  - What it reads: every dated folder (`YYYY-MM-DD`) beside the event's own
+    in the data folder that is dated before the event's date, however long
+    ago: a project can take more than a year between its proposal and the
+    board of review. The event's date is its folder's name, or today if the
     folder isn't named by a date. From each, the `scouts.csv` rows whose
     `BoardType` is `Project` and `Result` is `Approved`. They are read each
     time the page is shown; nothing polls (D-15), since an earlier event
@@ -198,7 +199,7 @@ them.
     Nothing else from the row, so never a birthdate, phone number or email
     (D-7, D-8). A line above the list says how many earlier events were
     read, and from which date to which; with none, it says *No earlier
-    events in the last year in this data folder.* A folder that can't be
+    events in this data folder.* A folder that can't be
     read is named there and stays (D-14), and the others are still listed.
   - Read only: no cell is edited, and there is no Export or Delete. A
     mistake is corrected in the earlier event itself.
