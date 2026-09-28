@@ -146,7 +146,7 @@ them.
   note filled in), dark on white in both appearances.
 - **D-20 Marks beside an adult's name.** Wherever the operator screen lists
   adults by name (the details pane's members and free adults, seating a
-  board, changing a seated board's members, and the People page on Windows
+  board, changing a seated board's members, and the Adults page on Windows
   and the Mac), up to two marks follow the name. Each is an icon, with its
   meaning in a tooltip and said to a screen reader:
   - **Wood Badge**, for an adult counting today toward a Wood Badge ticket
@@ -156,14 +156,14 @@ them.
     *Counting today toward a Wood Badge ticket item*; a screen reader says
     *Wood Badge*. It replaces the words "Wood Badge" in Java's adult lines
     and the ✓ in Windows' Wood Badge column (the column stays, holding the
-    mark, so People still sorts on it).
+    mark, so Adults still sorts on it).
   - **Same unit**, for an adult in the selected youth's unit (the D-4
     warning): the platform's warning triangle in its caution color. Tooltip:
     *Same unit as* the youth's name; a screen reader says *Same unit*. A
     version that also says "same unit" in the adult's line may keep the
     words.
 
-  Where Wood Badge is edited in a table (People on Windows and the Mac,
+  Where Wood Badge is edited in a table (Adults on Windows and the Mac,
   Java's admin page), it is a Yes/No choice while the cell is being changed;
   a table the operator reads shows the mark.
 - **D-21 Find a person's room.** Decided 2026-09-27 by the owner. The
@@ -340,8 +340,8 @@ the same app feels native on each system rather than identical everywhere.
     (Fluent guidance)" and the NavigationView sidebar that went with it;
     Settings, Help and the pages belong in a native menu bar, as on the Mac.
     File: Save report, the check-in QR code, Settings (a window of its
-    own), Exit. Edit: Undo, naming the step. View: Event, Results, People,
-    then Youth, Pre-registered, Adult history and Rooms, then Approved
+    own), Exit. Edit: Undo, naming the step. View: Event, Results, Adults,
+    then Youth, Pre-registered, Adult history CSV and Rooms, then Approved
     proposals (Ctrl+1 to 8; P-6, D-22). Help: Help (F1), Donate (D-17).
   - Java (browser): buttons in the page and details pane, and context menus
     built on the Popover API. No imitation of a menu bar.
@@ -356,22 +356,27 @@ the same app feels native on each system rather than identical everywhere.
   required. Java: none.
 - **P-6 Pages beside the Event page.** Decided 2026-09-27.
   - Windows and Mac: an Event page, and a page for each table the event
-    keeps: Results, People, Youth, Pre-registered, Adult history and Rooms.
+    keeps: Results, Adults, Youth, Pre-registered, Adult history CSV and
+    Rooms. *Amended 2026-09-27 by the owner:* the adults page lists only
+    adults, so it is Adults, not People, in all three; the adult history is
+    shown as it is kept, read-only, as the Adult history CSV.
     *Amended 2026-09-27 by the owner:* every table is corrected where it is
     shown, so there is no separate admin tables window (Windows' Admin
     tables, the Mac's Records). Results is the boards table: every board and
     its result, where a result or its notes is corrected, with Find, Save
-    report and a way to open a board on the Event page. People is the adults
+    report and a way to open a board on the Event page. Adults is the adults
     table: roles, unit, contact and Wood Badge are changed there, beside Gone
     home and Back and the D-20 marks. The other pages have Find, Export and
-    Delete (Rooms: Add and Remove room). A changed cell is saved as it is
+    Delete (Rooms: Add and Remove room; the Adult history CSV only Find and
+    Export). A changed cell is saved as it is
     left (a choice as soon as it is picked; leaving the page saves a cell
     still open), and stays off the Undo stack. An adult's name, unit,
-    contact and roles are one set of facts on People and Adult history, as a
-    sign-in carries them between the two: a change on either page is made on
-    both, so a chair promoted in the history is seated as a chair at this
-    event. Wood Badge and whom they came to support belong to this event
-    alone. Who sits on a board, and which room a youth or an adult is in,
+    contact and roles are one set of facts in tonight's adults and the adult
+    history, as a sign-in carries them between the two: a change on Adults is
+    made in the history too, so someone promoted to chair tonight is a chair
+    the next time they sign in. The Adult history CSV itself is read-only: a
+    sign-in writes it. Wood Badge and whom they came to support belong to this
+    event alone. Who sits on a board, and which room a youth or an adult is in,
     are never typed into a table: they change through the Event page's
     steps, under the D-4 rules. *Amended 2026-09-27 by the owner:* nor is a
     youth's status: Status is read-only in every table (Results, Youth). It
@@ -385,11 +390,12 @@ the same app feels native on each system rather than identical everywhere.
     Event page has the window's whole width. *Amended 2026-09-27 by the
     owner:* an eighth page, Approved proposals (D-22), follows Rooms. It
     reads earlier events, not a table this one keeps, and is read only.
-  - Java: no Results or People page. The top bar has Event, Admin tables,
+  - Java: no Results or Adults page. The top bar has Event, Admin tables,
     Settings and Help; Admin tables is the admin page, whose Boards tab
-    corrects a result, whose Adults tab changes roles, and whose Approved
-    proposals tab lists D-22's approvals. Results are read
-    from the Finished group, and an adult is marked gone home from the
+    corrects a result, whose Adults tab changes roles (reaching the read-only
+    Adult history CSV tab, as above), and whose Approved proposals tab lists
+    D-22's approvals. Status is read-only there too, for the same reason.
+    Results are read from the Finished group, and an adult is marked gone home from the
     details pane's context menu. Two links to the one admin page (the old
     Results and People) do not come back.
 
@@ -429,9 +435,9 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
 | Queue, rooms and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
 | One stacked youth column (O-3, amended) | ✅ | ✅ | ✅ | Java cdf13f5, Windows f28f8b6 (groups that stay, headed at a count of none; `SchedulerLogic.QueueSortKey` orders them, with a unit test), Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider) |
-| Pages beside the Event page (P-6) | ✅ | ✅ | ◐ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Windows f28f8b6, 7f20371: every table a page in the View menu (Ctrl+1 to 7), edited in place (`TablePage`); no sidebar and no Admin tables window; fc598d7: People and Adult history share an adult's facts (`BoardService.SaveAdultEdit`), a pick saves at once; 0d659e4: Status read-only. Mac ef4b34d, b7cb31b, 88e0894: every table a page in the View menu (⌥⌘1 to 7), edited in place (`EditableText`, `EditableChoice`), the inspector beside each; no sidebar and no Records window. Chair, members and rooms read-only; cells off the Undo stack; File › Export List. b396ad8: People and Adult history share an adult's facts (`EventNight.updateAdult`), and a cell still open saves when the page is left. Its Status cell still offers Waiting, Completed and Postponed, where P-6 now makes Status read-only |
-| A table never seats, starts or ends a board (P-6) | ➖ | ➖ | ✅ | Asked for by the owner 2026-09-27. Mac 2f17665: Status offers Waiting, Completed and Postponed (`BoardStatus.recordsChoices`), a sitting board's status is read-only, and `EventNight.updateYouth` refuses either change whoever makes it (`BoardEventTests.aTableCannotSeatStartOrEndABoard`). Java's admin page offers InProgress (`STATUSES` in `admin.html`); Windows' Status cell offers every status (`TableSpecs.StatusChoices`) |
-| Sign an adult in by hand, filled in from the adult history | ➖ | ➖ | ✅ | Asked for by the owner 2026-09-27 for an adult who won't use the tablet. Mac b7cb31b, 88e0894: Adult › Add Adult…, Add Adult at the foot of People, or a double-click below its last row; a search of the adult history (`EventNight.historyMatches`) fills the form in and carries the record's ID, as the tablet's email lookup does; a role left at As Last Time keeps the history's. It goes through `registerAdult`, as the tablet's sign-in does. Adult History ticks those signed in today, and a double-click there signs someone in (`SignInTests`) |
+| Pages beside the Event page (P-6) | ✅ | ◐ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page; 38feaf9, 3f4240e: the Adults tab shares an adult's facts with the read-only Adult history CSV tab (`shareAdultFacts`; `/adult-history-update` refuses edits), Status read-only. Windows f28f8b6, 7f20371: every table a page in the View menu (Ctrl+1 to 7), edited in place (`TablePage`); no sidebar and no Admin tables window; fc598d7: People and Adult history share an adult's facts (`BoardService.SaveAdultEdit`), a pick saves at once; 0d659e4: Status read-only. Still People, and an editable Adult history, where P-6 now names them Adults and the Adult history CSV, read-only. Mac ef4b34d, b7cb31b, 88e0894: every table a page in the View menu (⌥⌘1 to 7), edited in place (`EditableText`, `EditableChoice`), the inspector beside each; no sidebar and no Records window. Chair, members and rooms read-only; cells off the Undo stack; File › Export List. b396ad8: a cell still open saves when the page is left. 4a6df34: Adults, and the Adult History CSV read-only (`EventNight.updateAdult` edits tonight's adults and copies their facts to the history). d2507c0: Status read-only |
+| A table never seats, starts or ends a board (P-6) | ✅ | ◐ | ✅ | Asked for by the owner 2026-09-27; Status is now read-only in every table besides. The server backstop, event test section 25: Java 38feaf9, `ScoutUpdateHandler.refusal` makes `/youth-update` refuse Seated, InProgress and a sitting board's status, and still take Registered, Completed or Postponed for section 18's correction. Mac 2f17665, `EventNight.updateYouth` the same (`BoardEventTests.aTableCannotSeatStartOrEndABoard`). Windows 0d659e4 shows Status read-only, but its `/youth-update` does not refuse yet, so section 25 fails there until it does |
+| Sign an adult in by hand, filled in from the adult history | ✅ | ➖ | ✅ | Asked for by the owner 2026-09-27 for an adult who won't use the tablet. Each goes through the tablet's own sign-in (`/register-adult`, `registerAdult`) and, filled in from the history, carries the record's ID as the tablet's email lookup does; event test section 27. Java 38feaf9: Add adult… on the Adults tab, with a search of the adult history; Sign in for today on the Adult history CSV tab, whose Last event column shows it. Mac b7cb31b, 88e0894, 4a6df34: Adult › Add Adult…, Add Adult at the foot of Adults, or a double-click below its last row; the search is `EventNight.historyMatches`, and a role left at As Last Time keeps the history's. The Adult History CSV ticks those signed in today, and a double-click or Sign In for Today signs someone in |
 | Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Find a person's room (D-21) | ➖ | ✅ | ◐ | Windows 87fba78: *Find a person* under the Rooms heading, `SchedulerLogic.FindPeople` with a unit test. Java has *Find a youth* in the Youth list, which D-21 takes out. The Mac's toolbar search already narrows the rooms by a youth's or member's name (`Rooms.visibleRooms`), but doesn't say where a match in no room is |
 | Approved proposals from earlier events (D-22) | ➖ | ➖ | ➖ | Asked for by the owner 2026-09-27, for a youth who comes without the signed proposal page. Read only. The Mac already lists the earlier events in its data folder (`DataFolder.nights()`); none of the three reads their youth yet |

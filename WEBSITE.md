@@ -62,8 +62,13 @@ What has changed since each version's pictures were taken.
   alt text; it changes with `java.md`.
 - eagleboards-java's README uses the same shots (`docs/images/`); refresh
   them together. Its text is already current.
+- 38feaf9, 3f4240e: the admin page's Adults tab has **Add adult…**, filled in
+  from the adult history; the history tab is the read-only **Adult history
+  CSV**, with **Sign in for today** and a Last event column; Status is
+  read-only in every tab. `java/results.png` shows the Boards tab's Status as
+  a choice, and `java.md` says nothing of Add adult or the history tab.
 
-### Mac: P-1 and P-6 amended, O-3 amended, D-17 (b99be53, ef4b34d, d1ed389, b7cb31b, 88e0894)
+### Mac: P-1 and P-6 amended, O-3 amended, D-17 (b99be53, ef4b34d, d1ed389, b7cb31b, 88e0894, 4a6df34, d2507c0)
 
 - No sidebar: **View › Event**, **Results** and **People** (⌥⌘1 to ⌥⌘3)
   choose the page, and the Event page takes the whole width, every youth in
@@ -83,15 +88,16 @@ What has changed since each version's pictures were taken.
 - The youth list is a 320-point column and the room cards take the rest of
   the width, each listing a board's members one per line. All three pictures
   show the list wide and the members on one line.
-- The Records window is gone: the View menu has Event, Results, People,
-  Youth, Pre-Registered, Adult History and Rooms (⌥⌘1 to ⌥⌘7), each edited in
-  place. `mac.md`'s View › Waiting to Adults line should name these seven.
-  Nothing on the page shows or mentions Records yet, beyond "the records" in
-  its opening; People is where someone is promoted to Chair now.
+- The Records window is gone: the View menu has Event, Results, Adults,
+  Youth, Pre-Registered, Adult History CSV (read-only) and Rooms (⌥⌘1 to
+  ⌥⌘7), the rest edited in place, with Status read-only. `mac.md`'s View ›
+  Waiting to Adults line should name these seven. Nothing on the page shows
+  or mentions Records yet, beyond "the records" in its opening; Adults is
+  where someone is promoted to Chair now.
 - New since the pictures: **Adult › Add Adult…** (and Add Adult at the foot of
-  People) signs in an adult who won't use the tablet, filled in from the adult
-  history, and Adult History's Last Event column ticks who has signed in
-  today. `mac.md` says nothing of either.
+  Adults) signs in an adult who won't use the tablet, filled in from the adult
+  history, and the Adult History CSV's Last Event column ticks who has signed
+  in today. `mac.md` says nothing of either.
 
 ### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20 (f28f8b6)
 
