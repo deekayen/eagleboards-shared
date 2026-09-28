@@ -437,7 +437,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | No youth phone number (D-8) | ✅ | ✅ | ✅ | Java d355a10, Windows f0e582a, Mac 55ba04b. Not asked, imported, pre-filled, shown or exported; a number on file is left alone and withheld wherever a youth table is served (`/youth-autofill` included) or saved (the Mac's Export List), and a `-cells` filter on it matches nothing (Java, Windows; the Mac has no such endpoint). The event test's section 24 covers it: Java's script, copied byte for byte to Windows, mirrored in Mac's `BoardEventTests` |
 | New install: empty adult history (D-9) | ✅ | ✅ | ✅ | Java 1a35a9e, Windows fdfb449; the Mac already did. A missing history is started with its header row and its full path said (Java's console; Windows' log, or the console for `EagleBoards.Server`; Windows' startup window asks first). A failed command-line start exits 1, and Java's URL window goes with it. Java's `scripts/test-first-run.sh` covers it |
 | Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at f8200cb, checked in CI; all three serve the `/api/*` calls |
-| Shared rule and auto-select cases (D-5) | ✅ | ➖ | ✅ | The 70 cases in `cases/`, pinned at da809cc and checked byte for byte in CI. Java b4d2705: `scripts/test-cases.js` through `process_seat.js`; `test-seat-conflicts.js` kept only D-21's find, as `test-find-people.js`. Mac 6480c4d: `SharedCaseTests`, one Swift Testing case each; `BoardRulesTests` keeps only what the Mac alone has. Windows (#7) still runs its hand-ported `BoardRulesTests` and `SchedulerLogicTests`, whose fill tests list roles in the opposite order to its auto-select tests |
+| Shared rule and auto-select cases (D-5) | ✅ | ✅ | ✅ | The 70 cases in `cases/`, pinned at da809cc and checked byte for byte in CI. Java b4d2705: `scripts/test-cases.js` through `process_seat.js`; `test-seat-conflicts.js` kept only D-21's find, as `test-find-people.js`. Windows d0c59b5: `SharedCaseTests`, one xUnit test each, through `BoardRules` and `SchedulerLogic`; `BoardRulesTests` is gone and `SchedulerLogicTests` keeps only what Windows alone has (the room choice, locate, statuses, timers, sort orders, find). Mac 6480c4d: `SharedCaseTests`, one Swift Testing case each; `BoardRulesTests` keeps only what the Mac alone has |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
@@ -474,5 +474,5 @@ The rule and auto-select test cases are in [`cases/`](cases/) (D-5), one JSON
 file per operation, transcribed from Java's `test-seat-conflicts.js` with
 five more from Windows' and the Mac's tests (#9). Each version pins them with
 `test-cases.lock`, its CI compares its copies byte for byte, and it runs them
-all; Java and the Mac do, and Windows still keeps its own hand-ported copy.
+all, as all three now do.
 `scripts/check-drift.sh` compares each clone's copy.
