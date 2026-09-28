@@ -95,6 +95,9 @@ What has changed since each version's pictures were taken.
   `windows/seat-board.gif` (Guion Bluford and Steve Fossett) shows neither.
 - The overview (`_index.md`, "Getting help") says Help is "at the foot of
   the sidebar on Windows"; it's **Help › Eagle Boards help** now.
+- No Undo button in the bottom bar (7685c7b): **Edit › Undo** and Ctrl+Z
+  undo. `windows.md` says "**Undo** (Ctrl+Z) at the bottom right", and the
+  three pictures show the button.
 - The Windows README's pictures (`docs/images/`) are already current.
 
 ## Re-shooting
