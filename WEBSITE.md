@@ -74,6 +74,29 @@ What has changed since each version's pictures were taken.
   Adults (⌥⌘1 to ⌥⌘4, now Event, Results and People, ⌥⌘1 to ⌥⌘3), and
   "select several adults in the Adults list" (now People).
 
+### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20 (f28f8b6)
+
+- No sidebar: a menu bar (File, Edit, View, Help) across the top, and the
+  Event page takes the whole width. `windows/evening.png`,
+  `windows/seat-board.gif` and `windows/complete-board.gif` show the
+  sidebar, and `evening.png`'s alt text ends "Donate, Help and Settings sit
+  at the foot of the sidebar". In `windows.md`, "**Donate**, at the foot of
+  the sidebar" is now **Help › Donate**, and **Help** in the app is **Help ›
+  Eagle Boards help** (F1). Settings is **File › Settings**, a window of its
+  own.
+- The Youth list has no Show menu and always holds Waiting, On a board and
+  Finished, and Find looks through all three. The same three pictures show
+  the menu set to Active and Finished missing, and the alt text says the
+  list "shows the active youth"; `windows.md` says the list shows the
+  **Active** youth and the menu narrows it.
+- Wood Badge adults have the pentagon after their name, and a same-unit
+  adult a warning triangle: in the details pane, its Replace, Add member
+  and Change chair choices, and People's Wood Badge column.
+  `windows/seat-board.gif` (Guion Bluford and Steve Fossett) shows neither.
+- The overview (`_index.md`, "Getting help") says Help is "at the foot of
+  the sidebar on Windows"; it's **Help › Eagle Boards help** now.
+- The Windows README's pictures (`docs/images/`) are already current.
+
 ## Re-shooting
 
 - **Synthetic people only, in a scratch data folder.** Each platform

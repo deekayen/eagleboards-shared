@@ -354,9 +354,9 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
 | Queue, rooms and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
-| One stacked youth column; Find searches everyone (O-3, amended) | ✅ | ◐ | ✅ | Java cdf13f5, Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider). Windows stacks the three groups but hides Finished behind a Show menu that Find can't see past, and orders every group by sign-in number |
-| Pages beside the Event page (P-6) | ✅ | ◐ | ✅ | Windows chooses Event, Results and People in a sidebar, where P-1 now puts them in a View menu. Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Mac b99be53: Event, Results (new) and People in the sidebar, with the inspector beside each; Records stays a window |
-| Marks beside an adult's name (D-20) | ✅ | ➖ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows has a ✓ column on People only, and says "same unit" in words. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
+| One stacked youth column; Find searches everyone (O-3, amended) | ✅ | ✅ | ✅ | Java cdf13f5, Windows f28f8b6 (groups that stay, headed at a count of none; `SchedulerLogic.QueueSortKey` orders them, with a unit test), Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider) |
+| Pages beside the Event page (P-6) | ✅ | ✅ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Windows f28f8b6: Event, Results and People in the View menu (Ctrl+1 to 3), no sidebar; Admin tables in the File menu and on both pages. Mac b99be53: Event, Results (new) and People in the sidebar, with the inspector beside each; Records stays a window |
+| Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
 | Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |
 | Switch a room between final and project | ✅ | ✅ | ✅ | A board already in it is not disturbed |
@@ -366,7 +366,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Link adult to youth after sign-in | ✅ | ✅ | ✅ | |
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
 | Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate, About, and the sidebar's Donate popover. Never on the check-in pages |
-| Donate link in the main window (D-17) | ✅ | ◐ | ✅ | Java: app bar, to Settings' Support section; Windows: sidebar foot, to Settings' Support card, where D-17 now puts it in the Help menu; Mac: sidebar foot, a popover with the links |
+| Donate link in the main window (D-17) | ✅ | ✅ | ✅ | Java: app bar, to Settings' Support section; Windows: Help › Donate in the menu bar (f28f8b6), to the Settings window's Support card; Mac: sidebar foot, a popover with the links |
 | Venmo QR code on the list (D-17) | ✅ | ✅ | ✅ | Java: a static `images/venmo-qr.svg` in Settings' Support section; Windows: drawn with QRCoder in Settings' Support card; Mac: drawn with Core Image in the Donate popover |
 
 ### Shared files
