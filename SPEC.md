@@ -345,11 +345,12 @@ the same app feels native on each system rather than identical everywhere.
     alone. Who sits on a board, and which room a youth or an adult is in,
     are never typed into a table: they change through the Event page's
     steps, under the D-4 rules. *Amended 2026-09-27 by the owner:* nor is a
-    board seated or started from a table, which would leave a youth Seated
-    with no room or members. A Status cell offers Waiting, Completed and
-    Postponed, never Seated or In review, and a board that is seated or in
-    review keeps its status in a table until Reset or Complete frees its
-    room and members. Neither version has
+    youth's status: Status is read-only in every table (Results, Youth). It
+    changes only through the Event page's steps (Seat, Start review,
+    Complete, Postpone, Reset, and Undo), which take and free a room and its
+    members as they go; a status typed into a table left a finished youth
+    holding their room. This replaces a Status cell that offered Waiting,
+    Completed and Postponed. Neither version has
     a sidebar: both choose the page from the View menu (P-1), Ctrl+1 to 7 on
     Windows and ⌥⌘1 to 7 on the Mac, with a check on the page shown, so the
     Event page has the window's whole width.
