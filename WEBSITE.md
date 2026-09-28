@@ -116,6 +116,11 @@ What has changed since each version's pictures were taken.
   come before the members (58f3170). `windows/complete-board.gif` shows the
   members above the result, and `windows/evening.png` Complete below them.
   Ctrl+Enter runs the step; section 3 of `windows.md` could say so.
+- P-6 (7f20371): no Admin tables window. Every table is a page on the View
+  menu, edited in place: Results (correct a result), People (change roles),
+  Youth, Pre-registered, Adult history and Rooms. `windows.md` names no
+  admin tables, so nothing there is wrong, but a sentence on correcting a
+  result on Results and a role on People would help; no picture shows them.
 - The Windows README's pictures (`docs/images/`) are already current.
 
 ## Re-shooting
