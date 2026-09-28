@@ -133,9 +133,10 @@ them.
   check-in pages (D-18), the status palette (D-13) and the Wood Badge mark
   (D-20).
 - **D-17 A Donate link in the main window.** One Donate link, with a heart,
-  sits in the main window's frame, outside the working area: at the foot of
-  the sidebar on Windows and Mac, and in the app bar of every Java operator
-  page. It opens the list of ways to support the project (the links in
+  sits in the main window's frame, outside the working area: in the menu
+  bar's Help menu on Windows (Help › Donate…), at the foot of the sidebar on
+  the Mac, and in the app bar of every Java operator page. It opens the list
+  of ways to support the project (the links in
   `.github/FUNDING.yml`): the Support card in Settings on Windows and Java,
   a popover on the Mac. It never goes on the check-in pages or inside the
   queue, the rooms or the details pane, and it never becomes a prompt, badge
@@ -283,8 +284,14 @@ the same app feels native on each system rather than identical everywhere.
 - **P-1 Where commands live.**
   - Mac: the menu bar (Board, Adult, Room menus), context menus, and the
     inspector.
-  - Windows: command buttons in the page and details pane, and context menus.
-    No menu bar (Fluent guidance).
+  - Windows: a menu bar across the top of the main window (File, Edit, View,
+    Help), command buttons in the page and details pane, and context menus.
+    No sidebar. *Amended 2026-09-27 by the owner:* this replaces "No menu bar
+    (Fluent guidance)" and the NavigationView sidebar that went with it;
+    Settings, Help and the pages belong in a native menu bar, as on the Mac.
+    File: Save report, Admin tables, the check-in QR code, Settings (a
+    window of its own), Exit. Edit: Undo, naming the step. View: Event,
+    Results, People (Ctrl+1 to 3). Help: Help (F1), Donate (D-17).
   - Java (browser): buttons in the page and details pane, and context menus
     built on the Popover API. No imitation of a menu bar.
 - **P-2 Capitalization.** Mac: Title Case for buttons and menus (Apple HIG).
@@ -297,12 +304,14 @@ the same app feels native on each system rather than identical everywhere.
   room passes its red time. Windows: taskbar equivalents are allowed but not
   required. Java: none.
 - **P-6 Pages beside the Event page.** Decided 2026-09-27.
-  - Windows and Mac: a sidebar with Event, Results and People. Results lists
-    every board and its result, read-only, with Find and Save report, and
-    opens a board on the Event page. People lists the adults at this event,
-    with Gone home and Back and the D-20 marks. The admin tables, where any
-    record can be corrected, open in a window of their own from both pages:
-    Windows' Admin tables, the Mac's Records (also in its menu bar).
+  - Windows and Mac: Event, Results and People pages. Results lists every
+    board and its result, read-only, with Find and Save report, and opens a
+    board on the Event page. People lists the adults at this event, with Gone
+    home and Back and the D-20 marks. The admin tables, where any record can
+    be corrected, open in a window of their own from both pages and the menu
+    bar: Windows' Admin tables, the Mac's Records. The Mac chooses the page
+    in its sidebar; Windows has no sidebar and chooses it from the View menu
+    (P-1), so the Event page has the window's whole width.
   - Java: no Results or People page. The top bar has Event, Admin tables,
     Settings and Help; Admin tables is the admin page, whose Boards tab
     corrects a result and whose Adults tab changes roles. Results are read
@@ -346,7 +355,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
 | Queue, rooms and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
 | One stacked youth column; Find searches everyone (O-3, amended) | ✅ | ◐ | ✅ | Java cdf13f5, Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider). Windows stacks the three groups but hides Finished behind a Show menu that Find can't see past, and orders every group by sign-in number |
-| Pages beside the Event page (P-6) | ✅ | ✅ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Mac b99be53: Event, Results (new) and People in the sidebar, with the inspector beside each; Records stays a window |
+| Pages beside the Event page (P-6) | ✅ | ◐ | ✅ | Windows chooses Event, Results and People in a sidebar, where P-1 now puts them in a View menu. Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Mac b99be53: Event, Results (new) and People in the sidebar, with the inspector beside each; Records stays a window |
 | Marks beside an adult's name (D-20) | ✅ | ➖ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows has a ✓ column on People only, and says "same unit" in words. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
 | Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |
@@ -357,7 +366,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Link adult to youth after sign-in | ✅ | ✅ | ✅ | |
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
 | Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate, About, and the sidebar's Donate popover. Never on the check-in pages |
-| Donate link in the main window (D-17) | ✅ | ✅ | ✅ | Java: app bar, to Settings' Support section; Windows: sidebar foot, to Settings' Support card; Mac: sidebar foot, a popover with the links |
+| Donate link in the main window (D-17) | ✅ | ◐ | ✅ | Java: app bar, to Settings' Support section; Windows: sidebar foot, to Settings' Support card, where D-17 now puts it in the Help menu; Mac: sidebar foot, a popover with the links |
 | Venmo QR code on the list (D-17) | ✅ | ✅ | ✅ | Java: a static `images/venmo-qr.svg` in Settings' Support section; Windows: drawn with QRCoder in Settings' Support card; Mac: drawn with Core Image in the Donate popover |
 
 ### Shared files
