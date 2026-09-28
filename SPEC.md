@@ -345,8 +345,8 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
 | Queue, rooms and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
-| One stacked youth column; Find searches everyone (O-3, amended) | ✅ | ◐ | ➖ | Java cdf13f5. Windows stacks the three groups but hides Finished behind a Show menu that Find can't see past, and orders every group by sign-in number. The Mac picks one group at a time from its sidebar |
-| Pages beside the Event page (P-6) | ✅ | ✅ | ➖ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Mac: no Results page, and Adults is a queue filter in the sidebar |
+| One stacked youth column; Find searches everyone (O-3, amended) | ✅ | ◐ | ✅ | Java cdf13f5, Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider). Windows stacks the three groups but hides Finished behind a Show menu that Find can't see past, and orders every group by sign-in number |
+| Pages beside the Event page (P-6) | ✅ | ✅ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page. Mac b99be53: Event, Results (new) and People in the sidebar, with the inspector beside each; Records stays a window |
 | Marks beside an adult's name (D-20) | ✅ | ➖ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows has a ✓ column on People only, and says "same unit" in words. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
 | Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |

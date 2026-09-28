@@ -63,6 +63,17 @@ What has changed since each version's pictures were taken.
 - eagleboards-java's README uses the same shots (`docs/images/`); refresh
   them together. Its text is already current.
 
+### Mac: O-3 amended, P-6 (b99be53)
+
+- The sidebar holds **Event**, **Results** and **People**, not Waiting, On
+  Boards, Finished and Adults, and the Event page lists every youth in one
+  list, stacked Waiting, On a Board, Finished. `mac/evening.png` (which shows
+  only the Scouts on boards), `mac/seat-board.gif` and
+  `mac/complete-board.gif` show the old sidebar and one group at a time.
+- `mac.md`: "The sidebar chooses who the list shows", View › Waiting to
+  Adults (⌥⌘1 to ⌥⌘4, now Event, Results and People, ⌥⌘1 to ⌥⌘3), and
+  "select several adults in the Adults list" (now People).
+
 ## Re-shooting
 
 - **Synthetic people only, in a scratch data folder.** Each platform
