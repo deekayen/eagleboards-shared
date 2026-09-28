@@ -35,91 +35,16 @@ text on each one says exactly what it shows, so it changes with the image.
 
 | Page | Version | Images | Taken |
 |---|---|---|---|
-| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/event.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-09-27 |
-| `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-27 |
+| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/event.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-09-28 |
+| `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-28 |
 | `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-28 |
-| `content/docs/scheduler/_index.md` | All | `java/event.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-09-27 |
+| `content/docs/scheduler/_index.md` | All | `java/event.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-09-28 |
 
 ## Stale
 
 What has changed since each version's pictures were taken.
 
-### Java: O-3 amended, P-6, D-20, D-21, D-22 (cdf13f5, 38feaf9, 3f4240e, edade33, 23e89a9)
-
-- The top bar has one **Admin tables** link where Results and People were.
-  `java/event.png`, `java/seat-board.gif` and `java/complete-board.gif`
-  show the old links. In `java.md`, the top-bar table and the "Results and
-  settings" section name them, and `java/results.png`'s alt text calls the
-  Boards tab "the Results page".
-- The Youth list has no Show menu and always shows Finished. The same three
-  pictures show the menu, and Finished missing; `java.md` says the list
-  shows the Active youth and a menu switches it.
-- Wood Badge adults have the pentagon after their name, and a same-unit
-  adult a warning triangle, where the details pane said "Wood Badge" and
-  "Same unit" in words. `java/seat-board.gif` (Guion Bluford and Steve
-  Fossett) shows the words.
-- The overview (`_index.md`) shows `java/event.png` too, with the same
-  alt text; it changes with `java.md`.
-- eagleboards-java's README uses the same shots (`docs/images/`); refresh
-  them together. Its text is already current.
-- 38feaf9, 3f4240e: the admin page's Adults tab has **Add adult…**, filled in
-  from the adult history; the history tab is the read-only **Adult history
-  CSV**, with **Sign in for today** and a Last event column; Status is
-  read-only in every tab. `java/results.png` shows the Boards tab's Status as
-  a choice, and `java.md` says nothing of Add adult or the history tab.
-- D-21 (edade33): the Youth list has no Find a youth box, and **Find a
-  person** under the Rooms heading narrows the room cards to someone's,
-  youth or adult, or says where they are (Ctrl+F). `java/event.png`,
-  `java/seat-board.gif` and `java/complete-board.gif` show Find a youth over
-  the Youth list and nothing over the rooms; "which room someone is in" is
-  worth a sentence in `java.md`.
-- D-22 (edade33, 23e89a9): the admin page has an **Approved proposals** tab,
-  the project proposals approved at earlier events in the data folder, for
-  a youth who comes without the signed page. `java.md` doesn't mention it;
-  no picture shows it.
-
-### Mac: P-1 and P-6 amended, O-3 amended, D-12, D-17, D-21, D-22 (b99be53, ef4b34d, d1ed389, b7cb31b, 88e0894, 4a6df34, d2507c0, e82da7e, 08937c2, 6480c4d)
-
-- No sidebar: **View › Event**, **Results** and **People** (⌥⌘1 to ⌥⌘3)
-  choose the page, and the Event page takes the whole width, every youth in
-  one list stacked Waiting, On a Board, Finished, beside the room cards.
-  `mac/event.png` (which shows only the Scouts on boards),
-  `mac/seat-board.gif` and `mac/complete-board.gif` show the old sidebar and
-  one group at a time, and `event.png`'s alt text ends "Add Room and Donate
-  sit at the foot of the sidebar".
-- `mac.md`: "**The sidebar** chooses who the list shows", with Add Room and
-  Donate at its foot; View › Waiting to Adults (⌥⌘1 to ⌥⌘4, now Event,
-  Results and People, ⌥⌘1 to ⌥⌘3); "select several adults in the Adults
-  list" (now People); "Click **Add Room** at the bottom of the sidebar" (now
-  **Room › Add Room…**, ⇧⌘N); and "**Donate**, at the foot of the sidebar"
-  (now **Help › Donate…**, a window with the links and the Venmo QR code).
-- The overview (`_index.md`) says "One *Donate* link sits at the edge of the
-  window"; on Windows and the Mac it is in the Help menu now.
-- The youth list is a 320-point column and the room cards take the rest of
-  the width, each listing a board's members one per line. All three pictures
-  show the list wide and the members on one line.
-- The Records window is gone: the View menu has Event, Results, Adults,
-  Youth, Pre-Registered, Adult History CSV (read-only) and Rooms (⌥⌘1 to
-  ⌥⌘7), the rest edited in place, with Status read-only. `mac.md`'s View ›
-  Waiting to Adults line should name these seven. Nothing on the page shows
-  or mentions Records yet, beyond "the records" in its opening; Adults is
-  where someone is promoted to Chair now.
-- New since the pictures: **Adult › Add Adult…** (and Add Adult at the foot of
-  Adults) signs in an adult who won't use the tablet, filled in from the adult
-  history, and the Adult History CSV's Last Event column ticks who has signed
-  in today. `mac.md` says nothing of either.
-- D-21 (e82da7e): the toolbar's search no longer narrows the youth list; it
-  narrows the room cards to someone's, youth or adult, and says where anyone
-  in no room is. `mac.md` could say so where it describes the search; no
-  picture shows it.
-- D-22 (08937c2): **View › Approved Proposals** (⌥⌘8), an eighth page, lists
-  the project proposals approved at earlier events in the data folder, for a
-  youth who comes without the signed page. `mac.md` doesn't mention it.
-- D-12 (6480c4d): the inspector's first row under the board is **Suggest a
-  Board**, **Fill the Rest** and **Clear**, and **Seat Board…** sits on the
-  row below at the right, beside Postpone; the Board menu has Fill the Rest
-  too. `mac/seat-board.gif` draws up a board in the inspector from before
-  the change, and `mac.md` names neither Suggest a Board nor Fill the Rest.
+Nothing: every page matches its version.
 
 ## Re-shooting
 
@@ -164,8 +89,12 @@ What has changed since each version's pictures were taken.
   by hand: a 1280x738 window (launch with
   `-"NSWindow Frame scheduler" "<x> <y> 1280 738 …"`), captured with
   `screencapture -o -l <window>` so a sheet comes with its window, scaled
-  to 1600 wide for `event.png` and 1100 for the GIFs. The app follows the
-  system's appearance, not a launch argument.
+  to 1600 wide for `event.png` and 1100 for the GIFs. Add
+  `-youthListWidth 320` for the list's default width, and
+  `EAGLEBOARDS_APPEARANCE=dark` (or `light`) for the appearance, instead of
+  changing the system's. eagleboards-macos's README uses the same shots
+  (`docs/images/`, with `event-dark.png` beside a light `event.png`), so
+  refresh them together.
 - **Windows images need Windows.** On a Windows machine,
   `dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site <dir>`
   in the Windows repository renders `event.png`, `seat-board.gif` and
