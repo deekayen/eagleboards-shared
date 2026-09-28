@@ -181,6 +181,34 @@ them.
     clears; Ctrl+F goes to it.
   - Mac: the toolbar's search field, which already narrows the rooms by a
     youth's or a member's name, says where a match in no room is.
+- **D-22 Approved proposals from earlier events.** Asked for by the owner
+  2026-09-27. A youth sometimes comes to a board of review without the
+  signed page of their project proposal, so the operator can look up whose
+  proposal was approved in the year before this event, when, and by whom.
+  - What it reads: the dated folders (`YYYY-MM-DD`) beside the event's own
+    in the data folder, dated from one year before the event's date to the
+    day before it. The event's date is its folder's name, or today if the
+    folder isn't named by a date. From each, the `scouts.csv` rows whose
+    `BoardType` is `Project` and `Result` is `Approved`. They are read each
+    time the page is shown; nothing polls (D-15), since an earlier event
+    doesn't change during this one. Nothing in an earlier folder is written.
+  - What it shows: one row per approval, with the youth's name, their unit,
+    the date of the event that approved it, the chair, the other members and
+    the notes, sorted by last name, with Find over the name and unit.
+    Nothing else from the row, so never a birthdate, phone number or email
+    (D-7, D-8). A line above the list says how many earlier events were
+    read, and from which date to which; with none, it says *No earlier
+    events in the last year in this data folder.* A folder that can't be
+    read is named there and stays (D-14), and the others are still listed.
+  - Read only: no cell is edited, and there is no Export or Delete. A
+    mistake is corrected in the earlier event itself.
+  - Windows and the Mac: a page on the View menu, after Rooms: *Approved
+    proposals* (the Mac's *Approved Proposals*, P-2), Ctrl+8 and ⌥⌘8 (P-6).
+  - Java: an *Approved proposals* tab on the admin page, filled from a new
+    endpoint, `/approved-proposals-cells`, which answers as `/youth-cells`
+    does with only the columns above, the event's date as `Event`. A new
+    section of the event test covers it, copied to Windows and mirrored in
+    the Mac's `BoardEventTests` (D-2).
 
 #### Status palette (D-13)
 
@@ -312,8 +340,8 @@ the same app feels native on each system rather than identical everywhere.
     Settings, Help and the pages belong in a native menu bar, as on the Mac.
     File: Save report, the check-in QR code, Settings (a window of its
     own), Exit. Edit: Undo, naming the step. View: Event, Results, People,
-    then Youth, Pre-registered, Adult history and Rooms (Ctrl+1 to 7; P-6).
-    Help: Help (F1), Donate (D-17).
+    then Youth, Pre-registered, Adult history and Rooms, then Approved
+    proposals (Ctrl+1 to 8; P-6, D-22). Help: Help (F1), Donate (D-17).
   - Java (browser): buttons in the page and details pane, and context menus
     built on the Popover API. No imitation of a menu bar.
 - **P-2 Capitalization.** Mac: Title Case for buttons and menus (Apple HIG).
@@ -351,12 +379,15 @@ the same app feels native on each system rather than identical everywhere.
     members as they go; a status typed into a table left a finished youth
     holding their room. This replaces a Status cell that offered Waiting,
     Completed and Postponed. Neither version has
-    a sidebar: both choose the page from the View menu (P-1), Ctrl+1 to 7 on
-    Windows and ⌥⌘1 to 7 on the Mac, with a check on the page shown, so the
-    Event page has the window's whole width.
+    a sidebar: both choose the page from the View menu (P-1), Ctrl+1 to 8 on
+    Windows and ⌥⌘1 to 8 on the Mac, with a check on the page shown, so the
+    Event page has the window's whole width. *Amended 2026-09-27 by the
+    owner:* an eighth page, Approved proposals (D-22), follows Rooms. It
+    reads earlier events, not a table this one keeps, and is read only.
   - Java: no Results or People page. The top bar has Event, Admin tables,
     Settings and Help; Admin tables is the admin page, whose Boards tab
-    corrects a result and whose Adults tab changes roles. Results are read
+    corrects a result, whose Adults tab changes roles, and whose Approved
+    proposals tab lists D-22's approvals. Results are read
     from the Finished group, and an adult is marked gone home from the
     details pane's context menu. Two links to the one admin page (the old
     Results and People) do not come back.
@@ -402,6 +433,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Sign an adult in by hand, filled in from the adult history | ➖ | ➖ | ✅ | Asked for by the owner 2026-09-27 for an adult who won't use the tablet. Mac b7cb31b, 88e0894: Adult › Add Adult…, Add Adult at the foot of People, or a double-click below its last row; a search of the adult history (`EventNight.historyMatches`) fills the form in and carries the record's ID, as the tablet's email lookup does; a role left at As Last Time keeps the history's. It goes through `registerAdult`, as the tablet's sign-in does. Adult History ticks those signed in today, and a double-click there signs someone in (`SignInTests`) |
 | Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Find a person's room (D-21) | ➖ | ✅ | ◐ | Windows 87fba78: *Find a person* under the Rooms heading, `SchedulerLogic.FindPeople` with a unit test. Java has *Find a youth* in the Youth list, which D-21 takes out. The Mac's toolbar search already narrows the rooms by a youth's or member's name (`Rooms.visibleRooms`), but doesn't say where a match in no room is |
+| Approved proposals from earlier events (D-22) | ➖ | ➖ | ➖ | Asked for by the owner 2026-09-27, for a youth who comes without the signed proposal page. Read only. The Mac already lists the earlier events in its data folder (`DataFolder.nights()`); none of the three reads their youth yet |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
 | Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |
 | Switch a room between final and project | ✅ | ✅ | ✅ | A board already in it is not disturbed |
