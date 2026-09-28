@@ -1,9 +1,12 @@
 # Line endings. Git for Windows checks text out with CRLF by default, so
 # without these the checkin/ pages on a Windows machine would differ from
 # every version's copy (all LF) and scripts/check-drift.sh would fail there.
+# The same goes for the rule and auto-select cases.
 * text=auto
 
 checkin/**  text eol=lf
+cases/**    text eol=lf
+*.json      text eol=lf
 *.html      text eol=lf
 *.css       text eol=lf
 *.js        text eol=lf
