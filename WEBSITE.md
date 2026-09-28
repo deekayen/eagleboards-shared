@@ -44,7 +44,7 @@ text on each one says exactly what it shows, so it changes with the image.
 
 What has changed since each version's pictures were taken.
 
-### Java: O-3 amended, P-6, D-20 (cdf13f5)
+### Java: O-3 amended, P-6, D-20, D-21, D-22 (cdf13f5, 38feaf9, 3f4240e, edade33, 23e89a9)
 
 - The top bar has one **Admin tables** link where Results and People were.
   `java/evening.png`, `java/seat-board.gif` and `java/complete-board.gif`
@@ -67,8 +67,18 @@ What has changed since each version's pictures were taken.
   CSV**, with **Sign in for today** and a Last event column; Status is
   read-only in every tab. `java/results.png` shows the Boards tab's Status as
   a choice, and `java.md` says nothing of Add adult or the history tab.
+- D-21 (edade33): the Youth list has no Find a youth box, and **Find a
+  person** under the Rooms heading narrows the room cards to someone's,
+  youth or adult, or says where they are (Ctrl+F). `java/evening.png`,
+  `java/seat-board.gif` and `java/complete-board.gif` show Find a youth over
+  the Youth list and nothing over the rooms; "which room someone is in" is
+  worth a sentence in `java.md`.
+- D-22 (edade33, 23e89a9): the admin page has an **Approved proposals** tab,
+  the project proposals approved at earlier events in the data folder, for
+  a youth who comes without the signed page. `java.md` doesn't mention it;
+  no picture shows it.
 
-### Mac: P-1 and P-6 amended, O-3 amended, D-17 (b99be53, ef4b34d, d1ed389, b7cb31b, 88e0894, 4a6df34, d2507c0)
+### Mac: P-1 and P-6 amended, O-3 amended, D-17, D-21, D-22 (b99be53, ef4b34d, d1ed389, b7cb31b, 88e0894, 4a6df34, d2507c0, e82da7e, 08937c2)
 
 - No sidebar: **View › Event**, **Results** and **People** (⌥⌘1 to ⌥⌘3)
   choose the page, and the Event page takes the whole width, every youth in
@@ -98,6 +108,13 @@ What has changed since each version's pictures were taken.
   Adults) signs in an adult who won't use the tablet, filled in from the adult
   history, and the Adult History CSV's Last Event column ticks who has signed
   in today. `mac.md` says nothing of either.
+- D-21 (e82da7e): the toolbar's search no longer narrows the youth list; it
+  narrows the room cards to someone's, youth or adult, and says where anyone
+  in no room is. `mac.md` could say so where it describes the search; no
+  picture shows it.
+- D-22 (08937c2): **View › Approved Proposals** (⌥⌘8), an eighth page, lists
+  the project proposals approved at earlier events in the data folder, for a
+  youth who comes without the signed page. `mac.md` doesn't mention it.
 
 ### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20, D-22 (f28f8b6, e7a69bf, ca23ae3)
 
