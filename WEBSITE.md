@@ -37,7 +37,7 @@ text on each one says exactly what it shows, so it changes with the image.
 |---|---|---|---|
 | `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/evening.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-09-27 |
 | `content/docs/scheduler/mac.md` | Mac | `mac/evening.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-27 |
-| `content/docs/scheduler/windows.md` | Windows | `windows/evening.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-27 |
+| `content/docs/scheduler/windows.md` | Windows | `windows/evening.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-28 |
 | `content/docs/scheduler/_index.md` | All | `java/evening.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-09-27 |
 
 ## Stale
@@ -120,57 +120,6 @@ What has changed since each version's pictures were taken.
   row below at the right, beside Postpone; the Board menu has Fill the Rest
   too. `mac/seat-board.gif` draws up a board in the inspector from before
   the change, and `mac.md` names neither Suggest a Board nor Fill the Rest.
-
-### Windows: P-1 and P-6 amended, O-3 amended, D-17, D-20, D-22 (f28f8b6, e7a69bf, ca23ae3)
-
-- No sidebar: a menu bar (File, Edit, View, Help) across the top, and the
-  Event page takes the whole width. `windows/evening.png`,
-  `windows/seat-board.gif` and `windows/complete-board.gif` show the
-  sidebar, and `evening.png`'s alt text ends "Donate, Help and Settings sit
-  at the foot of the sidebar". In `windows.md`, "**Donate**, at the foot of
-  the sidebar" is now **Help › Donate**, and **Help** in the app is **Help ›
-  Eagle Boards help** (F1). Settings is **File › Settings**, a window of its
-  own.
-- The Youth list has no Show menu and always holds Waiting, On a board and
-  Finished, and Find looks through all three. The same three pictures show
-  the menu set to Active and Finished missing, and the alt text says the
-  list "shows the active youth"; `windows.md` says the list shows the
-  **Active** youth and the menu narrows it.
-- Wood Badge adults have the pentagon after their name, and a same-unit
-  adult a warning triangle: in the details pane, its Replace, Add member
-  and Change chair choices, and People's Wood Badge column.
-  `windows/seat-board.gif` (Guion Bluford and Steve Fossett) shows neither.
-- The overview (`_index.md`, "Getting help") says Help is "at the foot of
-  the sidebar on Windows"; it's **Help › Eagle Boards help** now.
-- No Undo button in the bottom bar (7685c7b): **Edit › Undo** and Ctrl+Z
-  undo. `windows.md` says "**Undo** (Ctrl+Z) at the bottom right", and the
-  three pictures show the button.
-- D-21 (87fba78): the Youth list has no Find a youth box, and **Find a
-  person** under the Rooms heading narrows the rooms to someone's, youth or
-  adult, or says where they are. The three pictures show Find a youth over
-  the Youth list and nothing over the rooms; `windows.md` doesn't mention
-  finding anyone, and "which room someone is in" is worth a sentence in
-  section 2 or 3.
-- The details pane's step buttons (Seat board, Start review, Complete,
-  Reset) sit in a bar pinned to its foot, and in review Result and Notes
-  come before the members (58f3170). `windows/complete-board.gif` shows the
-  members above the result, and `windows/evening.png` Complete below them.
-  Ctrl+Enter runs the step; section 3 of `windows.md` could say so.
-- P-6 (7f20371): no Admin tables window. Every table is a page on the View
-  menu, edited in place: Results (correct a result), Adults (change roles),
-  Youth, Pre-registered and Rooms, and the Adult history CSV, read-only
-  (e7a69bf). `windows.md` names no admin tables, so nothing there is wrong,
-  but a sentence on correcting a result on Results and a role on Adults
-  would help; no picture shows them.
-- New since the pictures (e7a69bf): **Add adult…** on the Adults page signs
-  in an adult who won't use the tablet, filled in from a search of the adult
-  history, and the Adult history CSV's **Sign in for today** does the same
-  for the adult selected there. `windows.md` says nothing of either.
-- New since the pictures (ca23ae3): **View › Approved proposals** (Ctrl+8)
-  lists the project proposals approved at earlier events in the data
-  folder, for a youth who comes without the signed page. `windows.md` could
-  say so beside the board of review steps; no picture shows it.
-- The Windows README's pictures (`docs/images/`) are already current.
 
 ## Re-shooting
 
