@@ -2,7 +2,7 @@
 
 The pages the tablets at the door load, and anyone who scans the check-in QR
 code on their phone. One design, served unchanged by every version of Eagle
-Boards (SPEC.md D-17).
+Boards (SPEC.md D-18).
 
 | File | What |
 |---|---|

@@ -39,12 +39,22 @@ text on each one says exactly what it shows, so it changes with the image.
 | `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-28 |
 | `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-28 |
 | `content/docs/scheduler/_index.md` | All | `java/event.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-09-28 |
+| `README.md` in this repository | All | `java/event.png`, `mac/event.png` and `windows/event.png`, linked by their site URLs, so a re-shoot reaches it with the site. Its alt text names only the version, so it doesn't change with the image | follows the site |
 
 ## Stale
 
 What has changed since each version's pictures were taken.
 
-Nothing: every page matches its version.
+- **The Windows README's pictures.** eagleboards-windows `docs/images/`
+  (`scheduler.png`, `scheduler-dark.png`, `scheduler-demo.gif` and
+  `scheduler-demo-dark.gif`, taken 2026-09-27) are the older `--demo` set: a
+  different cast from the demo event, no room running long or overdue, and no
+  Wood Badge mark, so they don't show what the README describes and don't match
+  the site or the Java and Mac READMEs. Move the README to the demo event's
+  shots, as those two do. `--site` renders only a dark `event.png`, so the
+  README's light and dark pair needs a light `event.png` from `Site.cs` first.
+
+The site's pictures match their versions.
 
 ## Re-shooting
 
