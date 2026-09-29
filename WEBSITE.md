@@ -45,16 +45,6 @@ text on each one says exactly what it shows, so it changes with the image.
 
 What has changed since each version's pictures were taken.
 
-- **The Windows README's pictures.** eagleboards-windows `docs/images/`
-  (`scheduler.png`, `scheduler-dark.png`, `scheduler-demo.gif` and
-  `scheduler-demo-dark.gif`, taken 2026-09-27) are the older `--demo` set: a
-  different cast from the demo event, no room running long or overdue, and no
-  Wood Badge mark, so they don't show what the README describes and don't match
-  the site or the Java and Mac READMEs. Move the README to the demo event's
-  shots, as those two do. `--site` renders only a dark `event.png`, so the
-  README's light and dark pair needs a light `event.png` from `Site.cs` first.
-  Tracked as [eagleboards-windows#16](https://github.com/deekayen/eagleboards-windows/issues/16).
-
 The site's pictures match their versions.
 
 ## Re-shooting
@@ -112,4 +102,8 @@ The site's pictures match their versions.
   `complete-board.gif` with this cast, and photographs the shared check-in
   pages (`checkin.png`, `youth.png`, `adult.png`) as a 1180x820 tablet shows
   them, through Edge headless. Those three serve every version's page.
+  It also renders `event-light.png`, the same window in light:
+  eagleboards-windows's README uses the same shots (`docs/images/`, with
+  `event-light.png` as its `event.png` and the site's `event.png` as
+  `event-dark.png`), so refresh them together.
 - Push to the site's `main`; Cloudflare publishes it.
