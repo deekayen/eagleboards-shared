@@ -53,6 +53,7 @@ What has changed since each version's pictures were taken.
   the site or the Java and Mac READMEs. Move the README to the demo event's
   shots, as those two do. `--site` renders only a dark `event.png`, so the
   README's light and dark pair needs a light `event.png` from `Site.cs` first.
+  Tracked as [eagleboards-windows#16](https://github.com/deekayen/eagleboards-windows/issues/16).
 
 The site's pictures match their versions.
 
