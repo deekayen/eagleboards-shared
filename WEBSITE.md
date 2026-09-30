@@ -52,7 +52,10 @@ What has changed since each version's pictures were taken.
   adult who will introduce one (#18, D-23).
 - Windows `event.png`, `seat-board.gif`: the details pane's link reads
   *Introduces them* (#19, D-23); Start review on a board of review asks first
-  (#19). Java and the Mac: the same wording, once their #19 lands.
+  (#19). Java and the Mac: wherever a shot shows a linked adult or the Start
+  review confirmation, it reads *Introduces them* and names only whoever
+  introduces the youth (#19). A proposed board now follows sign-ins (#20),
+  which the demo event's shots don't show.
 
 ## Re-shooting
 
