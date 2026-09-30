@@ -82,10 +82,10 @@ How each part is met, and how it was checked:
 | 1.3.2 Meaningful sequence, 2.4.3 Focus order | One column; source order is reading and tab order |
 | 1.3.5 Identify input purpose | `autocomplete` on email, first and last name, phone |
 | 1.4.1 Use of color | Errors say what is wrong in words, beside the field and in a summary |
-| 1.4.3 Contrast (minimum), 1.4.11 Non-text contrast | Fixed colors (not the device's accent), 21 pairs measured in light and dark by `scripts/check-contrast.js`: text 4.5:1 or better, field borders and the focus ring 3:1 or better |
+| 1.4.3 Contrast (minimum), 1.4.11 Non-text contrast | Fixed colors (not the device's accent), 20 pairs measured in light and dark by `scripts/check-contrast.js`: text 4.5:1 or better, field borders and the focus ring 3:1 or better |
 | 1.4.4 Resize text, 1.4.10 Reflow, 1.4.12 Text spacing | Sizes in `rem`; one column with no sideways scrolling at 320px wide, also with WCAG's extra line, letter and word spacing applied |
 | 2.1.1 Keyboard | Everything is a link, button or field; the two scrolling lists take focus so they can be scrolled from the keyboard |
-| 2.2.1 Timing adjustable | After signing in, the page returns to the start after 20 seconds, says so, and has "Stay on this page" |
+| 2.2.1 Timing adjustable | Nothing is timed. Signing in goes straight back to the welcome page, where the new name heads the list: no confirmation page to read before it moves on, or to click past |
 | 2.2.2 Pause, stop, hide | Nothing moves or updates on its own: the signed-in lists load when the welcome page opens (after every sign-in) and stay put |
 | 2.4.2 Page titled, 2.4.6 Headings and labels | A distinct title per page; labels say what to enter |
 | 2.4.7 Focus visible, 2.4.11 Focus not obscured | A 3px ring on every control. The pinned Sign in bar never hides the field in focus: the page keeps a scroll margin the height of the bar, checked on every field at phone size |
@@ -98,7 +98,7 @@ How each part is met, and how it was checked:
 | 4.1.2 Name, role, value | Native controls throughout; the leave-without-saving prompt is a native `<dialog>` |
 | 4.1.3 Status messages | "Signing you in…", the pre-fill notice and failures are announced from a `role="status"` region; errors from `role="alert"` |
 
-Checked on 2026-09-27 with axe-core 4.10 (the WCAG 2.0/2.1/2.2 A and AA
+Checked on 2026-09-30 with axe-core 4.10.2 (the WCAG 2.0/2.1/2.2 A and AA
 rules) on all three pages in light and dark, with each form both fresh and
 showing every error: no violations. axe leaves the contrast of rows scrolled
 out of view inside the two lists undecided (it cannot sample a clipped

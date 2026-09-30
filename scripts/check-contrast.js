@@ -31,12 +31,11 @@ const PAIRS = [
    ["text-2", "bg", 4.5, "secondary text on the page"],
    ["text-2", "surface", 4.5, "secondary text (hints, times, headers) on a card"],
    ["text-2", "surface-alt", 4.5, "secondary text on a hovered tile"],
-   ["accent-text", "accent", 4.5, "text on the primary tile and button"],
+   ["accent-text", "accent", 4.5, "text on the primary button (Sign in)"],
    ["accent-fg", "bg", 4.5, "links on the page"],
    ["accent-fg", "surface", 4.5, "links on a card"],
    ["error-fg", "error-bg", 4.5, "an error message"],
    ["error-fg", "surface", 4.5, "a field's error under it"],
-   ["ok-fg", "ok-bg", 4.5, "the confirmation after signing in"],
    ["disabled-fg", "disabled-bg", 3.0, "a disabled field (exempt from 1.4.3; kept readable)"],
    ["control-border", "surface", 3.0, "a field or button border on a card"],
    ["control-border", "bg", 3.0, "a tile or field border on the page"],
@@ -44,7 +43,7 @@ const PAIRS = [
    ["error-fg", "bg", 3.0, "an invalid field's border against the page"],
    ["focus", "bg", 3.0, "the focus ring on the page"],
    ["focus", "surface", 3.0, "the focus ring on a card"],
-   ["accent", "bg", 3.0, "the primary tile's edge against the page"],
+   ["accent", "bg", 3.0, "the primary button's edge against the page (the Sign in bar)"],
    ["accent", "surface", 3.0, "the primary button's edge against a card"],
 ];
 

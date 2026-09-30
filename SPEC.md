@@ -108,7 +108,16 @@ them.
   all three steps (see P-3).
 - **D-12 Pick by hand, or let the app fill in.** The operator can remove and
   add members freely, then have the app complete the board around the
-  people they chose.
+  people they chose. *Amended 2026-09-30 by the owner:* a board the app
+  proposed, and the operator hasn't changed, follows the event. It is
+  proposed again whenever what it is made from changes: an adult signs in,
+  goes home or comes back, or leaves a board; a room is added or freed; a
+  youth signs in, is seated or finishes. Opening another youth proposes for
+  that youth. Once the operator removes, adds, fills or changes the chair,
+  the board is theirs, kept until Start over or Seat board. Either way an
+  adult who signs in is among the free adults at once (D-15). At the
+  2026-09-30 event a board proposed before the adults arrived stayed a board
+  of one, with Seat blocked, until Start over.
 - **D-13 Status is text plus an icon, in one palette.** Every status pill and
   room timer shows a word or a number with an icon, so color is never the
   only cue, and all three versions color them alike, from the
@@ -218,6 +227,29 @@ them.
     endpoint, so the event test's section 28 runs on both. A new
     section of the event test covers it, copied to Windows and mirrored in
     the Mac's `BoardEventTests` (D-2).
+- **D-23 The adult who introduces the youth.** Decided 2026-09-30 by the
+  owner. At a board of review an adult who knows the youth introduces them
+  to the board: usually their Scoutmaster, or another leader standing in
+  when the Scoutmaster can't come. That is the adult linked to a youth,
+  whether they checked the youth at sign-in or the operator linked them
+  from the details pane. The data is unchanged: the adult's `Supporting`
+  column (D-1) and form field (D-2).
+  - Wording: the link means *introduces them*, not anyone who came with
+    the youth. The adult form (D-18) asks only the adult who will introduce
+    a youth to check them, and asks parents to leave it blank unless they
+    are also the youth's Scoutmaster: a parent who links themselves is
+    fetched for nothing, and auto-select keeps them off other boards (D-5).
+    The operator's screens say *introduces them* wherever the link is shown
+    or made.
+  - Start review on a board of review (`Final`) reminds the operator,
+    before the youth is brought in, to fetch the adult who introduces them,
+    and says where each is: the main room, the board in room *n*, or gone
+    home. With no one linked, it says so and names the youth's leader if
+    they have signed in (as the details pane finds them), never a parent.
+    The review starts from the reminder, or the operator goes back. A
+    project review has no introduction, so its Start review names no one to
+    fetch. Windows had this reminder and lost it in its Fluent redesign; the
+    2026-09-30 event went without it.
 
 #### Status palette (D-13)
 
@@ -293,7 +325,13 @@ that each version's palette file still holds every value.
   errors, in both appearances before a change lands. Many people sign in on
   a shared laptop and can't scroll with a trackpad, so each form fits a
   laptop window without scrolling (columns on a wide screen) and Sign in is
-  pinned to the bottom of the window.
+  pinned to the bottom of the window. *Amended 2026-09-30 by the owner:* the
+  welcome page's two ways in (*I am a youth*, *I am 21 or older*) are drawn
+  alike, since a filled youth tile looked already chosen and the adult one
+  as if it wouldn't select; and a sign-in that goes through returns straight
+  to the welcome page, whose list shows the new name first, with no
+  confirmation page to click past. The adult form's list of youth is for the
+  adult who will introduce one (D-23).
 
 ### Resolved open questions
 
@@ -433,6 +471,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | No color keys in `config.properties` (D-19) | ✅ | ✅ | ✅ | An older file loads and the next save drops them; the Windows–Java hand-off test passes both ways |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | *Fill the rest* keeps the operator's picks and adds a chair and members around them: Java `fillBoard`, Windows `FillBoard`, Mac `BoardSuggestion.fill` (6480c4d, *Fill the Rest* in the inspector and the Board menu; until then the Mac's *Suggest a Board* only replaced the whole board, which the shared `fill` cases found) |
+| A proposed board follows the event until changed (D-12, amended) | ➖ | ➖ | ✅ | #20. The Mac already did: `refreshProposals` makes again the drafts the operator hasn't edited when a room, an adult or a youth changes. Java proposes once per youth; Windows once, and keeps it for the next youth opened |
 | No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
 | No youth phone number (D-8) | ✅ | ✅ | ✅ | Java d355a10, Windows f0e582a, Mac 55ba04b. Not asked, imported, pre-filled, shown or exported; a number on file is left alone and withheld wherever a youth table is served (`/youth-autofill` included) or saved (the Mac's Export List), and a `-cells` filter on it matches nothing (Java, Windows; the Mac has no such endpoint). The event test's section 24 covers it: Java's script, copied byte for byte to Windows, mirrored in Mac's `BoardEventTests` |
 | New install: empty adult history (D-9) | ✅ | ✅ | ✅ | Java 1a35a9e, Windows fdfb449; the Mac already did. A missing history is started with its header row and its full path said (Java's console; Windows' log, or the console for `EagleBoards.Server`; Windows' startup window asks first). A failed command-line start exits 1, and Java's URL window goes with it. Java's `scripts/test-first-run.sh` covers it |
@@ -455,7 +494,8 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Move or swap a board between rooms | ✅ | ✅ | ✅ | |
 | Sign-in QR code window | ✅ | ✅ | ✅ | |
 | Drag a youth onto a room to seat | ➖ | ➖ | ✅ | Mac only is fine (pointer-heavy) |
-| Link adult to youth after sign-in | ✅ | ✅ | ✅ | |
+| Link the adult who introduces a youth, at or after sign-in (D-23) | ◐ | ◐ | ◐ | #19: the link reads as *came to support* in all three |
+| Reminder at Start review to fetch the introducer, boards of review only (D-23) | ◐ | ➖ | ◐ | #19. Java names the linked adults at project reviews too; the Mac every leader and parent it finds, at project reviews too; Windows lost the reminder in 02bf094 |
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
 | Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate… (a Donate window) and About. Never on the check-in pages |
 | Donate link in the main window (D-17) | ✅ | ✅ | ✅ | Java: app bar, to Settings' Support section; Windows: Help › Donate in the menu bar (f28f8b6), to the Settings window's Support card; Mac: Help › Donate… in the menu bar (ef4b34d), a window with the links |

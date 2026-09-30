@@ -45,7 +45,14 @@ text on each one says exactly what it shows, so it changes with the image.
 
 What has changed since each version's pictures were taken.
 
-The site's pictures match their versions.
+- All versions, `checkin.png`: the two sign-in tiles are drawn alike; *I am
+  a youth* is no longer filled (#18, D-18). The page text should no longer
+  mention a confirmation page after signing in, if it does.
+- All versions, `adult.png`: the youth list is *Introducing a youth*, for the
+  adult who will introduce one (#18, D-23).
+- Windows `event.png`, `seat-board.gif`: the details pane's link reads
+  *Introduces them* (#19, D-23); Start review on a board of review asks first
+  (#19). Java and the Mac: the same wording, once their #19 lands.
 
 ## Re-shooting
 
