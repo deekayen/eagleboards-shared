@@ -240,7 +240,11 @@ them.
     are also the youth's Scoutmaster: a parent who links themselves is
     fetched for nothing, and auto-select keeps them off other boards (D-5).
     The operator's screens say *introduces them* wherever the link is shown
-    or made.
+    or made. *Amended 2026-10-24 by the owner:* the adult form's list is
+    headed *Introducing a youth*, and its hint begins by saying it is
+    optional: with "(optional)" in the heading it wrapped onto a second line
+    at the 1180 px tablet width and broke the box's border. Not "here to
+    support" or "came to support", which read as anyone who came with them.
   - Start review on a board of review (`Final`) reminds the operator,
     before the youth is brought in, to fetch the adult who introduces them,
     and says where each is: the main room, the board in room *n*, or gone
@@ -344,7 +348,10 @@ cite them.
 - **O-2 Undo everywhere.** Confirm only what Undo cannot take back (Reset,
   Postpone). Every board step, room change, Disable/Enable and Link/Unlink
   gets Undo. Java and Windows both answer `/restore-board` (event test
-  section 20). Mac already had this.
+  section 20). Mac already had this. *Amended 2026-10-24 by the owner:*
+  Remove room asks first in all three, naming the room, as Java's does
+  ("It comes off the list for the rest of this event. You can add it
+  again."), whether or not Undo can also take it back.
 - **O-3 One live-operations view.** Windows' Event page (queue, room cards
   and details pane always visible together) is the reference layout for all
   three, so a room's timer is never out of sight while working the queue.
@@ -389,6 +396,13 @@ the same app feels native on each system rather than identical everywhere.
     own), Exit. Edit: Undo, naming the step. View: Event, Results, Adults,
     then Youth, Pre-registered, Adult history CSV and Rooms, then Approved
     proposals (Ctrl+1 to 8; P-6, D-22). Help: Help (F1), Donate (D-17).
+    *Amended 2026-10-24 by the owner:* a Board menu between View and Help,
+    as the Mac has Board, Adult and Room menus, so every step and its
+    shortcut is in a menu: the open youth's next step (Seat board, Start
+    review or Complete, named for the step, Ctrl+Enter), Postpone..., Reset...,
+    Link an adult... and Unlink...; then the selected room's Add room...,
+    Move or swap board..., Rename room... (F2), Switch room type and Remove
+    room... . Each item is enabled when its button would be.
   - Java (browser): buttons in the page and details pane, and context menus
     built on the Popover API. No imitation of a menu bar.
 - **P-2 Capitalization.** Mac: Title Case for buttons and menus (Apple HIG).
@@ -411,8 +425,13 @@ the same app feels native on each system rather than identical everywhere.
     tables, the Mac's Records). Results is the boards table: every board and
     its result, where a result or its notes is corrected, with Find, Save
     report and a way to open a board on the Event page. Adults is the adults
-    table: roles, unit, contact and Wood Badge are changed there, beside Gone
-    home and Back and the D-20 marks. The other pages have Find, Export and
+    table: roles, unit, contact and Wood Badge are changed there, beside Mark
+    gone home and Mark back and the D-20 marks. *Amended 2026-10-24 by the
+    owner:* all three name them Mark gone home and Mark back (Title Case on
+    the Mac, P-2), wherever they appear. They were Gone home and Back on
+    Windows, Disable (gone home) and Enable (back) in Java, and Disable for
+    Today and Enable for Today on the Mac; a command names what it does, and
+    "Back" read as going back. The other pages have Find, Export and
     Delete (Rooms: Add and Remove room; the Adult history CSV only Find and
     Export). A changed cell is saved as it is
     left (a choice as soon as it is picked; leaving the page saves a cell
@@ -430,7 +449,13 @@ the same app feels native on each system rather than identical everywhere.
     Complete, Postpone, Reset, and Undo), which take and free a room and its
     members as they go; a status typed into a table left a finished youth
     holding their room. This replaces a Status cell that offered Waiting,
-    Completed and Postponed. Neither version has
+    Completed and Postponed. *Amended 2026-10-24 by the owner:* nor does a
+    table delete someone a board holds: a youth whose board is seated or in
+    review, or an adult sitting on a board, is refused with the reason
+    (reset or complete the board first), by the server too (`/youth-update`,
+    `/adult-update`; event test section 29), as the Mac already did. A
+    deleted youth had left a room held, and a deleted member a board short.
+    Neither version has
     a sidebar: both choose the page from the View menu (P-1), Ctrl+1 to 8 on
     Windows and ⌥⌘1 to 8 on the Mac, with a check on the page shown, so the
     Event page has the window's whole width. *Amended 2026-09-27 by the
@@ -484,6 +509,11 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | One stacked youth column (O-3, amended) | ✅ | ✅ | ✅ | Java cdf13f5, Windows f28f8b6 (groups that stay, headed at a count of none; `SchedulerLogic.QueueSortKey` orders them, with a unit test), Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider) |
 | Pages beside the Event page (P-6) | ✅ | ✅ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page; 38feaf9, 3f4240e: the Adults tab shares an adult's facts with the read-only Adult history CSV tab (`shareAdultFacts`; `/adult-history-update` refuses edits), Status read-only. Windows f28f8b6, 7f20371: every table a page in the View menu (Ctrl+1 to 7), edited in place (`TablePage`); no sidebar and no Admin tables window; fc598d7: People and Adult history share an adult's facts (`BoardService.SaveAdultEdit`), a pick saves at once; 0d659e4: Status read-only; e7a69bf: Adults, and the Adult history CSV read-only with a Last event column (`BoardService.SaveRow` makes an edit to an adult's facts in the history too, off the Undo stack, and refuses any edit to the history). Mac ef4b34d, b7cb31b, 88e0894: every table a page in the View menu (⌥⌘1 to 7), edited in place (`EditableText`, `EditableChoice`), the inspector beside each; no sidebar and no Records window. Chair, members and rooms read-only; cells off the Undo stack; File › Export List. b396ad8: a cell still open saves when the page is left. 4a6df34: Adults, and the Adult History CSV read-only (`BoardEvent.updateAdult` edits the event's adults and copies their facts to the history). d2507c0: Status read-only |
 | A table never seats, starts or ends a board (P-6) | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27; Status is now read-only in every table besides. The server backstop, event test section 25: Java 38feaf9, `ScoutUpdateHandler.refusal` makes `/youth-update` refuse Seated, InProgress and a sitting board's status, and still take Registered, Completed or Postponed for section 18's correction. Mac 2f17665, `BoardEvent.updateYouth` the same (`BoardEventTests.aTableCannotSeatStartOrEndABoard`). Windows 0d659e4 shows Status read-only; e7a69bf, `BoardService.SaveRow` (`Refusal`) the same, the reason as the action's text as in Java, and the event test's sections 25 to 27 copied |
+| Mark gone home and Mark back on the Adults page (P-6, amended 2026-10-24) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-24, one name in all three: Windows' Adults commands (were Gone home and Back), Java's adult shortcut menu (were Disable (gone home) and Enable (back)), the Mac's Adult menu, Title Case (were Disable for Today and Enable for Today) |
+| A table never deletes someone a board holds (P-6, amended 2026-10-24) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-24; event test section 29 in Java and Windows, mirrored in the Mac's `BoardEventTests`. Java: `ScoutUpdateHandler.refusal` and `AdultUpdateHandler.refusal`, the admin page keeping the row. Windows: `BoardService.Refusal` (and `DeleteRefusal`, asked before the table page's Delete). Mac: `BoardEvent.deleteYouth` and `deleteAdult`, already refusing. All three: "Reset or complete that board first" |
+| Remove room asks first (O-2, amended 2026-10-24) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-24, with Java's words: "It comes off the list for the rest of this event. You can add it again." Java: the Event page and the Admin Rooms tab. Windows: every path through `MainWindow.RemoveRoom` (the Rooms buttons, the room's shortcut menu, Board > Remove room..., the Rooms page). Mac: `AppModel.removeSelectedRoom`, and Undo still takes it back |
+| Board menu in the menu bar (P-1, amended 2026-10-24) | ➖ | ✅ | ✅ | Windows by P-1 (Java has no menu bar): `BoardCommands`, each step a RoutedUICommand with its gesture, enabled as its button is; the first item named for the step. The Mac's Board, Adult and Room menus already held the steps |
+| Keeps the computer awake while serving | ➖ | ✅ | ✅ | Mac `AppModel`; Windows `App`'s `KeepAwake` (decided by the owner 2026-10-24), from the start until the main window closes, so a sleeping laptop doesn't take the check-in site down. Java to decide |
 | Sign an adult in by hand, filled in from the adult history | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27 for an adult who won't use the tablet. Each goes through the tablet's own sign-in (`/register-adult`, `registerAdult`) and, filled in from the history, carries the record's ID as the tablet's email lookup does; event test section 27. Java 38feaf9: Add adult… on the Adults tab, with a search of the adult history; Sign in for today on the Adult history CSV tab, whose Last event column shows it. Mac b7cb31b, 88e0894, 4a6df34: Adult › Add Adult…, Add Adult at the foot of Adults, or a double-click below its last row; the search is `BoardEvent.historyMatches`, and a role left at As Last Time keeps the history's. The Adult History CSV ticks those signed in today, and a double-click or Sign In for Today signs someone in. Windows e7a69bf: Add adult… on the Adults page (`AddAdultDialog`), with a search of the adult history; Sign in for today on the Adult history CSV page, whose Last event column says Today once it has |
 | Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Find a person's room (D-21) | ✅ | ✅ | ✅ | Windows 87fba78: *Find a person* under the Rooms heading, `SchedulerLogic.FindPeople` with a unit test. Java edade33: *Find a person* under the Rooms heading, the Youth list's *Find a youth* gone; `findPeople`, `roomsFound`, `personFindNote` in `process_seat.js`, with Windows' test cases in `test-find-people.js` (b4d2705; `test-seat-conflicts.js` before). Mac e82da7e: the toolbar search on the Event page, which no longer filters the youth list; `PersonFind` with Windows' test cases (`PersonFindTests`); Return opens the first room found or the youth |
@@ -495,6 +525,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Sign-in QR code window | ✅ | ✅ | ✅ | |
 | Drag a youth onto a room to seat | ➖ | ➖ | ✅ | Mac only is fine (pointer-heavy) |
 | Link the adult who introduces a youth, at or after sign-in (D-23) | ✅ | ✅ | ✅ | #19. The link reads as *Introduces them* (it read *came to support*): Java 06483c6 (Locate, the details pane, the Link dialog), Windows ef24fb1 (Leaders and parents, the Link dialog, the Adults page's *Introduces* column), Mac 2c20c08 (the relation, the Adults page's *Introduces* column). The adult form asks the same of the adult (#18) |
+| The adult form's list headed *Introducing a youth* (D-23, amended 2026-10-24) | ➖ | ➖ | ➖ | Decided by the owner 2026-10-24: "(optional)" moves from the heading into its hint, so it fits the tablet's width. Each version follows when it serves the pages at the new commit |
 | Reminder at Start review to fetch the introducer, boards of review only (D-23) | ✅ | ✅ | ✅ | #19. The linked adults, or with none the youth's leader if signed in, never a parent; nobody at a project review. Java 06483c6: `introductionFor` (`process_seat.js`, `scripts/test-board-builder.js`), where it named the linked adults at project reviews too. Windows ef24fb1: `SchedulerLogic.IntroductionFor`, `MainWindow.StartReviewReminder`, a dialog a project review skips; the reminder it lost in 02bf094. Mac 2c20c08: `AdultLocator.introduction`, where it named every leader and parent, at project reviews too. The same cases in all three |
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
 | Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate… (a Donate window) and About. Never on the check-in pages |

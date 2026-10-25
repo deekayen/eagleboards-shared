@@ -32,7 +32,7 @@ one links to that version's walkthrough.</sub>
    address, a unit and which review they're here for. An adult gives their
    contact details, says whether they can serve as a member or a chair for each
    kind of board, and can count the event toward Wood Badge and name the youth
-   they came to support. Anyone who has been before is recognized by email and
+   they'll introduce to their board. Anyone who has been before is recognized by email and
    the form fills itself in.
 3. **A board is proposed.** Select a waiting youth and the program suggests a
    free room of the right kind, a qualified chair and members. It weighs the

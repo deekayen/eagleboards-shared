@@ -46,16 +46,20 @@ text on each one says exactly what it shows, so it changes with the image.
 What has changed since each version's pictures were taken.
 
 - All versions, `adult.png`: the youth list is *Introducing a youth*, for the
-  adult who will introduce one (#18, D-23). Held, not just late: the new
-  legend, *Introducing a youth (optional)*, wraps onto a second line in the
-  three-column form at the 1180 px tablet width and breaks the box's top
-  border, so the shot would show a defect in `checkin/adult_register.html`.
-  Settle the legend, then shoot. The site's page text already says it.
+  adult who will introduce one (#18, D-23). No longer held: the owner settled
+  the legend 2026-10-24 (D-23 amended). It reads *Introducing a youth*, with
+  "Optional." starting its hint, and fits on one line at the 1180 px tablet
+  width. Shoot it once the versions serve the pages at the new commit. The
+  site's text still says "came to support" in places (`java.md`, `_index.md`).
 - Windows `event.png`, `seat-board.gif`: the details pane's link reads
   *Introduces them* (#19, D-23); Start review on a board of review asks first
   (#19). These need Windows (see Re-shooting). The Mac's shots show neither
   a linked adult nor the Start Review confirmation, so they stand. A proposed
   board now follows sign-ins (#20), which the demo event's shots don't show.
+  Since 2026-10-24 (eagleboards-windows c0b18db) the Adults page's commands
+  are Mark gone home and Mark back (P-6 amended), the table pages' headings
+  are Last name, First name and Board type, the selected row has an accent
+  outline, and a Board menu is coming (P-1 amended).
 
 ## Re-shooting
 
