@@ -213,7 +213,7 @@ them.
   - Read only: no cell is edited, and there is no Export or Delete. A
     mistake is corrected in the earlier event itself.
   - Windows and the Mac: a page on the View menu, after Rooms: *Approved
-    proposals* (the Mac's *Approved Proposals*, P-2), Ctrl+8 and ⌥⌘8 (P-6).
+    proposals* (the Mac's *Approved Proposals*, P-2), Ctrl+8 and ⌘8 (P-6).
   - Java: an *Approved proposals* tab on the admin page, filled from a new
     endpoint, `/approved-proposals-cells`, which answers as `/youth-cells`
     does with only the columns above, the event's date as `Event`: Event,
@@ -421,7 +421,14 @@ the same app feels native on each system rather than identical everywhere.
   `<dialog>` with `showModal()`. Buttons are verbs that answer the title.
 - **P-5 Background attention.** Mac: Dock badge and a notification when a
   room passes its red time. Windows: taskbar equivalents are allowed but not
-  required. Java: none.
+  required. Java: none. *Amended 2026-10-25 by the owner:* the Mac posts that
+  notification whether or not it is the front app. In front it is brief, taken
+  down after about ten seconds so it does not stay on screen or in
+  Notification Center (the owner allowed that one exception to D-14). Behind
+  another app it stays
+  or goes as Notifications is set for the app in System Settings, which an app
+  cannot set for itself, so Settings › Timers says which style is in force and
+  opens that pane.
 - **P-6 Pages beside the Event page.** Decided 2026-09-27.
   - Windows and Mac: an Event page, and a page for each table the event
     keeps: Results, Adults, Youth, Pre-registered, Adult history CSV and
@@ -465,8 +472,11 @@ the same app feels native on each system rather than identical everywhere.
     deleted youth had left a room held, and a deleted member a board short.
     Neither version has
     a sidebar: both choose the page from the View menu (P-1), Ctrl+1 to 8 on
-    Windows and ⌥⌘1 to 8 on the Mac, with a check on the page shown, so the
-    Event page has the window's whole width. *Amended 2026-09-27 by the
+    Windows and ⌘1 to 8 on the Mac, with a check on the page shown, so the
+    Event page has the window's whole width. *Amended 2026-10-25 by the
+    owner:* the Mac's keys were ⌥⌘1 to 8; they are the same digits as
+    Windows' now (P-3), and ⌥⌘8 is the system's shortcut for turning Zoom on
+    and off, which took the Approved proposals key from anyone using it. *Amended 2026-09-27 by the
     owner:* an eighth page, Approved proposals (D-22), follows Rooms. It
     reads earlier events, not a table this one keeps, and is read only.
   - Java: no Results or Adults page. The top bar has Event, Admin tables,
@@ -522,10 +532,13 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Remove room asks first (O-2, amended 2026-10-24) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-24, with Java's words: "It comes off the list for the rest of this event. You can add it again." Java: the Event page and the Admin Rooms tab. Windows: every path through `MainWindow.RemoveRoom` (the Rooms buttons, the room's shortcut menu, Board > Remove room..., the Rooms page). Mac: `AppModel.removeSelectedRoom`, and Undo still takes it back. Java ab2bef3 (the Admin Rooms tab in the same words), Windows a4097c7, Mac cc163b3 |
 | Board menu in the menu bar (P-1, amended 2026-10-24) | ➖ | ✅ | ✅ | Windows by P-1 (Java has no menu bar): `BoardCommands`, each step a RoutedUICommand with its gesture, enabled as its button is; the first item named for the step. The Mac's Board, Adult and Room menus already held the steps. Windows a4097c7 |
 | Keeps the computer awake while serving | ➖ | ✅ | ✅ | Mac `AppModel`; Windows `App`'s `KeepAwake` (decided by the owner 2026-10-24), from the start until the main window closes, so a sleeping laptop doesn't take the check-in site down. Java to decide. Windows a4097c7 |
+| The View menu's pages on one digit each, 1 to 8 (P-3, P-6, amended 2026-10-25) | ➖ | ✅ | ✅ | Decided by the owner 2026-10-25, the same digits on both menu bars: Ctrl+1 to 8 on Windows, ⌘1 to 8 on the Mac (were ⌥⌘1 to 8; ⌥⌘8 is the system's Zoom shortcut). The Mac's Window menu gave up ⌘1 and ⌘3, since View › Event brings the scheduler back. Mac 89b5e91 |
+| Overdue notification while the app is in front (P-5, amended 2026-10-25) | ➖ | ➖ | ✅ | Decided by the owner 2026-10-25, Mac only (P-5): posted in front too, taken down after about ten seconds; behind another app the person's Notifications style decides, and Settings › Timers shows it and opens System Settings. Mac f087e0a, `Attention` and `OverdueNotification` |
+| The operator chooses the network the sign-in station serves | ◐ | ✅ | ✅ | Decided by the owner 2026-10-25 for the Mac: when there is more than one network, a choice in Settings, saved by interface name, defaulting to the Wi-Fi interface, and every network as the last choice; 127.0.0.1 also answers, so this computer's browser still reaches it. Windows: the start-up window's Check-in network, which defaults to the recommended adapter. Java: `-bind <ip-prefix>`, no chooser. Mac 029e452 |
 | Sign an adult in by hand, filled in from the adult history | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27 for an adult who won't use the tablet. Each goes through the tablet's own sign-in (`/register-adult`, `registerAdult`) and, filled in from the history, carries the record's ID as the tablet's email lookup does; event test section 27. Java 38feaf9: Add adult… on the Adults tab, with a search of the adult history; Sign in for today on the Adult history CSV tab, whose Last event column shows it. Mac b7cb31b, 88e0894, 4a6df34: Adult › Add Adult…, Add Adult at the foot of Adults, or a double-click below its last row; the search is `BoardEvent.historyMatches`, and a role left at As Last Time keeps the history's. The Adult History CSV ticks those signed in today, and a double-click or Sign In for Today signs someone in. Windows e7a69bf: Add adult… on the Adults page (`AddAdultDialog`), with a search of the adult history; Sign in for today on the Adult history CSV page, whose Last event column says Today once it has |
 | Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Find a person's room (D-21) | ✅ | ✅ | ✅ | Windows 87fba78: *Find a person* under the Rooms heading, `SchedulerLogic.FindPeople` with a unit test. Java edade33: *Find a person* under the Rooms heading, the Youth list's *Find a youth* gone; `findPeople`, `roomsFound`, `personFindNote` in `process_seat.js`, with Windows' test cases in `test-find-people.js` (b4d2705; `test-seat-conflicts.js` before). Mac e82da7e: the toolbar search on the Event page, which no longer filters the youth list; `PersonFind` with Windows' test cases (`PersonFindTests`); Return opens the first room found or the youth |
-| Approved proposals from earlier events (D-22) | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27, for a youth who comes without the signed proposal page. Read only. Windows ca23ae3: View › Approved proposals (Ctrl+8), `EarlierEvents.ReadApprovedProposals` with unit tests, and `/approved-proposals-cells`; a126b96: its `<rows>` carries `read`, `from`, `to` and `unreadable`, the rows are by last name with Java's row IDs, and event test section 28 is Java's but its last check (the View menu's page for admin.html). Java edade33, 23e89a9: the admin page's Approved proposals tab and `/approved-proposals-cells`, event test section 28. Mac e82da7e, 08937c2: View › Approved Proposals (⌥⌘8), `DataFolder.approvedProposals(before:)`, mirrored in `BoardEventTests.approvedProposalsFromEarlierEvents`; an AppKit table, as the Adult History CSV is, so a long list doesn't freeze the app on leaving it |
+| Approved proposals from earlier events (D-22) | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27, for a youth who comes without the signed proposal page. Read only. Windows ca23ae3: View › Approved proposals (Ctrl+8), `EarlierEvents.ReadApprovedProposals` with unit tests, and `/approved-proposals-cells`; a126b96: its `<rows>` carries `read`, `from`, `to` and `unreadable`, the rows are by last name with Java's row IDs, and event test section 28 is Java's but its last check (the View menu's page for admin.html). Java edade33, 23e89a9: the admin page's Approved proposals tab and `/approved-proposals-cells`, event test section 28. Mac e82da7e, 08937c2: View › Approved Proposals (⌥⌘8 then, ⌘8 since 89b5e91), `DataFolder.approvedProposals(before:)`, mirrored in `BoardEventTests.approvedProposalsFromEarlierEvents`; an AppKit table, as the Adult History CSV is, so a long list doesn't freeze the app on leaving it |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
 | Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |
 | Switch a room between final and project | ✅ | ✅ | ✅ | A board already in it is not disturbed |

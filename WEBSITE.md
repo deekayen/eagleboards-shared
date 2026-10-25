@@ -55,6 +55,12 @@ What has changed since each version's pictures were taken.
   so shoot it once all three serve those pages. They do, at 5873365 (Java
   ded3688, Windows 000fd06, Mac 76f458a), so it's ready to shoot. The site's
   text says who introduces the Scout (eagleboards.page 2fc1a74).
+- Mac `event.png`, `seat-board.gif`, `complete-board.gif`: the inspector's
+  Suggest a Board button is *Start Over*; the queue, members and seating sheet
+  say *Troop 214* and *Final Board* where they said *T214* and *Final*; the
+  chair is marked in the draft; the inspector's header says *minutes*. Re-shoot
+  once the Mac work of 2026-10-25 has shipped (eagleboards-macos 89b5e91 to
+  fa38c3f).
 - Windows `event.png`, `seat-board.gif`: the details pane's link reads
   *Introduces them* (#19, D-23); Start review on a board of review asks first
   (#19). These need Windows (see Re-shooting). The Mac's shots show neither
