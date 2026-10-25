@@ -50,8 +50,10 @@ What has changed since each version's pictures were taken.
   the legend 2026-10-24 (D-23 amended). It reads *Introducing a youth*, with
   "Optional." starting its hint, and fits on one line at the 1180 px tablet
   width. All three serve the pages at ed1033c (Java ab2bef3, Windows a4097c7,
-  Mac cc163b3), so it's ready to shoot. The site's text says who introduces
-  the Scout (eagleboards.page 2fc1a74).
+  Mac cc163b3). Since 2026-10-25 the hint says the list is for an *Eagle
+  board of review* and the list leaves out a project proposal (D-23 amended),
+  so shoot it once all three serve those pages. The site's text says who
+  introduces the Scout (eagleboards.page 2fc1a74).
 - Windows `event.png`, `seat-board.gif`: the details pane's link reads
   *Introduces them* (#19, D-23); Start review on a board of review asks first
   (#19). These need Windows (see Re-shooting). The Mac's shots show neither

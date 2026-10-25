@@ -245,6 +245,14 @@ them.
     optional: with "(optional)" in the heading it wrapped onto a second line
     at the 1180 px tablet width and broke the box's border. Not "here to
     support" or "came to support", which read as anyone who came with them.
+    *Amended 2026-10-25 by the owner:* only a youth here for an Eagle board
+    of review is offered. A project proposal has no introduction (below),
+    and the form's list included its youth. `/api/scout-choices` leaves out
+    every youth whose board type is Project, whether they signed in or only
+    RSVP'd (the sign-in's record still wins over the RSVP with the same ID,
+    so a youth who signs in for a different review than they were sent is
+    listed by the one they chose). The form's hint says the list is for an
+    Eagle board of review.
   - Start review on a board of review (`Final`) reminds the operator,
     before the youth is brought in, to fetch the adult who introduces them,
     and says where each is: the main room, the board in room *n*, or gone
@@ -526,6 +534,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Drag a youth onto a room to seat | ➖ | ➖ | ✅ | Mac only is fine (pointer-heavy) |
 | Link the adult who introduces a youth, at or after sign-in (D-23) | ✅ | ✅ | ✅ | #19. The link reads as *Introduces them* (it read *came to support*): Java 06483c6 (Locate, the details pane, the Link dialog), Windows ef24fb1 (Leaders and parents, the Link dialog, the Adults page's *Introduces* column), Mac 2c20c08 (the relation, the Adults page's *Introduces* column). The adult form asks the same of the adult (#18) |
 | The adult form's list headed *Introducing a youth* (D-23, amended 2026-10-24) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-24: "(optional)" moved from the heading into its hint (ed1033c), so it fits the tablet's width. All three serve the pages at ed1033c: Java ab2bef3, Windows a4097c7, Mac cc163b3 |
+| The adult form's list leaves out a youth here for a project proposal (D-23, amended 2026-10-25) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-25: an adult introduces a youth to their board of review, and the list offered proposal youth too. `/api/scout-choices` drops every Project youth, RSVP'd or signed in. The same in all three: event test section 24 (Java, Windows), `BoardEventTests` and `CheckInServerTests` (Mac). The page's hint and its empty message say *Eagle board of review* |
 | Reminder at Start review to fetch the introducer, boards of review only (D-23) | ✅ | ✅ | ✅ | #19. The linked adults, or with none the youth's leader if signed in, never a parent; nobody at a project review. Java 06483c6: `introductionFor` (`process_seat.js`, `scripts/test-board-builder.js`), where it named the linked adults at project reviews too. Windows ef24fb1: `SchedulerLogic.IntroductionFor`, `MainWindow.StartReviewReminder`, a dialog a project review skips; the reminder it lost in 02bf094. Mac 2c20c08: `AdultLocator.introduction`, where it named every leader and parent, at project reviews too. The same cases in all three |
 | Wood Badge and "No thanks" at sign-in | ✅ | ✅ | ✅ | |
 | Ways to support the project (donate links) | ✅ | ✅ | ✅ | Same six links as `.github/FUNDING.yml`. Java: Settings and Help pages; Windows: Settings; Mac: Help › Donate… (a Donate window) and About. Never on the check-in pages |
