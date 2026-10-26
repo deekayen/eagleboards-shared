@@ -36,7 +36,7 @@ text on each one says exactly what it shows, so it changes with the image.
 | Page | Version | Images | Taken |
 |---|---|---|---|
 | `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/event.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-10-09, except `java/results.png` and `java/settings.png` (2026-09-28; they came out the same) and `adult.png` (2026-10-25) |
-| `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-28; `mac/checkin.png` 2026-10-09 |
+| `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-10-25; `mac/checkin.png` 2026-10-09 |
 | `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-10-25; `windows/checkin.png` 2026-10-09 |
 | `content/docs/scheduler/_index.md` | All | `java/event.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-10-09 |
 | `README.md` in this repository | All | `java/event.png`, `mac/event.png` and `windows/event.png`, linked by their site URLs, so a re-shoot reaches it with the site. Its alt text names only the version, so it doesn't change with the image | follows the site |
@@ -45,12 +45,7 @@ text on each one says exactly what it shows, so it changes with the image.
 
 What has changed since each version's pictures were taken.
 
-- Mac `event.png`, `seat-board.gif`, `complete-board.gif`: the inspector's
-  Suggest a Board button is *Start Over*; the queue, members and seating sheet
-  say *Troop 214* and *Final Board* where they said *T214* and *Final*; the
-  chair is marked in the draft; the inspector's header says *minutes*. Re-shoot
-  once the Mac work of 2026-10-25 has shipped (eagleboards-macos 89b5e91 to
-  fa38c3f).
+Nothing, as of 2026-10-25.
 
 ## Re-shooting
 
