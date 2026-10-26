@@ -35,9 +35,9 @@ text on each one says exactly what it shows, so it changes with the image.
 
 | Page | Version | Images | Taken |
 |---|---|---|---|
-| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/event.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-10-09, except `adult.png`, `java/results.png` and `java/settings.png` (2026-09-28; the last two came out the same) |
+| `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/event.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | 2026-10-09, except `java/results.png` and `java/settings.png` (2026-09-28; they came out the same) and `adult.png` (2026-10-25) |
 | `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-09-28; `mac/checkin.png` 2026-10-09 |
-| `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-09-28; `windows/checkin.png` 2026-10-09 |
+| `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-10-25; `windows/checkin.png` 2026-10-09 |
 | `content/docs/scheduler/_index.md` | All | `java/event.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-10-09 |
 | `README.md` in this repository | All | `java/event.png`, `mac/event.png` and `windows/event.png`, linked by their site URLs, so a re-shoot reaches it with the site. Its alt text names only the version, so it doesn't change with the image | follows the site |
 
@@ -45,31 +45,12 @@ text on each one says exactly what it shows, so it changes with the image.
 
 What has changed since each version's pictures were taken.
 
-- All versions, `adult.png`: the youth list is *Introducing a youth*, for the
-  adult who will introduce one (#18, D-23). No longer held: the owner settled
-  the legend 2026-10-24 (D-23 amended). It reads *Introducing a youth*, with
-  "Optional." starting its hint, and fits on one line at the 1180 px tablet
-  width. All three serve the pages at ed1033c (Java ab2bef3, Windows a4097c7,
-  Mac cc163b3). Since 2026-10-25 the hint says the list is for an *Eagle
-  board of review* and the list leaves out a project proposal (D-23 amended),
-  so shoot it once all three serve those pages. They do, at 5873365 (Java
-  ded3688, Windows 000fd06, Mac 76f458a), so it's ready to shoot. The site's
-  text says who introduces the Scout (eagleboards.page 2fc1a74).
 - Mac `event.png`, `seat-board.gif`, `complete-board.gif`: the inspector's
   Suggest a Board button is *Start Over*; the queue, members and seating sheet
   say *Troop 214* and *Final Board* where they said *T214* and *Final*; the
   chair is marked in the draft; the inspector's header says *minutes*. Re-shoot
   once the Mac work of 2026-10-25 has shipped (eagleboards-macos 89b5e91 to
   fa38c3f).
-- Windows `event.png`, `seat-board.gif`: the details pane's link reads
-  *Introduces them* (#19, D-23); Start review on a board of review asks first
-  (#19). These need Windows (see Re-shooting). The Mac's shots show neither
-  a linked adult nor the Start Review confirmation, so they stand. A proposed
-  board now follows sign-ins (#20), which the demo event's shots don't show.
-  Since 2026-10-24 (eagleboards-windows c0b18db) the Adults page's commands
-  are Mark gone home and Mark back (P-6 amended), the table pages' headings
-  are Last name, First name and Board type, the selected row has an accent
-  outline, and a Board menu is coming (P-1 amended).
 
 ## Re-shooting
 
