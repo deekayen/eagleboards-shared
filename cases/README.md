@@ -120,7 +120,8 @@ proposals skip them.
 
 Rooms are not part of these cases. Where a version's auto-select also picks
 a room (Windows, Mac), the runner gives it one free room of the youth's board
-type.
+type. That a room is only ever of the youth's own type is D-24, a rule of each
+version's operator screen.
 
 ## Running them in each version
 

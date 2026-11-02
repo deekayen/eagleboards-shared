@@ -262,6 +262,26 @@ them.
     project review has no introduction, so its Start review names no one to
     fetch. Windows had this reminder and lost it in its Fluent redesign; the
     2026-09-30 event went without it.
+- **D-24 A proposed board only takes a room of its own type.** Decided
+  2026-11-02 by the owner, after the 2026-10-27 event, where a youth here
+  for a project proposal was proposed a room set up for final boards.
+  Auto-select (D-5, D-12) proposes only a free room whose board type is the
+  youth's: a project review is never proposed a final board's room, nor the
+  reverse.
+  - With no such room free, no room is proposed. Seat is blocked (*No
+    room*, *Choose a free room*) until the operator makes one: they switch
+    a room's type (*Switch room type*, which leaves a board already in it
+    alone) or choose another room by hand. A room the operator chooses is
+    theirs: it is kept while it is free, and a room of the other type still
+    only warns (*Room type*), with *Seat anyway*, as before.
+  - A room the app proposed, not the operator, follows the event as the
+    proposed board does (D-12): switching it to the other type, or seating
+    another youth in it, withdraws it, and the proposal is made again, so a
+    room switched to the youth's type is proposed at once.
+  - The rooms are not part of the shared cases in [`cases/`](cases/) (their
+    README says why), so this is a rule of each version's operator screen,
+    and is tested there: Windows' `EagleBoards.UiTests`, Java's
+    `scripts/test-board-builder.js`, the Mac's tests of `BoardDrafts`.
 
 #### Status palette (D-13)
 
@@ -536,6 +556,7 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | New install: empty adult history (D-9) | ✅ | ✅ | ✅ | Java 1a35a9e, Windows fdfb449; the Mac already did. A missing history is started with its header row and its full path said (Java's console; Windows' log, or the console for `EagleBoards.Server`; Windows' startup window asks first). A failed command-line start exits 1, and Java's URL window goes with it. Java's `scripts/test-first-run.sh` covers it |
 | Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at 5873365 (Java ded3688, Windows 000fd06, Mac 76f458a; at ed1033c before: Java ab2bef3, Windows a4097c7, Mac cc163b3), checked in CI; all three serve the `/api/*` calls. #18: alike sign-in tiles, straight back to the welcome page with no confirmation page, and the adult form's list for the adult who introduces a youth (D-23) |
 | Shared rule and auto-select cases (D-5) | ✅ | ✅ | ✅ | The 70 cases in `cases/`, pinned at da809cc and checked byte for byte in CI. Java b4d2705: `scripts/test-cases.js` through `process_seat.js`; `test-seat-conflicts.js` kept only D-21's find, as `test-find-people.js`. Windows d0c59b5: `SharedCaseTests`, one xUnit test each, through `BoardRules` and `SchedulerLogic`; `BoardRulesTests` is gone and `SchedulerLogicTests` keeps only what Windows alone has (the room choice, locate, statuses, timers, sort orders, find). Mac 6480c4d: `SharedCaseTests`, one Swift Testing case each; `BoardRulesTests` keeps only what the Mac alone has |
+| A proposed board only takes a room of its own type (D-24) | ➖ | ✅ | ◐ | Decided by the owner 2026-11-02, after the 2026-10-27 event. Windows: `MainWindow.ProposeBoard` and `KeepOrChooseRoom`, with window tests in `EagleBoards.UiTests`; the room it proposed used to fall back to any free room. Java: `proposeRoom` in `scheduler_event.js` still falls back to the first free room of any type, and `proposeForBuilder` keeps a room switched to the other type. Mac: the first proposal already requires the type (`BoardDrafts`), but a room already proposed is kept after being switched to the other type |
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
