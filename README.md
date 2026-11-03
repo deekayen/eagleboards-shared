@@ -59,7 +59,7 @@ folder.
 |---|---|---|---|
 | **Repository** | [`eagleboards-java`](https://github.com/deekayen/eagleboards-java) | [`eagleboards-macos`](https://github.com/deekayen/eagleboards-macos) | [`eagleboards-windows`](https://github.com/deekayen/eagleboards-windows) |
 | **The operator uses** | A web browser, on any computer on the network | A native SwiftUI app | A native WPF app |
-| **Runs on** | Windows, macOS, or Linux with Java 21 or newer, including a Raspberry Pi | An Apple silicon Mac, macOS 14 or later | Windows 11, or Windows 10 22H2, on a 64-bit Intel or AMD processor |
+| **Runs on** | Windows, macOS, or Linux with Java 21 or newer, including a Raspberry Pi | An Apple silicon Mac, macOS 15 or later | Windows 11, or Windows 10 22H2, on a 64-bit Intel or AMD processor |
 | **Install** | Java, then one `.jar` | An app dragged to Applications | One self-contained `.exe`, nothing to install |
 | **Check-in server** | Jetty | Hummingbird | Kestrel |
 | **Operator pages reachable from the network** | Yes | No, the Mac only | No, the admin computer only |
