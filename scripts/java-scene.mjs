@@ -1,13 +1,13 @@
 // Build eagleboards.page's demo event (WEBSITE.md, "Re-shooting") in the Java
 // jar and photograph it with shoot-java.mjs, on any computer: no Windows
-// needed. Node 22 or later, Java, and Edge, Chrome or another Chromium
+// needed. Node 22 or later, Java, and Edge, Chrome, or another Chromium
 // browser; nothing to install.
 //
 //   node scripts/java-scene.mjs <eagleboards-java clone> <out-dir>
 //   node scripts/java-scene.mjs <eagleboards-java clone> --event <data-dir>
 //
 // --event builds the scene and shoots nothing: it writes a data folder
-// (Master_AdultHistory.csv, config.properties and today's folder) for
+// (Master_AdultHistory.csv, config.properties, and today's folder) for
 // another version to open, as the Windows tool's --site-event does. Its times
 // are moved so 20:00 is the minute it finishes in; open it within that minute
 // and the timers read as they do in the Java pictures. It writes only to a new
@@ -28,8 +28,8 @@
 // 3. Stops the jar and moves every time in its files so the scene's 20:00 is
 //    the current minute: the jar stamps the real time as it goes.
 // 4. Starts the jar again from those files at the top of a minute and runs
-//    shoot-java.mjs against it, so the timers read 49, 28, 24 and 12 minutes
-//    and the waits 53, 45 and 39 in every frame.
+//    shoot-java.mjs against it, so the timers read 49, 28, 24, and 12 minutes
+//    and the waits 53, 45, and 39 in every frame.
 import { spawn, spawnSync } from "node:child_process";
 import { copyFileSync, mkdirSync, mkdtempSync, openSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";

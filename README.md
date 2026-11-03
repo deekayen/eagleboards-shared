@@ -8,7 +8,7 @@ and records the result when the board comes out. It runs on one computer at the
 venue, needs no internet and no account, and keeps everything in plain files in
 a folder.
 
-There are three versions, for Java, Mac and Windows. They serve the same
+There are three versions, for Java, Mac, and Windows. They serve the same
 check-in pages, read and write the same files, and apply the same rules. This
 repository is what keeps them that way.
 
@@ -28,12 +28,12 @@ one links to that version's walkthrough.</sub>
    project proposal reviews. Optionally load the event's SignUpGenius
    reservations.
 2. **People sign in.** Each person opens the check-in address on a tablet,
-   phone or laptop, or scans its QR code. A youth gives a name, an email
-   address, a unit and which review they're here for. An adult gives their
+   phone, or laptop, or scans its QR code. A youth gives a name, an email
+   address, a unit, and which review they're here for. An adult gives their
    contact details, says whether they can serve as a member or a chair for each
    kind of board, and can count the event toward Wood Badge and name the youth
-   they'll introduce to their board. Anyone who has been before is recognized by email and
-   the form fills itself in.
+   they'll introduce to their board. Anyone who has been before is recognized
+   by email, and the form fills itself in.
 3. **A board is proposed.** Select a waiting youth and the program suggests a
    free room of the right kind, a qualified chair and members. It weighs the
    whole waiting line, so the adults who can chair aren't all spent on the
@@ -41,10 +41,10 @@ one links to that version's walkthrough.</sub>
    the program fill in the rest.
 4. **Seat, start, complete.** One button for each step. *Seat board* convenes
    the board while the youth waits outside. *Start review* brings the youth in.
-   *Complete* records Approved, Adjourned or Not approved, with notes.
+   *Complete* records Approved, Adjourned, or Not approved, with notes.
    Postponing a youth is a status, never a result.
-5. **Every room is timed.** Minutes since the board's last step, with a clock
-   that changes when a board runs long or goes overdue.
+5. **Every room is timed.** Each room shows the minutes since the board's last
+   step, with a clock that changes when a board runs long or goes overdue.
 6. **Afterward.** The results are saved as a CSV report for a spreadsheet, and
    the adults who served are in the history that fills in next month's forms.
 
@@ -59,7 +59,7 @@ folder.
 |---|---|---|---|
 | **Repository** | [`eagleboards-java`](https://github.com/deekayen/eagleboards-java) | [`eagleboards-macos`](https://github.com/deekayen/eagleboards-macos) | [`eagleboards-windows`](https://github.com/deekayen/eagleboards-windows) |
 | **The operator uses** | A web browser, on any computer on the network | A native SwiftUI app | A native WPF app |
-| **Runs on** | Windows, macOS or Linux with Java 21 or newer, including a Raspberry Pi | An Apple silicon Mac, macOS 14 or later | Windows 11, or Windows 10 22H2, on a 64-bit Intel or AMD processor |
+| **Runs on** | Windows, macOS, or Linux with Java 21 or newer, including a Raspberry Pi | An Apple silicon Mac, macOS 14 or later | Windows 11, or Windows 10 22H2, on a 64-bit Intel or AMD processor |
 | **Install** | Java, then one `.jar` | An app dragged to Applications | One self-contained `.exe`, nothing to install |
 | **Check-in server** | Jetty | Hummingbird | Kestrel |
 | **Operator pages reachable from the network** | Yes | No, the Mac only | No, the admin computer only |
@@ -81,17 +81,17 @@ follows it.
 
 | | Decided as |
 |---|---|
-| **Data files.** CSV and `config.properties` formats, so a folder opens in any version. A youth's birthdate and phone number are never asked for, kept, shown or exported | D-1, D-7, D-8 |
+| **Data files.** CSV and `config.properties` formats, so a folder opens in any version. A youth's birthdate and phone number are never asked for, kept, shown, or exported | D-1, D-7, D-8 |
 | **Endpoints.** The Java server's endpoints and wire formats are frozen, because the check-in pages depend on them | D-2 |
 | **Board lifecycle.** Registered, Seated, In review, Completed, or Postponed. Only a board that has started can be completed | D-3 |
 | **Board rules.** A board of review has three to six members and a project proposal review two to six. The chair is qualified to chair that kind of board and sits on it. Nobody sits on two boards. Adults from the youth's own unit warn, and a board with no one from outside the unit is refused. The server refuses every absolute rule, not only the screen | D-4 |
 | **Auto-select.** The same algorithm and the same 70 test cases in all three | D-5, D-12 |
 | **A new install starts an empty adult history.** No release ships one, because it would hold participant data | D-9 |
-| **The Event page.** The queue, the rooms and the details pane on one page, one status-driven button for the next step, find a person's room, and approved proposals from earlier events | D-10, D-11, D-21, D-22, O-3 |
+| **The Event page.** The queue, the rooms, and the details pane on one page, one status-driven button for the next step, find a person's room, and approved proposals from earlier events | D-10, D-11, D-21, D-22, O-3 |
 | **Status colors.** One palette, in light and dark, measured for contrast and for color blindness. Status is always a word or a number with an icon, never color alone | D-13 |
 | **Check-in pages.** One set, byte-identical in all three, built to WCAG 2.2 AA | D-18 |
 | **Wording.** *Youth* and *event*, on screen and in the check-in pages. The Donate link sits outside the working area, and never on the check-in pages | O-1, D-17 |
-| **Undo.** Every board step, room change and link gets Undo | O-2 |
+| **Undo.** Every board step, room change, and link gets Undo | O-2 |
 
 What differs is deliberate, and `SPEC.md` lists it as `P-` items. Each version
 follows its own platform's guidelines: the Mac and Windows have a menu bar and
@@ -127,13 +127,13 @@ as `2026-09-28`. Inside, `scouts.csv` has the youth and their board status,
 
 That folder holds names and contact details, some of them about minors. It
 never goes into a repository: each repository's `.gitignore` and pre-commit
-hook refuse CSV files, dated event folders and API keys.
+hook refuse CSV files, dated event folders, and API keys.
 
 ## The repositories
 
 | Repository | What it holds |
 |---|---|
-| [`eagleboards-shared`](https://github.com/deekayen/eagleboards-shared) | This one: the spec, the check-in pages, the test cases and the artwork. No application code |
+| [`eagleboards-shared`](https://github.com/deekayen/eagleboards-shared) | This one: the spec, the check-in pages, the test cases, and the artwork. No application code |
 | [`eagleboards-java`](https://github.com/deekayen/eagleboards-java) | The Java version |
 | [`eagleboards-windows`](https://github.com/deekayen/eagleboards-windows) | The Windows version |
 | [`eagleboards-macos`](https://github.com/deekayen/eagleboards-macos) | The Mac version |
@@ -150,7 +150,7 @@ hook refuse CSV files, dated event folders and API keys.
 | [`WEBSITE.md`](WEBSITE.md) | What [eagleboards.page](https://eagleboards.page/) shows of each version, which of its pages and pictures are out of date, and how to re-shoot them |
 | [`scripts/check-contrast.js`](scripts/check-contrast.js) | Measures every color pair the check-in pages use, light and dark |
 | [`scripts/check-palette.js`](scripts/check-palette.js) | Measures the status palette in `SPEC.md` (D-13), light and dark: contrast, and that it holds up for color blindness |
-| [`scripts/check-drift.sh`](scripts/check-drift.sh) | Compares each version's copy of the check-in pages, the test cases and the status palette with the ones here |
+| [`scripts/check-drift.sh`](scripts/check-drift.sh) | Compares each version's copy of the check-in pages, the test cases, and the status palette with the ones here |
 | [`scripts/gh-coordination.sh`](scripts/gh-coordination.sh) | `gh` helpers for the cross-version issue workflow below |
 | [`scripts/java-scene.mjs`](scripts/java-scene.mjs), [`scripts/shoot-java.mjs`](scripts/shoot-java.mjs) | Build the demo event and photograph it, for the website and the READMEs |
 | [`scripts/hooks/pre-commit`](scripts/hooks/pre-commit) | Refuses a commit that stages participant data or a secret |
@@ -229,7 +229,7 @@ scripts/check-drift.sh           # every version's copies, against these
 ```
 
 Read [`SPEC.md`](SPEC.md) before changing the operator screen, the check-in
-pages, the board rules or the data files, in whichever version.
+pages, the board rules, or the data files, in whichever version.
 
 ## Rules
 

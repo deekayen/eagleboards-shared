@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 // ------------------------------------------------------------------------
-// check-palette.js -- measure the status palette (SPEC.md D-13) in light and
+// check-palette.js: measure the status palette (SPEC.md D-13) in light and
 // in dark:
 //
 //   1. Contrast. Each pill's and timer's words on its own fill meet WCAG 2.2
 //      AA 1.4.3 (4.5:1), and the solid Overdue fill stands out from the
 //      window behind it (1.4.11, 3:1).
 //   2. Color blindness. Each pair of pills, and the three timer states, stay
-//      apart for protanopia, deuteranopia and tritanopia, simulated with
-//      Machado, Oliveira and Fernandes (2009) at full severity. Running long
+//      apart for protanopia, deuteranopia, and tritanopia, simulated with
+//      Machado, Oliveira, and Fernandes (2009) at full severity. Running long
 //      and Overdue stay apart for no color vision at all, by lightness.
 //
 // Differences are CIEDE2000 (dE00). About 2 is the smallest difference most
@@ -98,7 +98,7 @@ function lab(c) {
    return [116 * f(y) - 16, 500 * (f(x) - f(y)), 200 * (f(y) - f(z))];
 }
 
-// CIEDE2000, after Sharma, Wu and Dalal (2005).
+// CIEDE2000, after Sharma, Wu, and Dalal (2005).
 function deltaE(p, q) {
    const rad = Math.PI / 180;
    const [L1, a1, b1] = p;

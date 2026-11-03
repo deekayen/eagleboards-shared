@@ -2,8 +2,8 @@
 
 This is the coordination repository for the three versions of Eagle Boards
 (`eagleboards-java`, `eagleboards-windows`, `eagleboards-macos`). It holds
-no application code: the shared spec, shared artwork, and (to come) the
-shared check-in pages and test cases. It also tracks what the website,
+no application code: the shared spec, shared artwork, the shared check-in
+pages, and the shared test cases. It also tracks what the website,
 `eagleboards.page`, shows of each version.
 
 ## What an agent needs to know
@@ -35,3 +35,22 @@ shared check-in pages and test cases. It also tracks what the website,
 - **Never commit participant data or secrets.** Synthetic people only.
   Install the hook: `git config core.hooksPath scripts/hooks`.
 - **District-neutral branding**, settled: never add a district or council name.
+
+## Writing style
+
+Docs, comments, commit messages, and release notes follow the owner's
+technical writing rules. Not every workstation has the full guide or its
+Vale linter, so the rules that matter most here are:
+
+<!-- vale off -->
+- No em dashes, and no `--` standing in for one. Use a comma, parentheses,
+  a colon, or a new sentence.
+- Oxford commas in every list of three or more.
+- A colon introduces a list or an explanation, never a second independent
+  clause. No sentence starts with "But."
+- No sales or corporate words (robust, seamless, leverage, utilize,
+  comprehensive, streamline) and no minimizers (simply, just, easily).
+- No `-ing` tail that restates the sentence ("..., ensuring X"), no
+  "serves as" or "acts as" for "is," and no "rather than" by reflex.
+- US spelling. Name who acts. Vary sentence length and openings.
+<!-- vale on -->

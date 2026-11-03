@@ -1,6 +1,6 @@
 # Shared test cases
 
-The board rules and auto-select, written down once as data. Every version
+The board rules and auto-select are written once here as data. Every version
 runs every case here through its own code (SPEC.md D-5), so the three cannot
 drift apart without a test failing. Until now each version kept a hand-ported
 copy of the same cases (Java's `scripts/test-seat-conflicts.js`, Windows'
@@ -14,10 +14,10 @@ more than once, the case joins those checks' names. Two names Java used for
 both kinds of board say which kind (`board-size`), and Java's two checks
 that set a board of three and two beside a project review of three and two
 are left out, since the four cases they restate are here. Five cases came
-from Windows' and the Mac's own tests, where Java had none like them: a
-project review of two, a spare chair filling a member's seat, a chair short
-with members short, and only chairs free (`suggest`), and nobody free to add
-(`fill`). A case is added here, never only in one version.
+from Windows' and the Mac's own tests, where Java had none like them: four
+for `suggest` (a project review of two, a spare chair filling a member's
+seat, a chair short with members short, and only chairs free) and one for
+`fill` (nobody free to add). A case is added here, never only in one version.
 
 ## Files
 
@@ -78,15 +78,15 @@ or `"Project"`. Any field left out is blank: `unit-conflicts` and
 
 **An adult:** `{ "id", "unit", "final", "project", "room", "freeSince",
 "supporting", "woodBadge" }`. `final` and `project` are `"Chair"`,
-`"Member"` or `"Unavailable"`. `room` is blank when free, a room name when on
-a board, `"N/A"` when gone home. `freeSince` is a data-file time
+`"Member"`, or `"Unavailable"`. `room` is blank when free, a room name when
+on a board, `"N/A"` when gone home. `freeSince` is a data-file time
 (`yyyy-MM-dd_HH:mm±hhmm`). `supporting` is youth IDs joined by `|`.
 `woodBadge` is `"Y"` or blank. Any field left out is blank.
 
 **A proposal** (`suggest`, `fill`): `{ "chair", "members", "problems" }`.
 `chair` is an adult ID or `null`, and is never repeated in `members`.
 `members` is in the order proposed; order matters. `problems` is in the order
-reported, each one structured rather than worded, because each version words
+reported, each one structured instead of worded, because each version words
 it its own way (Java and Windows: "No Final Chairs Available."; the Mac: "No
 Final Board chairs are available."):
 
@@ -101,7 +101,7 @@ Final Board chairs are available."):
 |---|---|---|
 | `unit-conflicts` | `youth`, `adults` (the board) | The IDs of the members in the youth's unit, in board order |
 | `outside-member` | `youth`, `adults` (the board) | `true` or `false` |
-| `board-size` | `boardType`, `count` | `"too-few"`, `"ok"`, `"over-preferred"` or `"too-many"` |
+| `board-size` | `boardType`, `count` | `"too-few"`, `"ok"`, `"over-preferred"`, or `"too-many"` |
 | `suggest` | `youth`, `adults` (the pool), `waiting` (youth still waiting, in queue order) | A proposal |
 | `fill` | `youth`, `adults` (the pool), `picked` (IDs the operator chose), `waiting` | A proposal: only the adults added, never the picks |
 | `free-since` | `adults` (`id`, `regTime`), `boards` (`status`, `members` as stored, `lastUpdate`) | `{ "<adult id>": "<time>" }` for the adults it names |

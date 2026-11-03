@@ -4,7 +4,7 @@
 # has work to do, all tracked on GitHub Project #4
 # (https://github.com/users/deekayen/projects/4).
 #
-# Source this file, then call the functions — see the example at the bottom.
+# Source this file, then call the functions (see the example at the bottom).
 #
 # The gh token needs the `project` scope for gh_add_to_project; without it
 # the project calls fail. Add it with `gh auth refresh -s project` (check
@@ -20,7 +20,7 @@
 #   GitHub's secondary rate limit under a rapid burst (more than roughly
 #   15-20 in quick succession) even when `gh api rate_limit` shows plenty
 #   of quota left. retry_gh backs off and retries on that specific error;
-#   the sleeps in gh_add_to_project are deliberate, not padding — remove
+#   the sleeps in gh_add_to_project are deliberate, not padding. Remove
 #   them and the burst comes back.
 # - `gh project item-edit` takes no project number, --owner, --url, --field
 #   or --value. It sets one field per call, and only by IDs: the item's
@@ -28,7 +28,7 @@
 #   (`gh project view`), the field's and the option's (`gh project
 #   field-list`). gh_add_to_project looks all of these up for you.
 # - `gh project item-add` on an issue already on the project returns the
-#   existing item, so re-running gh_add_to_project on it just re-sets its
+#   existing item, so re-running gh_add_to_project on it only re-sets its
 #   fields.
 #
 # Project #4 fields, referenced by name so there are no field/option IDs to
@@ -51,7 +51,7 @@ GHC_PROJECT_OWNER=deekayen
 GHC_PROJECT_ID=""      # filled by _ghc_load_project
 GHC_PROJECT_OPTIONS="" # one line per option: field<TAB>option<TAB>field_id<TAB>option_id
 
-# retry_gh CMD... — run a gh command, retrying with backoff if it fails with
+# retry_gh CMD...: run a gh command, retrying with backoff if it fails with
 # GitHub's secondary rate-limit error. Any other failure returns immediately.
 retry_gh() {
   local attempt=1 max=6 delay=8 out
@@ -77,7 +77,7 @@ retry_gh() {
 
 # gh_create_issue REPO TITLE BODY
 # Prints "number|numeric_id|url" on success. Keep the numeric_id for
-# gh_add_sub_issue — it is NOT what `gh issue view --json id` gives you.
+# gh_add_sub_issue; it is NOT what `gh issue view --json id` gives you.
 gh_create_issue() {
   local repo="$1" title="$2" body="$3" url num nid
   url=$(retry_gh gh issue create --repo "$repo" --title "$title" --body "$body") || return 1
@@ -94,7 +94,7 @@ gh_add_sub_issue() {
   sleep 2
 }
 
-# _ghc_load_project — look up the project's node ID and its single-select
+# _ghc_load_project: look up the project's node ID and its single-select
 # fields' and options' IDs, once per shell.
 _ghc_load_project() {
   [ -n "$GHC_PROJECT_ID" ] && [ -n "$GHC_PROJECT_OPTIONS" ] && return 0
@@ -103,7 +103,7 @@ _ghc_load_project() {
     -q '.fields[] | select(.options) | .name as $f | .id as $fid | .options[] | [$f, .name, $fid, .id] | @tsv') || return 1
 }
 
-# _ghc_option_ids FIELD OPTION — print "FIELD_ID OPTION_ID" for an option
+# _ghc_option_ids FIELD OPTION: print "FIELD_ID OPTION_ID" for an option
 # named in the cache _ghc_load_project fills.
 _ghc_option_ids() {
   local field="$1" option="$2" ids

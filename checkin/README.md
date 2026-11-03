@@ -1,8 +1,8 @@
 # Check-in pages
 
-The pages the tablets at the door load, and anyone who scans the check-in QR
-code on their phone. One design, served unchanged by every version of Eagle
-Boards (SPEC.md D-18).
+These are the pages the tablets at the door load, as does anyone who scans
+the check-in QR code on their phone. Every version of Eagle Boards serves
+this one design unchanged (SPEC.md D-18).
 
 | File | What |
 |---|---|
@@ -64,7 +64,7 @@ The same in every version (the Mac version's API):
 Emails match trimmed and in any case; `NONE` and blank match nobody. Each
 answer carries only what its page shows: names and units for the lists, and
 for a lookup the fields that form fills in. **No birthdate** is asked for,
-looked up or sent (D-7), and **no youth phone number** (D-8); adults are
+looked up, or sent (D-7), and **no youth phone number** (D-8); adults are
 still asked for theirs.
 
 Paths the pages link to: `/`, `/youth_register`, `/adult_register`,
@@ -80,11 +80,11 @@ How each part is met, and how it was checked:
 | 1.1.1 Non-text content | No images; the one symbol (⚠ before an error) is decoration beside the words |
 | 1.3.1 Info and relationships | Real headings, `<fieldset>`/`<legend>` groups, `<label for>` on every field, data tables with `<th scope="col">`, landmarks |
 | 1.3.2 Meaningful sequence, 2.4.3 Focus order | One column; source order is reading and tab order |
-| 1.3.5 Identify input purpose | `autocomplete` on email, first and last name, phone |
+| 1.3.5 Identify input purpose | `autocomplete` on email, first and last name, and phone |
 | 1.4.1 Use of color | Errors say what is wrong in words, beside the field and in a summary |
 | 1.4.3 Contrast (minimum), 1.4.11 Non-text contrast | Fixed colors (not the device's accent), 20 pairs measured in light and dark by `scripts/check-contrast.js`: text 4.5:1 or better, field borders and the focus ring 3:1 or better |
-| 1.4.4 Resize text, 1.4.10 Reflow, 1.4.12 Text spacing | Sizes in `rem`; one column with no sideways scrolling at 320px wide, also with WCAG's extra line, letter and word spacing applied |
-| 2.1.1 Keyboard | Everything is a link, button or field; the two scrolling lists take focus so they can be scrolled from the keyboard |
+| 1.4.4 Resize text, 1.4.10 Reflow, 1.4.12 Text spacing | Sizes in `rem`; one column with no sideways scrolling at 320px wide, also with WCAG's extra line, letter, and word spacing applied |
+| 2.1.1 Keyboard | Everything is a link, button, or field; the two scrolling lists take focus so they can be scrolled from the keyboard |
 | 2.2.1 Timing adjustable | Nothing is timed. Signing in goes straight back to the welcome page, where the new name heads the list: no confirmation page to read before it moves on, or to click past |
 | 2.2.2 Pause, stop, hide | Nothing moves or updates on its own: the signed-in lists load when the welcome page opens (after every sign-in) and stay put |
 | 2.4.2 Page titled, 2.4.6 Headings and labels | A distinct title per page; labels say what to enter |
@@ -96,7 +96,7 @@ How each part is met, and how it was checked:
 | 3.3.2 Labels or instructions | Every field labeled; hints for email (NONE), unit number, and the optional fields |
 | 3.3.7 Redundant entry | A known email fills in the rest |
 | 4.1.2 Name, role, value | Native controls throughout; the leave-without-saving prompt is a native `<dialog>` |
-| 4.1.3 Status messages | "Signing you in…", the pre-fill notice and failures are announced from a `role="status"` region; errors from `role="alert"` |
+| 4.1.3 Status messages | "Signing you in…", the pre-fill notice, and failures are announced from a `role="status"` region; errors from `role="alert"` |
 
 Checked on 2026-09-30 with axe-core 4.10.2 (the WCAG 2.0/2.1/2.2 A and AA
 rules) on all three pages in light and dark, with each form both fresh and

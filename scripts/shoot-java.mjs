@@ -10,7 +10,7 @@
 // 1. Write the demo event, on Windows, in eagleboards-windows:
 //      dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site-event <dir>
 //    Its times are moved so the scene's 20:00 is now, so do steps 2 and 3
-//    within the minute: the timers then read 49, 28, 24 and 12 minutes.
+//    within the minute: the timers then read 49, 28, 24, and 12 minutes.
 // 2. Copy eagleboards-java's config.properties into <dir> and start the jar:
 //      java -jar <jar> -a <dir>/AdultHistory.csv -c <dir>/config.properties \
 //        -port 18765 -d <dir>/<today's date>

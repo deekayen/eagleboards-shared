@@ -22,7 +22,7 @@ another mid-event.
    The parent closes when every sub-issue has.
 3. **Platform repos do not decide shared behavior on their own.** An agent
    working in one version reads this file before changing the operator
-   screen, the check-in pages, the board rules or the data files.
+   screen, the check-in pages, the board rules, or the data files.
 
 Numbered items (`D-`, `P-`, `O-`) are stable, so issues and commits can cite
 them.
@@ -55,32 +55,32 @@ them.
 - **D-5 Auto-select.** The proposed board weighs the whole waiting line, with
   the tie-breaks in the order the Java `proposeBoard` documents. Same
   algorithm, same test cases in all three: the cases for the D-4 rules,
-  auto-select and fill the rest (D-12) are data in [`cases/`](cases/), and
+  auto-select, and fill the rest (D-12) are data in [`cases/`](cases/), and
   every version runs every one of them through its own code, from a copy
   pinned by `test-cases.lock` (see [`cases/README.md`](cases/README.md)). A
   case is added there, never only in one version.
 - **D-6 Branding** is district-neutral. No district or council name anywhere.
 - **D-7 No birthdate.** Nothing uses a youth's date of birth, so no version
-  asks for it, stores it, shows it, pre-fills it or exports it. The `DOB`
+  asks for it, stores it, shows it, pre-fills it, or exports it. The `DOB`
   column stays in the youth CSV so files still move between versions and
   older builds (D-1), but it is written empty. `/register-youth` still
   accepts a `DOB` field from an older cached page and discards it (D-2).
 - **D-8 No youth phone number.** Nothing uses a youth's phone number either:
-  no rule, screen or step reads it; it is only asked for, imported from a
-  pre-registration, pre-filled, shown and exported. So no version asks for
-  it, imports it, pre-fills it, shows it or exports it. The `Phone` column
+  no rule, screen, or step reads it; it is only asked for, imported from a
+  pre-registration, pre-filled, shown, and exported. So no version asks for
+  it, imports it, pre-fills it, shows it, or exports it. The `Phone` column
   stays in the youth CSV (D-1), written empty for a new youth.
   `/register-youth` still accepts a `Phone` field from an older cached page
   and discards it (D-2). A number already on file is left alone, as O-5 left
   birthdates: never blanked or purged, carried through a rewrite and a
-  repeat sign-in unchanged, and never shown, pre-filled or exported. Adults'
-  phone numbers are not affected.
+  repeat sign-in unchanged, and never shown, pre-filled, or exported.
+  Adults' phone numbers are not affected.
 - **D-9 A new install starts an empty adult history.** A new install has no
   `Master_AdultHistory.csv`, and no release ships one (it would hold
   participant data). When the adult history a version is told to use (its
   default, or the file named with `-a`) does not exist, the version creates
-  it, holding only the header row, and says so, naming the full path, rather
-  than refusing to start. Where the operator types or picks that path
+  it, holding only the header row, and says so, naming the full path, instead
+  of refusing to start. Where the operator types or picks that path
   (Windows' startup window), the version may ask first, so a mistyped path is
   not taken for a new history. The event's files in the dated folder are
   created as before. A start from the command line that fails for any
@@ -89,7 +89,7 @@ them.
 - **D-19 No color settings.** The twelve status-color keys
   (`RegisteredColor` through `PostponedHiColor`) are retired from
   `config.properties`. No version lists them as columns, defaults them,
-  writes them or offers them as a setting; the D-13 palette is the only
+  writes them, or offers them as a setting; the D-13 palette is the only
   status coloring. A file that still has them loads, because every version
   reads only the keys it knows, and the next save leaves them out. An older
   build that still colors rows by them draws those rows uncolored. The Java
@@ -112,15 +112,15 @@ them.
   proposed, and the operator hasn't changed, follows the event. It is
   proposed again whenever what it is made from changes: an adult signs in,
   goes home or comes back, or leaves a board; a room is added or freed; a
-  youth signs in, is seated or finishes. Opening another youth proposes for
-  that youth. Once the operator removes, adds, fills or changes the chair,
+  youth signs in, is seated, or finishes. Opening another youth proposes for
+  that youth. Once the operator removes, adds, fills, or changes the chair,
   the board is theirs, kept until Start over or Seat board. Either way an
   adult who signs in is among the free adults at once (D-15). At the
   2026-09-30 event a board proposed before the adults arrived stayed a board
   of one, with Seat blocked, until Start over.
 - **D-13 Status is text plus an icon, in one palette.** Every status pill and
   room timer shows a word or a number with an icon, so color is never the
-  only cue, and all three versions color them alike, from the
+  only cue. All three versions color them alike, from the
   [status palette](#status-palette-d-13) below, in light and dark. The
   palette is measured by `scripts/check-palette.js`: every text pair meets
   WCAG 2.2 AA, and the pills and timers that sit side by side stay apart for
@@ -139,7 +139,7 @@ them.
   convening and the interview are timed separately.
 - **D-16 Follows the system appearance**: light/dark, accent color, and the
   system font. Three things keep fixed colors instead of the accent: the
-  check-in pages (D-18), the status palette (D-13) and the Wood Badge mark
+  check-in pages (D-18), the status palette (D-13), and the Wood Badge mark
   (D-20).
 - **D-17 A Donate link in the main window.** One Donate link, with a heart,
   sits in the main window's frame, outside the working area: in the menu
@@ -147,8 +147,8 @@ them.
   of every Java operator page. It opens the list of ways to support the
   project (the links in `.github/FUNDING.yml`): the Support card in Settings
   on Windows and Java, a Donate window of its own on the Mac. It never goes
-  on the check-in pages or inside the queue, the rooms or the details pane,
-  and it never becomes a prompt, badge or reminder that interrupts the
+  on the check-in pages or inside the queue, the rooms, or the details pane,
+  and it never becomes a prompt, badge, or reminder that interrupts the
   operator. The list shows a QR code for
   Venmo, so a phone can pay straight from the screen:
   `https://venmo.com/u/drdnorman?txn=pay&note=Eagle%20Boards` (Pay, with the
@@ -203,9 +203,9 @@ them.
     time the page is shown; nothing polls (D-15), since an earlier event
     doesn't change during this one. Nothing in an earlier folder is written.
   - What it shows: one row per approval, with the youth's name, their unit,
-    the date of the event that approved it, the chair, the other members and
-    the notes, sorted by last name, with Find over the name and unit.
-    Nothing else from the row, so never a birthdate, phone number or email
+    the date of the event that approved it, the chair, the other members,
+    and the notes, sorted by last name, with Find over the name and unit.
+    Nothing else from the row, so never a birthdate, phone number, or email
     (D-7, D-8). A line above the list says how many earlier events were
     read, and from which date to which; with none, it says *No earlier
     events in this data folder.* A folder that can't be
@@ -217,10 +217,10 @@ them.
   - Java: an *Approved proposals* tab on the admin page, filled from a new
     endpoint, `/approved-proposals-cells`, which answers as `/youth-cells`
     does with only the columns above, the event's date as `Event`: Event,
-    Last, First, UnitType, Unit, BoardChair, BoardMembers and Notes, as the
+    Last, First, UnitType, Unit, BoardChair, BoardMembers, and Notes, as the
     file holds them (the page leaves the chair out of the other members).
     Its `<rows>` element also carries `read` (how many earlier events were
-    read), `from` and `to` (their first and last dates, when any) and
+    read), `from` and `to` (their first and last dates, when any), and
     `unreadable` (the folders that couldn't be read, `|`-separated), which
     the tab's line above the list is made from. A dated folder with no
     `scouts.csv` held no event and isn't counted. Windows serves the same
@@ -281,11 +281,11 @@ them.
   - The rooms are not part of the shared cases in [`cases/`](cases/) (their
     README says why), so this is a rule of each version's operator screen,
     and is tested there: Windows' `EagleBoards.UiTests`, Java's
-    `scripts/test-board-builder.js`, the Mac's tests of `BoardDrafts`.
+    `scripts/test-board-builder.js`, and the Mac's tests of `BoardDrafts`.
 
 #### Status palette (D-13)
 
-The hues are Monokai Pro's: its yellow, cyan, purple, orange and pink-red,
+The hues are Monokai Pro's: its yellow, cyan, purple, orange, and pink-red,
 deepened for light mode until the text on each tint passes AA. Green is left
 out on purpose. For red-green color blindness it is the color that yellow and
 orange also become, so a green Completed pill looked like the yellow Seated
@@ -317,8 +317,8 @@ reads without color. The tooltip and the screen reader say *running long* or
 | Overdue | Past the red time; convening, past `ConveneRedMins` | ⏰ alarm clock | `overdue`, a solid fill |
 
 The clocks are each platform's own drawing of those three: SF Symbols
-`stopwatch`, `timer` and `alarm` on the Mac; the monochrome Segoe UI Symbol
-glyphs U+23F1, U+23F2 and U+23F0 on Windows (present on Windows 10 and 11;
+`stopwatch`, `timer`, and `alarm` on the Mac; the monochrome Segoe UI Symbol
+glyphs U+23F1, U+23F2, and U+23F0 on Windows (present on Windows 10 and 11;
 Segoe Fluent Icons has no timer or alarm clock); matching inline SVGs in the
 Java pages. Never the color emoji, which would ignore the palette.
 
@@ -351,7 +351,7 @@ that each version's palette file still holds every value.
   `/api/adult-lookup`, `/register-youth`, `/register-adult`; see
   [`checkin/README.md`](checkin/README.md)), which answers with only what each
   page shows. They meet **WCAG 2.2 AA**: fixed colors measured by
-  `scripts/check-contrast.js` rather than the system accent (the one exception
+  `scripts/check-contrast.js` instead of the system accent (the one exception
   to D-16: a tablet's accent could be yellow on white), light or dark
   following the device, and an axe-core scan of every page, fresh and with
   errors, in both appearances before a change lands. Many people sign in on
@@ -374,17 +374,17 @@ cite them.
   screen and in the check-in pages ("boards happen in the daytime too").
   Data files and code names do not change either way.
 - **O-2 Undo everywhere.** Confirm only what Undo cannot take back (Reset,
-  Postpone). Every board step, room change, Disable/Enable and Link/Unlink
+  Postpone). Every board step, room change, Disable/Enable, and Link/Unlink
   gets Undo. Java and Windows both answer `/restore-board` (event test
   section 20). Mac already had this. *Amended 2026-10-24 by the owner:*
   Remove room asks first in all three, naming the room, as Java's does
   ("It comes off the list for the rest of this event. You can add it
   again."), whether or not Undo can also take it back.
-- **O-3 One live-operations view.** Windows' Event page (queue, room cards
+- **O-3 One live-operations view.** Windows' Event page (queue, room cards,
   and details pane always visible together) is the reference layout for all
   three, so a room's timer is never out of sight while working the queue.
   *Amended 2026-09-27:* the queue is one column holding every youth, in
-  three stacked groups: Waiting (in sign-in order), On a board (by room) and
+  three stacked groups: Waiting (in sign-in order), On a board (by room), and
   Finished (the most recent first), each headed with its count. Nothing is
   picked to see a group: no Show menu, and no sidebar entry or tab per group.
   This replaces "Mac's Waiting / On Boards / Finished lists become filters
@@ -401,14 +401,14 @@ cite them.
 - **O-5 Birthdates already on file are left alone.** D-7 stops new ones;
   no version blanks or purges the `DOB` values already in earlier events'
   folders or the returning-youth history, and a rewrite carries them through
-  unchanged. They are still never shown, pre-filled or exported (D-7).
+  unchanged. They are still never shown, pre-filled, or exported (D-7).
 
 ---
 
 ## Platform-specific by design
 
 These differ on purpose. Each follows its platform's own guidelines, so
-the same app feels native on each system rather than identical everywhere.
+the same app feels native on each system, not identical everywhere.
 
 - **P-1 Where commands live.**
   - Mac: the menu bar (Board, Adult, Room menus), context menus, and the
@@ -419,18 +419,18 @@ the same app feels native on each system rather than identical everywhere.
     Help), command buttons in the page and details pane, and context menus.
     No sidebar. *Amended 2026-09-27 by the owner:* this replaces "No menu bar
     (Fluent guidance)" and the NavigationView sidebar that went with it;
-    Settings, Help and the pages belong in a native menu bar, as on the Mac.
+    Settings, Help, and the pages belong in a native menu bar, as on the Mac.
     File: Save report, the check-in QR code, Settings (a window of its
     own), Exit. Edit: Undo, naming the step. View: Event, Results, Adults,
-    then Youth, Pre-registered, Adult history CSV and Rooms, then Approved
+    then Youth, Pre-registered, Adult history CSV, and Rooms, then Approved
     proposals (Ctrl+1 to 8; P-6, D-22). Help: Help (F1), Donate (D-17).
     *Amended 2026-10-24 by the owner:* a Board menu between View and Help,
-    as the Mac has Board, Adult and Room menus, so every step and its
+    as the Mac has Board, Adult, and Room menus, so every step and its
     shortcut is in a menu: the open youth's next step (Seat board, Start
-    review or Complete, named for the step, Ctrl+Enter), Postpone..., Reset...,
-    Link an adult... and Unlink...; then the selected room's Add room...,
-    Move or swap board..., Rename room... (F2), Switch room type and Remove
-    room... . Each item is enabled when its button would be.
+    review, or Complete, named for the step, Ctrl+Enter), Postpone...,
+    Reset..., Link an adult..., and Unlink...; then the selected room's Add
+    room..., Move or swap board..., Rename room... (F2), Switch room type,
+    and Remove room... . Each item is enabled when its button would be.
   - Java (browser): buttons in the page and details pane, and context menus
     built on the Popover API. No imitation of a menu bar.
 - **P-2 Capitalization.** Mac: Title Case for buttons and menus (Apple HIG).
@@ -451,7 +451,7 @@ the same app feels native on each system rather than identical everywhere.
   opens that pane.
 - **P-6 Pages beside the Event page.** Decided 2026-09-27.
   - Windows and Mac: an Event page, and a page for each table the event
-    keeps: Results, Adults, Youth, Pre-registered, Adult history CSV and
+    keeps: Results, Adults, Youth, Pre-registered, Adult history CSV, and
     Rooms. *Amended 2026-09-27 by the owner:* the adults page lists only
     adults, so it is Adults, not People, in all three; the adult history is
     shown as it is kept, read-only, as the Adult history CSV.
@@ -459,19 +459,19 @@ the same app feels native on each system rather than identical everywhere.
     shown, so there is no separate admin tables window (Windows' Admin
     tables, the Mac's Records). Results is the boards table: every board and
     its result, where a result or its notes is corrected, with Find, Save
-    report and a way to open a board on the Event page. Adults is the adults
-    table: roles, unit, contact and Wood Badge are changed there, beside Mark
-    gone home and Mark back and the D-20 marks. *Amended 2026-10-24 by the
+    report, and a way to open a board on the Event page. Adults is the adults
+    table: roles, unit, contact, and Wood Badge are changed there, beside Mark
+    gone home, Mark back, and the D-20 marks. *Amended 2026-10-24 by the
     owner:* all three name them Mark gone home and Mark back (Title Case on
     the Mac, P-2), wherever they appear. They were Gone home and Back on
     Windows, Disable (gone home) and Enable (back) in Java, and Disable for
     Today and Enable for Today on the Mac; a command names what it does, and
-    "Back" read as going back. The other pages have Find, Export and
+    "Back" read as going back. The other pages have Find, Export, and
     Delete (Rooms: Add and Remove room; the Adult history CSV only Find and
     Export). A changed cell is saved as it is
     left (a choice as soon as it is picked; leaving the page saves a cell
-    still open), and stays off the Undo stack. An adult's name, unit,
-    contact and roles are one set of facts in the event's adults and the adult
+    still open), and stays off the Undo stack. An adult's name, unit, contact,
+    and roles are one set of facts in the event's adults and the adult
     history, as a sign-in carries them between the two: a change on Adults is
     made in the history too, so someone promoted to chair today is a chair
     the next time they sign in. The Adult history CSV itself is read-only: a
@@ -484,7 +484,7 @@ the same app feels native on each system rather than identical everywhere.
     Complete, Postpone, Reset, and Undo), which take and free a room and its
     members as they go; a status typed into a table left a finished youth
     holding their room. This replaces a Status cell that offered Waiting,
-    Completed and Postponed. *Amended 2026-10-24 by the owner:* nor does a
+    Completed, and Postponed. *Amended 2026-10-24 by the owner:* nor does a
     table delete someone a board holds: a youth whose board is seated or in
     review, or an adult sitting on a board, is refused with the reason
     (reset or complete the board first), by the server too (`/youth-update`,
@@ -501,7 +501,7 @@ the same app feels native on each system rather than identical everywhere.
     commands that act on what it shows work only on a page that shows what they
     act on. On the Event page they all work. A table page has no details pane;
     its own commands are the ones for its rows, and Show on Event Page (a
-    double-click on Results, Youth and Rooms) takes a youth or a room to where
+    double-click on Results, Youth, and Rooms) takes a youth or a room to where
     its board is. The Mac's inspector had followed the selected youth onto every
     page, so its Room menu renamed a room from the Approved proposals page.
     Windows already worked this way. On the Mac the inspector and the Board
@@ -516,7 +516,7 @@ the same app feels native on each system rather than identical everywhere.
     owner:* an eighth page, Approved proposals (D-22), follows Rooms. It
     reads earlier events, not a table this one keeps, and is read only.
   - Java: no Results or Adults page. The top bar has Event, Admin tables,
-    Settings and Help; Admin tables is the admin page, whose Boards tab
+    Settings, and Help; Admin tables is the admin page, whose Boards tab
     corrects a result, whose Adults tab changes roles (reaching the read-only
     Adult history CSV tab, as above), and whose Approved proposals tab lists
     D-22's approvals. Status is read-only there too, for the same reason.
@@ -550,9 +550,9 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | No color keys in `config.properties` (D-19) | ✅ | ✅ | ✅ | An older file loads and the next save drops them; the Windows–Java hand-off test passes both ways |
 | Follows system dark mode (D-16) | ✅ | ✅ | ✅ | Java: system accent where the browser exposes it (Safari, Firefox); Chrome falls back to blue |
 | Fill the rest / Suggest a board (D-12) | ✅ | ✅ | ✅ | *Fill the rest* keeps the operator's picks and adds a chair and members around them: Java `fillBoard`, Windows `FillBoard`, Mac `BoardSuggestion.fill` (6480c4d, *Fill the Rest* in the inspector and the Board menu; until then the Mac's *Suggest a Board* only replaced the whole board, which the shared `fill` cases found) |
-| A proposed board follows the event until changed (D-12, amended) | ✅ | ✅ | ✅ | #20. The Mac already did: `refreshProposals` makes again the drafts the operator hasn't edited when a room, an adult or a youth changes. Java 06483c6: `boardBuilder.untouched()` (`proposalUntouched` in `process_seat.js`, `scripts/test-board-builder.js`), and `render()` proposes again. Windows ef24fb1: `ProposedBoard.IsUntouched`, proposed again in `RefreshAll` and afresh for another youth opened, where it used to keep the last one; `EagleBoards.UiTests` signs adults in over HTTP beside the open window |
-| No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
-| No youth phone number (D-8) | ✅ | ✅ | ✅ | Java d355a10, Windows f0e582a, Mac 55ba04b. Not asked, imported, pre-filled, shown or exported; a number on file is left alone and withheld wherever a youth table is served (`/youth-autofill` included) or saved (the Mac's Export List), and a `-cells` filter on it matches nothing (Java, Windows; the Mac has no such endpoint). The event test's section 24 covers it: Java's script, copied byte for byte to Windows, mirrored in Mac's `BoardEventTests` |
+| A proposed board follows the event until changed (D-12, amended) | ✅ | ✅ | ✅ | #20. The Mac already did: `refreshProposals` makes again the drafts the operator hasn't edited when a room, an adult, or a youth changes. Java 06483c6: `boardBuilder.untouched()` (`proposalUntouched` in `process_seat.js`, `scripts/test-board-builder.js`), and `render()` proposes again. Windows ef24fb1: `ProposedBoard.IsUntouched`, proposed again in `RefreshAll` and afresh for another youth opened, where it used to keep the last one; `EagleBoards.UiTests` signs adults in over HTTP beside the open window |
+| No birthdate collected (D-7) | ✅ | ✅ | ✅ | Not asked, kept, pre-filled, shown, or exported; one already on file is left alone (O-5) and blanked wherever it would be served |
+| No youth phone number (D-8) | ✅ | ✅ | ✅ | Java d355a10, Windows f0e582a, Mac 55ba04b. Not asked, imported, pre-filled, shown, or exported; a number on file is left alone and withheld wherever a youth table is served (`/youth-autofill` included) or saved (the Mac's Export List), and a `-cells` filter on it matches nothing (Java, Windows; the Mac has no such endpoint). The event test's section 24 covers it: Java's script, copied byte for byte to Windows, mirrored in Mac's `BoardEventTests` |
 | New install: empty adult history (D-9) | ✅ | ✅ | ✅ | Java 1a35a9e, Windows fdfb449; the Mac already did. A missing history is started with its header row and its full path said (Java's console; Windows' log, or the console for `EagleBoards.Server`; Windows' startup window asks first). A failed command-line start exits 1, and Java's URL window goes with it. Java's `scripts/test-first-run.sh` covers it |
 | Shared check-in pages (D-18) | ✅ | ✅ | ✅ | All three serve `checkin/` at 5873365 (Java ded3688, Windows 000fd06, Mac 76f458a; at ed1033c before: Java ab2bef3, Windows a4097c7, Mac cc163b3), checked in CI; all three serve the `/api/*` calls. #18: alike sign-in tiles, straight back to the welcome page with no confirmation page, and the adult form's list for the adult who introduces a youth (D-23) |
 | Shared rule and auto-select cases (D-5) | ✅ | ✅ | ✅ | The 70 cases in `cases/`, pinned at da809cc and checked byte for byte in CI. Java b4d2705: `scripts/test-cases.js` through `process_seat.js`; `test-seat-conflicts.js` kept only D-21's find, as `test-find-people.js`. Windows d0c59b5: `SharedCaseTests`, one xUnit test each, through `BoardRules` and `SchedulerLogic`; `BoardRulesTests` is gone and `SchedulerLogicTests` keeps only what Windows alone has (the room choice, locate, statuses, timers, sort orders, find). Mac 6480c4d: `SharedCaseTests`, one Swift Testing case each; `BoardRulesTests` keeps only what the Mac alone has |
@@ -560,23 +560,23 @@ Where the versions stand. ✅ has it, ➖ does not, ◐ partly.
 | Wording: youth / event (O-1) | ✅ | ✅ | ✅ | |
 | Undo (O-2) | ✅ | ✅ | ✅ | Java and Windows: `/restore-board` takes back the last action once, refused if anything changed it since; Windows and Mac keep a deeper stack in the app |
 | Nothing polls (D-15) | ✅ | ✅ | ✅ | Java: `/events` stream. The check-in pages don't refresh on their own either: their lists load when the welcome page opens |
-| Queue, rooms and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
+| Queue, rooms, and details pane on one page (O-3) | ✅ | ✅ | ✅ | |
 | One stacked youth column (O-3, amended) | ✅ | ✅ | ✅ | Java cdf13f5, Windows f28f8b6 (groups that stay, headed at a count of none; `SchedulerLogic.QueueSortKey` orders them, with a unit test), Mac b99be53 (a list with sections; its rows drag onto a room through the list's item provider) |
-| Pages beside the Event page (P-6) | ✅ | ✅ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page; 38feaf9, 3f4240e: the Adults tab shares an adult's facts with the read-only Adult history CSV tab (`shareAdultFacts`; `/adult-history-update` refuses edits), Status read-only. Windows f28f8b6, 7f20371: every table a page in the View menu (Ctrl+1 to 7), edited in place (`TablePage`); no sidebar and no Admin tables window; fc598d7: People and Adult history share an adult's facts (`BoardService.SaveAdultEdit`), a pick saves at once; 0d659e4: Status read-only; e7a69bf: Adults, and the Adult history CSV read-only with a Last event column (`BoardService.SaveRow` makes an edit to an adult's facts in the history too, off the Undo stack, and refuses any edit to the history). Mac ef4b34d, b7cb31b, 88e0894: every table a page in the View menu (⌥⌘1 to 7), edited in place (`EditableText`, `EditableChoice`), the inspector beside each (on the Event page only from 2026-10-25, as Windows' details pane is); no sidebar and no Records window. Chair, members and rooms read-only; cells off the Undo stack; File › Export List. b396ad8: a cell still open saves when the page is left. 4a6df34: Adults, and the Adult History CSV read-only (`BoardEvent.updateAdult` edits the event's adults and copies their facts to the history). d2507c0: Status read-only |
-| A table never seats, starts or ends a board (P-6) | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27; Status is now read-only in every table besides. The server backstop, event test section 25: Java 38feaf9, `ScoutUpdateHandler.refusal` makes `/youth-update` refuse Seated, InProgress and a sitting board's status, and still take Registered, Completed or Postponed for section 18's correction. Mac 2f17665, `BoardEvent.updateYouth` the same (`BoardEventTests.aTableCannotSeatStartOrEndABoard`). Windows 0d659e4 shows Status read-only; e7a69bf, `BoardService.SaveRow` (`Refusal`) the same, the reason as the action's text as in Java, and the event test's sections 25 to 27 copied |
+| Pages beside the Event page (P-6) | ✅ | ✅ | ✅ | Java cdf13f5: one Admin tables link in every page's top bar, where Results and People both opened the admin page; 38feaf9, 3f4240e: the Adults tab shares an adult's facts with the read-only Adult history CSV tab (`shareAdultFacts`; `/adult-history-update` refuses edits), Status read-only. Windows f28f8b6, 7f20371: every table a page in the View menu (Ctrl+1 to 7), edited in place (`TablePage`); no sidebar and no Admin tables window; fc598d7: People and Adult history share an adult's facts (`BoardService.SaveAdultEdit`), a pick saves at once; 0d659e4: Status read-only; e7a69bf: Adults, and the Adult history CSV read-only with a Last event column (`BoardService.SaveRow` makes an edit to an adult's facts in the history too, off the Undo stack, and refuses any edit to the history). Mac ef4b34d, b7cb31b, 88e0894: every table a page in the View menu (⌥⌘1 to 7), edited in place (`EditableText`, `EditableChoice`), the inspector beside each (on the Event page only from 2026-10-25, as Windows' details pane is); no sidebar and no Records window. Chair, members, and rooms read-only; cells off the Undo stack; File › Export List. b396ad8: a cell still open saves when the page is left. 4a6df34: Adults, and the Adult History CSV read-only (`BoardEvent.updateAdult` edits the event's adults and copies their facts to the history). d2507c0: Status read-only |
+| A table never seats, starts, or ends a board (P-6) | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27; Status is now read-only in every table besides. The server backstop, event test section 25: Java 38feaf9, `ScoutUpdateHandler.refusal` makes `/youth-update` refuse Seated, InProgress, and a sitting board's status, and still take Registered, Completed, or Postponed for section 18's correction. Mac 2f17665, `BoardEvent.updateYouth` the same (`BoardEventTests.aTableCannotSeatStartOrEndABoard`). Windows 0d659e4 shows Status read-only; e7a69bf, `BoardService.SaveRow` (`Refusal`) the same, the reason as the action's text as in Java, and the event test's sections 25 to 27 copied |
 | Mark gone home and Mark back on the Adults page (P-6, amended 2026-10-24) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-24, one name in all three: Windows' Adults commands (were Gone home and Back), Java's adult shortcut menu (were Disable (gone home) and Enable (back)), the Mac's Adult menu, Title Case (were Disable for Today and Enable for Today). Windows c0b18db, Java ab2bef3, Mac e5b0fb5 |
 | A table never deletes someone a board holds (P-6, amended 2026-10-24) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-24; event test section 29 in Java and Windows, mirrored in the Mac's `BoardEventTests`. Java: `ScoutUpdateHandler.refusal` and `AdultUpdateHandler.refusal`, the admin page keeping the row. Windows: `BoardService.Refusal` (and `DeleteRefusal`, asked before the table page's Delete). Mac: `BoardEvent.deleteYouth` and `deleteAdult`, already refusing. All three: "Reset or complete that board first". Java ab2bef3, Windows a4097c7, Mac cc163b3 |
 | Remove room asks first (O-2, amended 2026-10-24) | ✅ | ✅ | ✅ | Decided by the owner 2026-10-24, with Java's words: "It comes off the list for the rest of this event. You can add it again." Java: the Event page and the Admin Rooms tab. Windows: every path through `MainWindow.RemoveRoom` (the Rooms buttons, the room's shortcut menu, Board > Remove room..., the Rooms page). Mac: `AppModel.removeSelectedRoom`, and Undo still takes it back. Java ab2bef3 (the Admin Rooms tab in the same words), Windows a4097c7, Mac cc163b3 |
-| Board menu in the menu bar (P-1, amended 2026-10-24) | ➖ | ✅ | ✅ | Windows by P-1 (Java has no menu bar): `BoardCommands`, each step a RoutedUICommand with its gesture, enabled as its button is; the first item named for the step. The Mac's Board, Adult and Room menus already held the steps. Windows a4097c7 |
+| Board menu in the menu bar (P-1, amended 2026-10-24) | ➖ | ✅ | ✅ | Windows by P-1 (Java has no menu bar): `BoardCommands`, each step a RoutedUICommand with its gesture, enabled as its button is; the first item named for the step. The Mac's Board, Adult, and Room menus already held the steps. Windows a4097c7 |
 | Keeps the computer awake while serving | ➖ | ✅ | ✅ | Mac `AppModel`; Windows `App`'s `KeepAwake` (decided by the owner 2026-10-24), from the start until the main window closes, so a sleeping laptop doesn't take the check-in site down. Java to decide. Windows a4097c7 |
 | The View menu's pages on one digit each, 1 to 8 (P-3, P-6, amended 2026-10-25) | ➖ | ✅ | ✅ | Decided by the owner 2026-10-25, the same digits on both menu bars: Ctrl+1 to 8 on Windows, ⌘1 to 8 on the Mac (were ⌥⌘1 to 8; ⌥⌘8 is the system's Zoom shortcut). The Mac's Window menu gave up ⌘1 and ⌘3, since View › Event brings the scheduler back. Mac 89b5e91 |
 | The details pane and its commands on the Event page only (P-6, amended 2026-10-25) | ➖ | ✅ | ✅ | Decided by the owner 2026-10-25 after a Mac screenshot: the inspector showed a youth's board on Approved Proposals, and Room › Rename… worked there. Windows' details pane, Board menu and room commands were the Event page's already (`OnEventPage`). Mac 2f67eab (the inspector, the Board menu, the Room menu on the Event and Rooms pages, `SchedulerPage` in the core), 2d24ee5 (Undo shows the page that has the change; the Adult menu loses the four board items no page could enable), 2f0bf19 (a dimmed stand-in for a submenu with nothing to offer; the inspector's button leaves other pages). Java has no details pane: its tables are a web page of their own |
 | Overdue notification while the app is in front (P-5, amended 2026-10-25) | ➖ | ➖ | ✅ | Decided by the owner 2026-10-25, Mac only (P-5): posted in front too, taken down after about ten seconds; behind another app the person's Notifications style decides, and Settings › Timers shows it and opens System Settings. Mac f087e0a, `Attention` and `OverdueNotification` |
 | The operator chooses the network the sign-in station serves | ◐ | ✅ | ✅ | Decided by the owner 2026-10-25 for the Mac: when there is more than one network, a choice in Settings, saved by interface name, defaulting to the Wi-Fi interface, and every network as the last choice; 127.0.0.1 also answers, so this computer's browser still reaches it. Windows: the start-up window's Check-in network, which defaults to the recommended adapter. Java: `-bind <ip-prefix>`, no chooser. Mac 029e452 |
 | Sign an adult in by hand, filled in from the adult history | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27 for an adult who won't use the tablet. Each goes through the tablet's own sign-in (`/register-adult`, `registerAdult`) and, filled in from the history, carries the record's ID as the tablet's email lookup does; event test section 27. Java 38feaf9: Add adult… on the Adults tab, with a search of the adult history; Sign in for today on the Adult history CSV tab, whose Last event column shows it. Mac b7cb31b, 88e0894, 4a6df34: Adult › Add Adult…, Add Adult at the foot of Adults, or a double-click below its last row; the search is `BoardEvent.historyMatches`, and a role left at As Last Time keeps the history's. The Adult History CSV ticks those signed in today, and a double-click or Sign In for Today signs someone in. Windows e7a69bf: Add adult… on the Adults page (`AddAdultDialog`), with a search of the adult history; Sign in for today on the Adult history CSV page, whose Last event column says Today once it has |
-| Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
+| Marks beside an adult's name (D-20) | ✅ | ✅ | ✅ | Java cdf13f5: inline SVGs after the name, in place of the words. Windows f28f8b6: the pentagon as a `DrawingImage` and Segoe Fluent Icons' warning glyph (`AdultMarks`), in place of the words and People's ✓; Replace, Add member, and Change chair show them in their choices too. The Mac draws the pentagon and a warning triangle (`AdultMarks`), which `artwork/wood-badge.svg` copies |
 | Find a person's room (D-21) | ✅ | ✅ | ✅ | Windows 87fba78: *Find a person* under the Rooms heading, `SchedulerLogic.FindPeople` with a unit test. Java edade33: *Find a person* under the Rooms heading, the Youth list's *Find a youth* gone; `findPeople`, `roomsFound`, `personFindNote` in `process_seat.js`, with Windows' test cases in `test-find-people.js` (b4d2705; `test-seat-conflicts.js` before). Mac e82da7e: the toolbar search on the Event page, which no longer filters the youth list; `PersonFind` with Windows' test cases (`PersonFindTests`); Return opens the first room found or the youth |
-| Approved proposals from earlier events (D-22) | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27, for a youth who comes without the signed proposal page. Read only. Windows ca23ae3: View › Approved proposals (Ctrl+8), `EarlierEvents.ReadApprovedProposals` with unit tests, and `/approved-proposals-cells`; a126b96: its `<rows>` carries `read`, `from`, `to` and `unreadable`, the rows are by last name with Java's row IDs, and event test section 28 is Java's but its last check (the View menu's page for admin.html). Java edade33, 23e89a9: the admin page's Approved proposals tab and `/approved-proposals-cells`, event test section 28. Mac e82da7e, 08937c2: View › Approved Proposals (⌥⌘8 then, ⌘8 since 89b5e91), `DataFolder.approvedProposals(before:)`, mirrored in `BoardEventTests.approvedProposalsFromEarlierEvents`; an AppKit table, as the Adult History CSV is, so a long list doesn't freeze the app on leaving it |
+| Approved proposals from earlier events (D-22) | ✅ | ✅ | ✅ | Asked for by the owner 2026-09-27, for a youth who comes without the signed proposal page. Read only. Windows ca23ae3: View › Approved proposals (Ctrl+8), `EarlierEvents.ReadApprovedProposals` with unit tests, and `/approved-proposals-cells`; a126b96: its `<rows>` carries `read`, `from`, `to`, and `unreadable`, the rows are by last name with Java's row IDs, and event test section 28 is Java's but its last check (the View menu's page for admin.html). Java edade33, 23e89a9: the admin page's Approved proposals tab and `/approved-proposals-cells`, event test section 28. Mac e82da7e, 08937c2: View › Approved Proposals (⌥⌘8 then, ⌘8 since 89b5e91), `DataFolder.approvedProposals(before:)`, mirrored in `BoardEventTests.approvedProposalsFromEarlierEvents`; an AppKit table, as the Adult History CSV is, so a long list doesn't freeze the app on leaving it |
 | Change members of a seated board | ✅ | ✅ | ✅ | Java: `/change-board-members` (Windows serves it too); timer keeps running in all three |
 | Rename room | ✅ | ✅ | ✅ | The board in it moves with it; N/A and commas refused in all three |
 | Switch a room between final and project | ✅ | ✅ | ✅ | A board already in it is not disturbed |

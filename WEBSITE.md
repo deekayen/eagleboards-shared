@@ -19,7 +19,7 @@ leads, the apps follow, and the site catches up.
 - **So does a change to what a version needs or how it installs.** Each
   version's page lists its system requirements and install steps, and the
   overview's feature list and version table sum them up. A new minimum OS,
-  Java or .NET version, or processor; a release packaged, named or signed
+  Java or .NET version, or processor; a release packaged, named, or signed
   differently; or a feature every version gains, belongs under
   [Stale](#stale) too.
 - **Re-shoot a version in one pass, after its work lands.** Not after every
@@ -39,7 +39,7 @@ text on each one says exactly what it shows, so it changes with the image.
 | `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-10-25; `mac/checkin.png` 2026-10-09 |
 | `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-10-25; `windows/checkin.png` 2026-10-09 |
 | `content/docs/scheduler/_index.md` | All | `java/event.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-10-09 |
-| `README.md` in this repository | All | `java/event.png`, `mac/event.png` and `windows/event.png`, linked by their site URLs, so a re-shoot reaches it with the site. Its alt text names only the version, so it doesn't change with the image | follows the site |
+| `README.md` in this repository | All | `java/event.png`, `mac/event.png`, and `windows/event.png`, linked by their site URLs, so a re-shoot reaches it with the site. Its alt text names only the version, so it doesn't change with the image | follows the site |
 
 ## Stale
 
@@ -85,7 +85,7 @@ Nothing, as of 2026-10-25.
   builds it in the jar and writes it as a data folder instead of shooting
   it, with 20:00 at the minute it finishes. Within that minute, start the
   Mac app on it (`EAGLEBOARDS_DATA_FOLDER=<dir>`, a spare
-  `EAGLEBOARDS_PORT`) so the timers read 49, 28, 24 and 12. Run it again
+  `EAGLEBOARDS_PORT`) so the timers read 49, 28, 24, and 12. Run it again
   before each picture: the Mac timers follow the real clock. The shots are
   by hand: a 1280x738 window (launch with
   `-"NSWindow Frame scheduler" "<x> <y> 1280 738 …"`), captured with
@@ -98,7 +98,7 @@ Nothing, as of 2026-10-25.
   refresh them together.
 - **Windows images need Windows.** On a Windows machine,
   `dotnet run --project tests/EagleBoards.UiSnapshots -c Release -- --site <dir>`
-  in the Windows repository renders `event.png`, `seat-board.gif` and
+  in the Windows repository renders `event.png`, `seat-board.gif`, and
   `complete-board.gif` with this cast, and photographs the shared check-in
   pages (`checkin.png`, `youth.png`, `adult.png`) as a 1180x820 tablet shows
   them, through Edge headless. Those three serve every version's page. The
@@ -107,7 +107,7 @@ Nothing, as of 2026-10-25.
   serving the demo event (same 1180x820 at 2x, light), because Brave's
   one-shot `--screenshot` hangs on the pages' event stream. They draw in the
   system font, not Segoe UI.
-  It also renders `event-light.png`, the same window in light:
+  The snapshot tool also renders `event-light.png`, the same window in light:
   eagleboards-windows's README uses the same shots (`docs/images/`, with
   `event-light.png` as its `event.png` and the site's `event.png` as
   `event-dark.png`), so refresh them together.

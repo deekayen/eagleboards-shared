@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ------------------------------------------------------------------------
-// check-contrast.js -- measure every foreground/background pair the check-in
+// check-contrast.js: measure every foreground/background pair the check-in
 // pages use, in light and in dark, against WCAG 2.2 AA:
 //
 //   1.4.3  Contrast (Minimum)     text 4.5:1
