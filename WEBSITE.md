@@ -45,7 +45,11 @@ text on each one says exactly what it shows, so it changes with the image.
 
 What has changed since each version's pictures were taken.
 
-Nothing, as of 2026-10-25.
+- 2026-11-07, every version: three labels on the check-in pages gained an
+  Oxford comma ("A board member, leader, or parent" on `index.html`, "Your
+  Scoutmaster, Advisor, or Skipper" on `youth_register.html`, and "For board
+  members, leaders, and parents" on `adult_register.html`), so `checkin.png`,
+  `youth.png`, and `adult.png` show the old wording.
 
 ## Re-shooting
 
