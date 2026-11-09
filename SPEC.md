@@ -116,9 +116,11 @@ them.
   that youth. Once the operator removes, adds, fills, or changes the chair,
   the board is theirs, kept until Start over or Seat board. *Amended
   2026-11-08 by the owner:* the board the operator changed belongs to its
-  youth. Opening another youth shows that youth's own board, with the
-  operator's picks nowhere on it, and coming back to the first youth shows
-  the board as the operator left it. Either way an
+  youth. Opening another youth shows that youth's own board, proposed
+  afresh unless the operator changed that one too, with nothing the operator
+  changed on the first youth's board applied to it. Coming back to the first
+  youth shows the board as the operator left it. An adult on one youth's kept
+  board can still be proposed for another youth, as on the Mac. Either way an
   adult who signs in is among the free adults at once (D-15). At the
   2026-09-30 event a board proposed before the adults arrived stayed a board
   of one, with Seat blocked, until Start over.
