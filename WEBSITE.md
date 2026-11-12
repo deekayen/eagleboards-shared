@@ -37,7 +37,7 @@ text on each one says exactly what it shows, so it changes with the image.
 |---|---|---|---|
 | `content/docs/scheduler/java.md` | Java | `checkin.png`, `youth.png`, `adult.png` (the shared check-in pages), `java/event.png`, `java/seat-board.gif`, `java/complete-board.gif`, `java/results.png`, `java/settings.png` | `checkin.png`, `youth.png`, and `adult.png` 2026-11-12; `java/event.png`, `java/seat-board.gif`, and `java/complete-board.gif` 2026-10-09; `java/results.png` and `java/settings.png` 2026-09-28 (they came out the same) |
 | `content/docs/scheduler/mac.md` | Mac | `mac/event.png`, `mac/seat-board.gif`, `mac/complete-board.gif`, `mac/checkin.png` | 2026-10-25; `mac/checkin.png` 2026-11-12 |
-| `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-10-25; `windows/checkin.png` 2026-11-12 |
+| `content/docs/scheduler/windows.md` | Windows | `windows/event.png`, `windows/seat-board.gif`, `windows/complete-board.gif`, `windows/checkin.png` | 2026-10-25, and a fresh `--site` render of 2026-11-12 (Windows at 8eeb5a0) is byte-identical to all three; `windows/checkin.png` 2026-11-12 |
 | `content/docs/scheduler/_index.md` | All | `java/event.png`, with the same alt text as on `java.md`; the rest lists the features and compares the three versions | 2026-10-09 |
 | `README.md` in this repository | All | `java/event.png`, `mac/event.png`, and `windows/event.png`, linked by their site URLs, so a re-shoot reaches it with the site. Its alt text names only the version, so it doesn't change with the image | follows the site |
 
@@ -45,17 +45,10 @@ text on each one says exactly what it shows, so it changes with the image.
 
 What has changed since each version's pictures were taken.
 
-- 2026-11-12, Windows: `windows/event.png`, `windows/seat-board.gif`, and
-  `windows/complete-board.gif` were not re-shot with the check-in pictures.
-  The Windows page text now describes D-12 (a board you change stays with
-  its Scout), D-24 (a free room set up for the board's type), and the new
-  Start review reminder wording. The 2026-11-12 pass judged that no scene in
-  those three pictures changed, but nobody has compared them with the app
-  since 2026-10-25. Look at them at the next Windows re-shoot.
-- 2026-11-12, all pages: only `windows.md` writes menu paths as
-  **Edit** > **Undo**. `java.md`, `mac.md`, and `_index.md` still use the
-  older bold-with-arrow style (**Help › Eagle Boards help**). Pick one style
-  for the whole site.
+- 2026-11-12, `mac.md` and `_index.md`: only `windows.md` writes menu paths
+  as **Edit** > **Undo**. These two still use the older bold-with-arrow style
+  (**Help › Eagle Boards help**). Java has no menu bar, so `java.md` has no
+  menu paths. Pick one style for the whole site.
 
 ## Re-shooting
 
